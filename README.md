@@ -1,3 +1,3 @@
 # maps
-/maps
-/materials/hud
+<url>/maps</url>
+<url>/materials/hud</url>
