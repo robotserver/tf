@@ -1,2 +1,3 @@
 # maps
-maps
+/maps
+/materials/hud
