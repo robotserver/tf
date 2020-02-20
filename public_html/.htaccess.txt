@@ -1,7 +1,0 @@
-RewriteEngine on                      # Turn on mod_rewrite functionality
-RewriteCond %{REQUEST_URI} !^/tf/    # Don't rewrite requests that are 
-                                      # already to the /tf/ directory. 
-                                      # If this isn't here, we'll go into
-                                      # a neverending loop.
-RewriteRule ^(.*)$ /tf/$1 [QSA]      # Rewrite all else to the tf subdirectory
-                                      # QSA = keep the query string.
