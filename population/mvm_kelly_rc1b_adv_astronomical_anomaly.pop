@@ -1,0 +1,740 @@
+//--For Madness Vs Machine--//
+//Mission Name		: Astronomical Anomaly
+//Map				: Kelly
+//Map Maker			: -
+//Mission Maker		: Force(#TF2SP)
+//Difficulty		: Advanced
+//Starting Currency	: 900
+//Steam Profile		: https://steamcommunity.com/id/CreatorForce/home
+//--------------------------//
+
+#base robot_standard.pop
+#base robot_giant.pop
+
+//spawnbot
+//Spawn robots from the back right spawn.
+
+//spawnbot_right
+//Spawn robots from the front right spawn.
+
+//spawnbot_left
+//Spawn robots from the left spawn.
+
+//spawnbot_any
+//Spawn robots from the main three spawns.
+
+WaveSchedule
+{
+	StartingCurrency 				900
+	RespawnWaveTime 				5
+	CanBotsAttackWhileInSpawnRoom 	no
+	
+	Templates
+	{
+		T_TFBot_Scout_Milk
+		{
+			Name "Milk Scout"
+			Class Scout
+			Skill Hard
+			ClassIcon scout_milk
+			WeaponRestrictions SecondaryOnly
+			Attributes AlwaysFireWeapon
+			Item "Mad Milk"
+			Item "The Milkman"
+			ItemAttributes
+			{
+				ItemName "Mad Milk"
+				"effect bar recharge rate increased" -2
+			}
+		}
+		
+		T_TFBot_Pyro_Annihilator
+		{
+			Name "Pyro Annihilator"
+			Class Pyro
+			Skill Expert
+			ClassIcon pyro_neon
+			Item "The Neon Annihilator"
+			Item "The Cranial Carcharodon"
+			WeaponRestrictions MeleeOnly
+		}
+		
+		T_TFBot_Outlands_Medic_Giant_Kritzkrieg
+		{
+			Class Medic
+			Name "Giant Kritzkrieg Medic"
+			ClassIcon medic_kritz_giant
+			Skill Expert
+			Health 3000
+			Tag	bot_giant
+			Attributes "Miniboss"
+			Attributes "AlwaysCrit"
+			Attributes "SpawnWithFullCharge"
+			Item "Upgradeable TF_WEAPON_SYRINGEGUN_MEDIC"
+			Item "The Kritzkrieg"
+			Item "The Weather Master"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_SYRINGEGUN_MEDIC"
+				"damage bonus"	1.5
+			}
+			ItemAttributes
+			{
+				ItemName "The Kritzkrieg"
+				"ubercharge rate bonus"	100
+				"uber duration bonus"	200 
+				"heal rate bonus"		200
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"					0.5
+				"bot medic uber health threshold"	5000
+				"damage force reduction"			0.5
+				"airblast vulnerability multiplier"	0.5
+			}
+		}
+	}
+	Mission
+	{
+		Objective				DestroySentries
+		Where					spawnbot
+		InitialCooldown			30
+		BeginAtWave				1
+		RunForThisManyWaves		6
+		CooldownTime			15
+		RandomChoice
+		{
+			TFBot
+			{
+				Template			T_TFBot_SentryBuster
+				Item 				"The Scotsman's Skullcutter"
+			}
+			TFBot
+			{
+				Template			T_TFBot_SentryBuster
+				Item 				"The Scotsman's Skullcutter"
+			}
+			TFBot
+			{
+				Template			T_TFBot_SentryBuster
+				Item 				"The Scotsman's Skullcutter"
+			}
+			TFBot
+			{
+				Template			T_TFBot_SentryBuster
+				Item 				"The Scotsman's Skullcutter"
+			}
+			TFBot
+			{
+				Name				"Conch Buster"
+				Class 				Soldier
+				Skill 				Expert
+				Health 				1200
+				ClassIcon 			sentry_buster
+				Attributes 			MiniBoss
+				WeaponRestrictions 	PrimaryOnly
+				Tag					bot_giant
+				Item 				"The Concheror"
+				Attributes 			SpawnWithFullCharge
+				Attributes 			DisableDodge
+				WeaponRestrictions 	MeleeOnly
+				CharacterAttributes
+				{
+					"airblast vulnerability multiplier" 0.5
+					"cannot be backstabbed" 			1
+					"damage force reduction" 			0.5
+					"move speed bonus" 					2
+					"override footstep sound set" 		7
+					"increased jump height" 			2
+					"head scale"						2
+					"increase buff duration" 			9.0
+				}
+			}
+			TFBot
+			{
+				Name 				"Kabuto Buster"
+				Class 				Demoman
+				Skill 				Expert
+				Health 				1000
+				ClassIcon 			sentry_buster
+				Attributes 			MiniBoss
+				WeaponRestrictions 	PrimaryOnly
+				Tag					bot_giant
+				Item 				"Demo Kabuto"
+				Item 				"The Scotsman's Skullcutter"
+				Item 				"The Splendid Screen"
+				Attributes 			AirChargeOnly
+				Attributes 			AutoJump
+				Attributes 			DisableDodge
+				AutoJumpMin 		10
+				AutoJumpMax 		10
+				WeaponRestrictions MeleeOnly
+				ItemAttributes
+				{
+					ItemName 							"The Splendid Screen"
+					"charge time increased" 			10
+					"charge recharge rate increased" 	10
+					"Attack not cancel charge" 			1
+				}
+				CharacterAttributes
+				{
+					"airblast vulnerability multiplier" 0.5
+					"cannot be backstabbed" 			1
+					"damage force reduction" 			0.5
+					"move speed bonus" 					2
+					"override footstep sound set" 		7
+					"increased jump height" 			2
+					"head scale"						2
+				}
+			}
+			TFBot
+			{
+				Name 				"Cute Buster"
+				Class 				Demoman
+				Skill 				Expert
+				Health 				1000
+				ClassIcon 			sentry_buster
+				Attributes 			MiniBoss
+				Tag					bot_giant
+				Item 				"The Scotsman's Skullcutter"
+				Attributes 			AutoJump
+				Attributes 			DisableDodge
+				WeaponRestrictions 	MeleeOnly
+				Scale				1
+				CharacterAttributes
+				{
+					"airblast vulnerability multiplier" 0.5
+					"cannot be backstabbed" 			1
+					"damage force reduction" 			0.5
+					"move speed bonus" 					2
+					"override footstep sound set" 		4
+					"increased jump height" 			2
+					"voice pitch scale" 				2
+				}
+			}
+			TFBot
+			{
+				Name 				"Speed Buster"
+				Class 				Demoman
+				Skill 				Expert
+				Health 				1000
+				ClassIcon 			sentry_buster
+				Attributes 			MiniBoss
+				Tag					bot_giant
+				Item 				"The Scotsman's Skullcutter"
+				Attributes 			DisableDodge
+				WeaponRestrictions 	MeleeOnly
+				CharacterAttributes
+				{
+					"airblast vulnerability multiplier" 0.5
+					"cannot be backstabbed" 			1
+					"damage force reduction" 			0.5
+					"move speed bonus" 					3
+					"override footstep sound set" 		4
+					"increased jump height" 			2
+					"voice pitch scale" 				2
+				}
+			}
+		}
+	}
+	
+	//Wave 1	: Easy			($650)($100) = ($700) |	Tank 0 |
+	//Wave 2	: Easy			($700)($100) = ($800) |	Tank 1 |
+	//Wave 3	: Easy/Normal	($600)($100) = ($700) |	Tank 0 |
+	//Wave 4	: Easy/Normal	($650)($100) = ($750) | Tank 2 |
+	//Wave 5	: Normal		($700)($100) = ($800) | Tank 2 |
+	//Wave 6	: Normal		($700)($100) = ($800) | Tank 0 |
+	
+	//---------Wave 1--------//
+	// Starting Money	: $900
+	// Money From Wave	: $650
+	// Mission Bots		: Sentry Buster
+	// Status			: Easy
+	// Tank				: No 
+	// Support			: No
+	//
+	//------Subwave Plan-----//
+	// Subwave 1:
+	// 01 Giant Scout FaN		(spawnbot_any)											| $025 |
+	// 02 Giant Pyro			(spawnbot_any)											| $100 |
+	// 12 Scout Milk			(1/2 spawnbot_left, 1/2 spawnbot_right)					| $024 |
+	// 18 Scout					(spawnbot_any)											| $036 |
+	// 24 Pyro Shark			(1/2 spawnbot_left, 1/2 spawnbot_right)					| $048 |
+	// 
+	// Subwave 2:
+	// 03 Giant Scout FaN		(spawnbot_any)											| $075 |
+	// 12 Demoman Burst			(spawnbot_any)											| $050 |
+	// 12 Quick-Fix	
+	// 40 Scout Crit Coke		(1/4 spawnbot, 1/2 spawnbot_left, 1/2 spawnbot_right)	| $072 |
+	// 
+	// Subwave 3:
+	// 01 Giant Soldier			(spawnbot_any)											| $120 |
+	// 01 Giant Medic			(spawnbot_any)											
+	// 24 Scout League			(spawnbot_any)											| $048 |
+	// 22 Scout					(1/2 spawnbot, 1/2 spawnbot_right)						| $052 |
+	//
+	//------TotalSubwave-----//
+	//
+	// 04 Giant Scout FaN	
+	// 02 Giant Pyro
+	// 01 Giant Soldier
+	// 01 Giant Medic
+	// 12 Scout Milk
+	// 40 Scout
+	// 24 Pyro Shark
+	// 12 Demoman Burst
+	// 12 Quick-Fix
+	// 36 Scout Crit Coke
+	// 24 Scout League
+	//
+	//--------Feedback--------//
+	// A1:
+	// - Change Soldier to Rapid Fire
+	// - Add Giant Medic Crits
+	// 
+	//
+	//------------------------//
+	
+	Wave
+	{
+		DoneOutput
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		
+		WaveSpawn
+		{
+			Name relay1
+			Where spawnbot
+			Support 1
+			TotalCount 0
+			SpawnCount 0
+			MaxActive 0
+			
+			TFBot
+			{
+				Class Scout
+			}
+			
+			FirstSpawnOutput
+			{
+				Target bombpath_arrows_clear_relay
+				Action Trigger
+			}
+		}
+		
+		WaveSpawn
+		{
+			Name relay2
+			Where spawnbot
+			Support 1
+			TotalCount 0
+			SpawnCount 0
+			MaxActive 0
+			
+			TFBot
+			{
+				Class Scout
+			}
+			
+			FirstSpawnOutput
+			{
+				Target upgrade_forward
+				Action Disable
+			}
+		}
+		
+		WaveSpawn
+		{
+			Name relay3
+			Where spawnbot
+			Support 1
+			TotalCount 0
+			SpawnCount 0
+			MaxActive 0
+			
+			TFBot
+			{
+				Class Scout
+			}
+			
+			FirstSpawnOutput
+			{
+				Target upgrade_door
+				Action Close
+			}
+		}
+		
+		//Tank Alarm	: 	ambient\alarms\doomsday_lift_alarm.wav
+		//Tank Spawn	: 	mvm\mvm_tank_start.wav
+		//Bomb Alarm	: 	mvm\mvm_bomb_warning.wav 
+		//Bomb Announcer: 	vo\mvm_bomb_alerts01.mp3
+		//					vo\mvm_bomb_alerts02.mp3
+		
+		WaveSpawn
+		{
+			Name					1A-Pre
+			Where 					spawnbot_any
+			TotalCount 				1
+			MaxActive 				1
+			SpawnCount 				1
+			WaitBeforeStarting 		0
+			WaitBetweenSpawns 		0
+			TotalCurrency 			25
+			StartWaveWarningSound 	mvm\mvm_bomb_warning.wav 
+			FirstSpawnWarningSound 	vo\mvm_bomb_alerts01.mp3
+			TFBot
+			{
+				Template		T_TFBot_Giant_Scout_FaN
+			}
+		}
+		WaveSpawn
+		{
+			Name				1A
+			WaitForAllDead		1A-Pre
+			Where 				spawnbot_any
+			TotalCount 			2
+			MaxActive 			1
+			SpawnCount 			1
+			WaitBeforeStarting 	10
+			WaitBetweenSpawns 	10
+			TotalCurrency 		100
+			TFBot
+			{
+				Template		T_TFBot_Giant_Pyro
+				Skill			Expert
+				Attributes		AlwaysCrit
+				Attributes		AlwaysFireWeapon
+			}
+		}
+		WaveSpawn
+		{
+			Name				1A
+			WaitForAllDead		1A-Pre
+			Where 				spawnbot_any
+			TotalCount 			16
+			MaxActive 			8
+			SpawnCount 			2
+			WaitBeforeStarting 	10
+			WaitBetweenSpawns 	5
+			TotalCurrency 		24
+			TFBot
+			{
+				Template		T_TFBot_Scout_Milk
+				Skill			Expert
+			}
+		}
+		WaveSpawn
+		{
+			Name				1A
+			WaitForAllDead		1A-Pre
+			Where 				spawnbot_any
+			TotalCount 			18
+			MaxActive 			6
+			SpawnCount 			3
+			WaitBeforeStarting 	0
+			WaitBetweenSpawns 	3
+			TotalCurrency 		36
+			TFBot
+			{
+				Class			Scout
+				Skill			Easy
+			}
+		}
+		WaveSpawn
+		{
+			Name				1A
+			WaitForAllDead		1A-Pre
+			Where 				spawnbot_any
+			TotalCount 			24
+			MaxActive 			12
+			SpawnCount 			6
+			WaitBeforeStarting 	10
+			WaitBetweenSpawns 	6
+			TotalCurrency 		48
+			TFBot
+			{
+				Template		T_TFBot_Pyro_Annihilator
+				CharacterAttributes
+				{
+					"move speed bonus" 1.1
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name				1B
+			WaitForAllDead		1A
+			Where 				spawnbot_any
+			TotalCount 			1
+			MaxActive 			1
+			SpawnCount 			1
+			WaitBeforeStarting 	30
+			WaitBetweenSpawns 	0
+			TotalCurrency 		75
+			TFBot
+			{
+				Template		T_TFBot_Giant_Scout_FaN
+			}
+		}
+		WaveSpawn
+		{
+			Name				1B
+			WaitForAllDead		1A
+			Where 				spawnbot_any
+			TotalCount 			24
+			MaxActive 			12
+			SpawnCount 			2
+			WaitBeforeStarting 	0
+			WaitBetweenSpawns 	3
+			TotalCurrency 		50
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Demo_Burst
+				}
+				TFBot
+				{
+					Template	T_TFBot_Medic_QuickFix
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name				1B1
+			WaitForAllDead		1A
+			Where 				spawnbot_any
+			TotalCount 			36
+			MaxActive 			12
+			SpawnCount 			4
+			WaitBeforeStarting 	0
+			WaitBetweenSpawns 	3
+			TotalCurrency 		72
+			TFBot
+			{
+				ClassIcon			scout_cola
+				Name				"Cola Scout"
+				Class				Scout
+				Skill				Easy
+				Item				"Crit-a-Cola"
+				WeaponRestrictions	MeleeOnly
+				ItemAttributes
+				{
+					ItemName								"Crit-a-Cola"
+					"effect bar recharge rate increased"	0.5
+					"mod_mark_attacker_for_death"			0
+				}	
+			}
+		}
+		WaveSpawn
+		{
+			Name				1C
+			WaitForAllDead		1B
+			Where 				spawnbot_any
+			TotalCount 			2
+			MaxActive 			2
+			SpawnCount 			2
+			WaitBeforeStarting 	12
+			WaitBetweenSpawns 	0
+			TotalCurrency 		120
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Soldier_Spammer
+				}
+				TFBot
+				{
+					Template	T_TFBot_Outlands_Medic_Giant_Kritzkrieg
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name				1C
+			WaitForAllDead		1B
+			Where 				spawnbot_any
+			TotalCount 			24
+			MaxActive 			8
+			SpawnCount 			1
+			WaitBeforeStarting 	0
+			WaitBetweenSpawns 	0.5
+			TotalCurrency 		48
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Scout_Sandman_FastCharge
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name				1C
+			WaitForAllDead		1B
+			Where 				spawnbot_any
+			TotalCount 			24
+			MaxActive 			8
+			SpawnCount 			2
+			WaitBeforeStarting 	0
+			WaitBetweenSpawns 	1
+			TotalCurrency 		52
+			Squad
+			{
+				TFBot
+				{
+					Class			Scout
+					Skill			Easy
+				}
+				TFBot
+				{
+					Class			Scout
+					Skill			Hard
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Where 				spawnbot_any
+			TotalCount 			1
+			MaxActive 			1
+			SpawnCount 			1
+			WaitBeforeStarting 	15
+			WaitBetweenSpawns 	1
+			TotalCurrency 		0
+			Support				1
+			TFBot
+			{
+				Template		T_TFBot_Scout_Melee
+				ClassIcon		scouT
+			}
+		}
+	}
+	
+	//---------Wave 2--------//
+	// Starting Money	: $900
+	// Money From Wave	: $700
+	// Mission Bots		: Sentry Buster
+	// Status			: Easy
+	// Tank				: No 
+	// Support			: No
+	//
+	//------Subwave Plan-----//
+	//
+	// Support Subwave:
+	// 12 Direct Hit Soldier
+	//
+	// Subwave 1:
+	// 01 Giant Soldier Crits		(spawnbot_any)											| $025 |
+	// 05 Samurai					(spawnbot_any)											| $100 |
+	// 28 Bowman 					(1/2 spawnbot_left, 1/2 spawnbot_right)					| $024 |
+	// 20 Scout						(spawnbot_any)											| $036 |
+	// 
+	// Subwave 2:
+	// 01 Giant Blackbox Soldier	(spawnbot_any)											| $075 |
+	// 01 Tank						(spawnbot_any)											| $050 |
+	// 10 Scout					
+	// 20 Scout Melee				(1/4 spawnbot, 1/2 spawnbot_left, 1/2 spawnbot_right)	| $072 |
+	// 06 Conch Soldier Crits
+	// 
+	// Subwave 3:
+	// 03 Giant Pyro			(spawnbot_any)												| $120 |
+	// 12 Bowman				(spawnbot_any)
+	// 20 Dragon Fury			(spawnbot_any)											
+	// 35 Heavy Gru Fast		(spawnbot_any)												| $048 |
+	//
+	//------TotalSubwave-----//
+	//
+	// 04 Giant Scout FaN	
+	// 02 Giant Pyro
+	// 01 Giant Soldier
+	// 01 Giant Medic
+	// 12 Scout Milk
+	// 40 Scout
+	// 24 Pyro Shark
+	// 12 Demoman Burst
+	// 12 Quick-Fix
+	// 36 Scout Crit Coke
+	// 24 Scout League
+	//
+	//--------Feedback--------//
+	// B1:
+	//
+	//
+	//------------------------//
+	
+	Wave
+	{
+		DoneOutput
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		
+		WaveSpawn
+		{
+			Name relay1
+			Where spawnbot
+			Support 1
+			TotalCount 0
+			SpawnCount 0
+			MaxActive 0
+			
+			TFBot
+			{
+				Class Scout
+			}
+			
+			FirstSpawnOutput
+			{
+				Target bombpath_arrows_clear_relay
+				Action Trigger
+			}
+		}
+		
+		WaveSpawn
+		{
+			Name relay2
+			Where spawnbot
+			Support 1
+			TotalCount 0
+			SpawnCount 0
+			MaxActive 0
+			
+			TFBot
+			{
+				Class Scout
+			}
+			
+			FirstSpawnOutput
+			{
+				Target upgrade_forward
+				Action Disable
+			}
+		}
+		
+		WaveSpawn
+		{
+			Name relay3
+			Where spawnbot
+			Support 1
+			TotalCount 0
+			SpawnCount 0
+			MaxActive 0
+			
+			TFBot
+			{
+				Class Scout
+			}
+			
+			FirstSpawnOutput
+			{
+				Target upgrade_door
+				Action Close
+			}
+		}
+		
+	}
+}

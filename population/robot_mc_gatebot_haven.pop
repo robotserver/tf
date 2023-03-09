@@ -1,0 +1,5228 @@
+// I am good Boy. I follow Tindal example on MaxVisionRange.
+// !!!!!!! THIS IS WHY I ADDED NO_DUCK TO ALL BOTS !!!!!!!
+// "TF2 bots (and players) desync their hitboxes if you crouch after dropping off a cliff while in air, this can
+// easily be fixed by preventing bots from crouching in air in mvm"
+// https://cdn.discordapp.com/attachments/469624624515383306/649776031770869773/unknown.png
+//
+Slaved_Gamiing
+{
+	Templates
+	{
+		//GateBots - Edited Valve Bots
+		T_TFGateBot_Scout_Melee
+		{
+			Class Scout
+			Name "Bat Scout"
+			ClassIcon scout_bat
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Scout"
+					Skill Hard
+					WeaponRestrictions MeleeOnly
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Scout"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Scout"
+						"item style override" 1
+					}
+					Skill Hard
+					WeaponRestrictions MeleeOnly
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Scout_Normal
+		{
+			Class Scout
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Scout"
+					Skill Normal
+					MaxVisionRange 1500
+				//	ItemAttributes
+				//	{
+				//		ItemName "Upgradeable TF_WEAPON_SCATTERGUN"
+				//		"damage penalty" 0.5
+				//	}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Scout"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Scout"
+						"item style override" 1
+					}
+				//	ItemAttributes
+				//	{
+				//		ItemName "Upgradeable TF_WEAPON_SCATTERGUN"
+				//		"damage penalty" 0.5
+				//	}
+					Skill Normal
+					MaxVisionRange 1500
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Scout_Hard
+		{
+			Class Scout
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Scout"
+					Skill Hard
+					MaxVisionRange 1500
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Scout"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Scout"
+						"item style override" 1
+					}
+					Skill Hard
+					MaxVisionRange 1500
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Scout_FAN
+		{
+			Class Scout
+			ClassIcon scout_fan
+			Name "Force-A-Nature Scout"
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Scout"
+					Skill Expert
+					// Item "The Fed-Fightin' Fedora"
+					// Item "The Bolt Boy"
+					Item "The Force-a-Nature"
+					MaxVisionRange 500
+					ItemAttributes
+					{
+						ItemName "The Force-a-Nature"
+						"reload time increased" 1.5 // 60% slower reload
+						"scattergun knockback mult" 1.7
+						"damage penalty" 0.55		// 35% damage reduction
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Scout"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Scout"
+						"item style override" 1
+					}
+					Skill Expert
+					// Item "The Fed-Fightin' Fedora"
+					// Item "The Bolt Boy"
+					Item "The Force-a-Nature"
+					MaxVisionRange 500
+					ItemAttributes
+					{
+						ItemName "The Force-a-Nature"
+						"reload time increased" 1.5 // 60% slower reload
+						"scattergun knockback mult" 1.7
+						"damage penalty" 0.55		// 35% damage reduction
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}		
+		T_TFGateBot_Scout_FAN_Crit
+		{
+			Class Scout
+			ClassIcon scout_fan
+			Name "Force-A-Nature Scout"
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Attributes AlwaysCrit
+					Item "MvM GateBot Light Scout"
+					Skill Expert
+					// Item "The Fed-Fightin' Fedora"
+					// Item "The Bolt Boy"
+					Item "The Force-a-Nature"
+					MaxVisionRange 500
+					ItemAttributes
+					{
+						ItemName "The Force-a-Nature"
+						"reload time increased" 1.5 // 60% slower reload
+						"scattergun knockback mult" 1.7
+						"damage penalty" 0.55		// 35% damage reduction
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Attributes AlwaysCrit
+					Item "MvM GateBot Light Scout"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Scout"
+						"item style override" 1
+					}
+					Skill Expert
+					// Item "The Fed-Fightin' Fedora"
+					// Item "The Bolt Boy"
+					Item "The Force-a-Nature"
+					MaxVisionRange 500
+					ItemAttributes
+					{
+						ItemName "The Force-a-Nature"
+						"reload time increased" 1.5 // 60% slower reload
+						"scattergun knockback mult" 1.7
+						"damage penalty" 0.55		// 35% damage reduction
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Sniper_Huntsman_Spammer_Crit
+		{
+			Class Sniper
+			Name "Rapid Fire Bowman"
+			Scale 1.5
+			Health 1200
+			ClassIcon sniper_bow_multi
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+					Tag bot_gatebot				// having these will cause bots to run towards gates
+					BehaviorModifiers Push		// having these will cause bots to run towards gates
+					Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Sniper"
+					Item "The Huntsman"
+					MaxVisionRange 1500
+					Skill Hard
+					Attributes AlwaysCrit
+					Tag bot_giant
+					ItemAttributes
+					{
+						ItemName "The Huntsman"
+						"fire rate bonus" 0.6
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					CharacterAttributes
+					{
+						"head scale" 0.7
+						"move speed penalty"	0.85
+						"airblast vulnerability multiplier" 0.5
+						"airblast vertical vulnerability multiplier" 0.75
+						"health regen" 1
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Sniper"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Sniper"
+						"item style override" 1
+					}
+					Item "The Huntsman"
+					Skill Hard
+					Attributes AlwaysCrit
+					Tag bot_giant
+					MaxVisionRange 1500
+					ItemAttributes
+					{
+						ItemName "The Huntsman"
+						"fire rate bonus" 0.6
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					CharacterAttributes
+					{
+						"head scale" 0.7
+						"move speed penalty"	0.85
+						"airblast vulnerability multiplier" 0.5
+						"airblast vertical vulnerability multiplier" 0.75
+						"health regen" 1
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Scout_Sandman_FastCharge
+		{
+			Class Scout
+			Name "Hyper League Scout"
+			Health 110
+			ClassIcon scout_stun
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+					Tag bot_gatebot				// having these will cause bots to run towards gates
+					BehaviorModifiers Push		// having these will cause bots to run towards gates
+					Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "The Sandman"
+					MaxVisionRange 1000
+					ItemAttributes
+					{
+						ItemName "The Sandman"
+						"effect bar recharge rate increased" 0.25
+						"max health additive penalty" -0
+					}
+					Item "Batter's Helmet"
+					ItemAttributes
+					{
+						ItemName "Batter's Helmet"
+						"set item tint rgb" 15185211
+					}
+					Skill Hard
+					WeaponRestrictions MeleeOnly
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "The Sandman"
+					MaxVisionRange 1000
+					ItemAttributes
+					{
+						ItemName "The Sandman"
+						"effect bar recharge rate increased" 0.25
+						"max health additive penalty" -0
+					}
+					ItemAttributes
+					{
+						ItemName "Batter's Helmet"
+						"set item tint rgb" 8289918
+					}
+					Item "Batter's Helmet"
+					Skill Hard
+					WeaponRestrictions MeleeOnly
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Soldier_Easy
+		{
+			Class Soldier
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Soldier"
+					Skill Easy
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					Skill Easy
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Soldier_Normal
+		{
+			Class Soldier
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Soldier"
+					Skill Normal
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					Skill Normal
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Soldier_Normal_DirectHit_Crit
+		{
+			Class Soldier
+			Name "Direct Hit Soldier"
+			ClassIcon soldier_directhit
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Soldier"
+					Item "The Direct Hit"
+					Attributes AlwaysCrit
+					Skill Normal
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					Item "The Direct Hit"
+					Attributes AlwaysCrit
+					Skill Normal
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Soldier_Hard
+		{
+			Class Soldier
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Soldier"
+					Skill Hard
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					Skill Hard
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Soldier_RocketPush
+		{
+			Class Soldier
+			ClassIcon soldier_libertylauncher
+			Name "Blast Soldier"
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+					Tag bot_gatebot				// having these will cause bots to run towards gates
+					BehaviorModifiers Push		// having these will cause bots to run towards gates
+					Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM Gatebot Light Soldier"
+					Skill Expert
+					Item "The Liberty Launcher"
+					Attributes HoldFireUntilFullReload
+					ItemAttributes
+					{
+						ItemName "The Liberty Launcher"
+						"damage causes airblast" 1
+						"damage penalty" .2
+						"fire rate bonus" -0.1
+						"clip size bonus" 0
+						"clip size penalty" 0.75
+						"reload time increased" 1.5
+						"Blast radius increased" 1.2
+						"projectile spread angle penalty" 2
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM Gatebot Light Soldier"
+					ItemAttributes               // turn on light hat
+					{
+						ItemName "MvM Gatebot Light Soldier"
+						"item style override" 1
+					}
+					Skill Expert
+					Item "The Liberty Launcher"
+					Attributes HoldFireUntilFullReload
+					ItemAttributes
+					{
+						ItemName "The Liberty Launcher"
+						"damage causes airblast" 1
+						"damage penalty" .2
+						"fire rate bonus" -0.1
+						"clip size bonus" 0
+						"clip size penalty" 0.75
+						"reload time increased" 1.5
+						"Blast radius increased" 1.2
+						"projectile spread angle penalty" 2
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Soldier_RocketShotgun_Expert // Health regen on hit
+		{
+			Class Soldier
+			ClassIcon soldier_blackbox
+			Name "Black Box Soldier"
+			
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Soldier"
+					Skill Expert
+					Attributes HoldFireUntilFullReload
+					Item "The Black Box"
+					ItemAttributes
+					{
+						ItemName "The Black Box"
+						"damage penalty" 0.33
+						"fire rate bonus" -0.1
+						"faster reload rate" 0.9
+						"blast radius increased" 1.25
+						//"Projectile speed increased" 0.4
+						"projectile spread angle penalty" 2
+						"heal on hit for rapidfire" 60
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					Skill Expert
+					Attributes HoldFireUntilFullReload
+					Item "The Black Box"
+					ItemAttributes
+					{
+						ItemName "The Black Box"
+						"damage penalty" 0.33
+						"fire rate bonus" -0.1
+						"faster reload rate" 0.9
+						"blast radius increased" 1.25
+						//"Projectile speed increased" 0.4
+						"projectile spread angle penalty" 2
+						"heal on hit for rapidfire" 60
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Soldier_Extended_Battalion_Hard
+		{
+			Class Soldier
+			Name "Extended Backup Soldier"
+			Health 220
+			ClassIcon soldier_backup
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "The Battalion's Backup"
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes
+					{
+						ItemName "The Battalion's Backup"
+						"deploy time increased" 1.34
+						"increase buff duration"	1001
+						"max health additive bonus" -0
+					}
+					Skill Hard
+					Attributes SpawnWithFullCharge
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "The Battalion's Backup"
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					ItemAttributes
+					{
+						ItemName "The Battalion's Backup"
+						"deploy time increased" 1.34
+						"increase buff duration"	1001
+						"max health additive bonus" -0
+					}
+					Skill Hard
+					Attributes SpawnWithFullCharge
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Soldier_Extended_Concheror_Normal
+		{
+			Class Soldier
+			Name "Extended Conch Soldier"
+			ClassIcon soldier_conch
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "The Concheror"
+					Item "MvM GateBot Light Soldier"
+					Skill Normal
+					Attributes SpawnWithFullCharge
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"deploy time increased" 1.34
+						"increase buff duration"	1001
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "The Concheror"
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"deploy time increased" 1.34
+						"increase buff duration"	1001
+					}
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					Skill Normal
+					Attributes SpawnWithFullCharge
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Soldier_Extended_Buff_Normal
+		{
+			Class Soldier
+			Name "Extended Buff Soldier"
+			ClassIcon soldier_buff
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "The Buff Banner"
+					Item "MvM GateBot Light Soldier"
+					Skill Normal
+					Attributes SpawnWithFullCharge
+					ItemAttributes
+					{
+						ItemName "The Buff Banner"
+						"deploy time increased" 1.34
+						"increase buff duration"	1001
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "The Buff Banner"
+					ItemAttributes
+					{
+						ItemName "The Buff Banner"
+						"deploy time increased" 1.34
+						"increase buff duration"	1001
+					}
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					Skill Normal
+					Attributes SpawnWithFullCharge
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Soldier_Extended_Concheror_Normal_Crit
+		{
+			Class Soldier
+			Name "Extended Conch Soldier"
+			ClassIcon soldier_conch
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "The Concheror"
+					Item "MvM GateBot Light Soldier"
+					Skill Normal
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"deploy time increased" 1.34
+						"increase buff duration"	1001
+					}
+					Attributes AlwaysCrit
+					Attributes SpawnWithFullCharge
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "The Concheror"
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"deploy time increased" 1.34
+						"increase buff duration"	1001
+					}
+					Skill Normal
+					Attributes AlwaysCrit
+					Attributes SpawnWithFullCharge
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Pyro_Normal
+		{
+			Class Pyro
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Pyro"
+					Skill Normal
+					ItemAttributes
+					{
+						ItemName TF_WEAPON_FLAMETHROWER
+						"airblast_pushback_no_viewpunch" 1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Pyro"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Pyro"
+						"item style override" 1
+					}
+					Skill Normal
+					ItemAttributes
+					{
+						ItemName TF_WEAPON_FLAMETHROWER
+						"airblast_pushback_no_viewpunch" 1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Pyro_Hard
+		{
+			Class Pyro
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Pyro"
+					Skill Hard
+					ItemAttributes
+					{
+						ItemName TF_WEAPON_FLAMETHROWER
+						"airblast_pushback_no_viewpunch" 1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Pyro"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Pyro"
+						"item style override" 1
+					}
+					Skill Hard
+					ItemAttributes
+					{
+						ItemName TF_WEAPON_FLAMETHROWER
+						"airblast_pushback_no_viewpunch" 1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Pyro_Expert
+		{
+			Class Pyro
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Pyro"
+					Skill Expert
+					ItemAttributes
+					{
+						ItemName TF_WEAPON_FLAMETHROWER
+						"airblast_pushback_no_viewpunch" 1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Pyro"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Pyro"
+						"item style override" 1
+					}
+					Skill Expert
+					ItemAttributes
+					{
+						ItemName TF_WEAPON_FLAMETHROWER
+						"airblast_pushback_no_viewpunch" 1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Pyro_AlwaysFireWeapon
+		{
+			Class Pyro
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Pyro"
+					Attributes AlwaysFireWeapon
+					Skill Easy
+					ItemAttributes
+					{
+						ItemName TF_WEAPON_FLAMETHROWER
+						"airblast_pushback_no_viewpunch" 1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Pyro"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Pyro"
+						"item style override" 1
+					}
+					Attributes AlwaysFireWeapon
+					Skill Easy
+					ItemAttributes
+					{
+						ItemName TF_WEAPON_FLAMETHROWER
+						"airblast_pushback_no_viewpunch" 1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Pyro_Flaregun
+		{
+			Class Pyro
+			Name "Flare Pyro"
+			ClassIcon pyro_flare
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Pyro"
+					Skill Expert
+					Item "The Flare Gun"
+					WeaponRestrictions SecondaryOnly
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Pyro"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Pyro"
+						"item style override" 1
+					}
+					Skill Expert
+					Item "The Flare Gun"
+					WeaponRestrictions SecondaryOnly
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Demoman_Easy
+		{
+			Class Demoman
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Demoman"
+					Skill Easy
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Demoman"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Demoman"
+						"item style override" 1
+					}
+					Skill Easy
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Demoman_Normal
+		{
+			Class Demoman
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Demoman"
+					Skill Normal
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Demoman"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Demoman"
+						"item style override" 1
+					}
+					Skill Normal
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Demoman_Hard
+		{
+			Class Demoman
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Demoman"
+					Skill Hard
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Demoman"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Demoman"
+						"item style override" 1
+					}
+					Skill Hard
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Demo_Burst_Normal
+		{
+			Class Demoman
+			Name "Burst Fire Demoman"
+			ClassIcon demo_burst
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "Tartan Tyrolean"
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+					Skill Normal
+					Attributes HoldFireUntilFullReload
+					ItemAttributes
+					{
+						ItemName "Tartan Tyrolean"
+						"set item tint rgb" 15185211
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"reload time increased" 1.211
+						"fire rate bonus" 0.05
+						"damage penalty" 0.5
+						"projectile spread angle penalty" 3
+						//"Projectile speed increased"	1.1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Tartan Tyrolean"
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"				
+					Skill Normal
+					Attributes HoldFireUntilFullReload
+					ItemAttributes
+					{
+						ItemName "Tartan Tyrolean"
+						"set item tint rgb" 6773060
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"reload time increased" 1.211
+						"fire rate bonus" 0.05
+						"damage penalty" 0.5
+						"projectile spread angle penalty" 3
+						//"Projectile speed increased"	1.1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Demo_Burst_Normal_Crit
+		{
+			Class Demoman
+			Name "Burst Fire Demoman"
+			ClassIcon demo_burst
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+					Skill Normal
+					Attributes HoldFireUntilFullReload
+					Attributes AlwaysCrit
+					Item "Tartan Tyrolean"
+					ItemAttributes
+					{
+						ItemName "Tartan Tyrolean"
+						"set item tint rgb" 15185211
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"reload time increased" 1.211
+						"fire rate bonus" 0.05
+						"damage penalty" 0.5
+						"projectile spread angle penalty" 3
+						//"Projectile speed increased"	1.1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Tartan Tyrolean"
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"				
+					Skill Normal
+					Attributes AlwaysCrit
+					Attributes HoldFireUntilFullReload
+					ItemAttributes
+					{
+						ItemName "Tartan Tyrolean"
+						"set item tint rgb" 6773060
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"reload time increased" 1.211
+						"fire rate bonus" 0.05
+						"damage penalty" 0.5
+						"projectile spread angle penalty" 3
+						//"Projectile speed increased"	1.1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Heavy_Easy
+		{
+			Class Heavy
+			Name "Heavyweapons"
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					MaxVisionRange 1200
+					Item "MvM GateBot Light Heavy"
+					Skill Easy
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					MaxVisionRange 1200
+					Skill Easy
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Heavy_Normal
+		{
+			Class Heavy
+			Name "Heavyweapons"
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					MaxVisionRange 1200
+					Item "MvM GateBot Light Heavy"
+					Skill Normal
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					MaxVisionRange 1200
+					Skill Normal
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Heavy_Hard
+		{
+			Class Heavy
+			Name "Heavyweapons"
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Item "MvM GateBot Light Heavy"
+					Skill Hard
+					MaxVisionRange 1200
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					MaxVisionRange 1200
+					Skill Hard
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Heavy_Normal_Crit
+		{
+			Class Heavy
+			ClassIcon heavy_crit
+			Name "Heavyweapons"
+			
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Heavy"
+					Skill Normal
+					Attributes AlwaysCrit
+					MaxVisionRange 1200
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					MaxVisionRange 1200
+					Skill Normal
+					Attributes AlwaysCrit
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Heavy_Expert_Crit
+		{
+			Class Heavy
+			ClassIcon heavy_crit
+			Name "Heavyweapons"
+			
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Heavy"
+					Skill Expert
+					Attributes AlwaysCrit
+					MaxVisionRange 1200
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					MaxVisionRange 1200
+					Skill Expert
+					Attributes AlwaysCrit
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Heavyweapons_Shotgun // The unique weapon can't be used, multi-class weapon. (Except in Sig's_
+		{
+			Class Heavyweapons
+			ClassIcon heavy_shotgun
+			Name "Shotgun Heavy"
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+					Tag bot_gatebot				// having these will cause bots to run towards gates
+					BehaviorModifiers Push		// having these will cause bots to run towards gates
+					Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					MaxVisionRange 1500
+					Item "MvM GateBot Light Heavy"
+					Item "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+					Skill Normal
+					WeaponRestrictions SecondaryOnly
+
+					ItemAttributes		// If unique weapon can't be found, fallback to stock
+					{
+						ItemName "TF_WEAPON_SHOTGUN_HWG"
+						"faster reload rate" 0.1
+						"fire rate penalty" 2.5
+						"bullets per shot bonus" 3
+						"damage penalty" 0.7
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+						"faster reload rate" 0.1
+						"fire rate penalty" 2.5
+						"bullets per shot bonus" 3
+						"damage penalty" 0.7
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Skill Normal
+					WeaponRestrictions SecondaryOnly
+					MaxVisionRange 1500
+					Item "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+					ItemAttributes		// If unique weapon can't be found, fallback to stock
+					{
+						ItemName "TF_WEAPON_SHOTGUN_HWG"
+						"faster reload rate" 0.1
+						"fire rate penalty" 2.5
+						"bullets per shot bonus" 3
+						"damage penalty" 0.7
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+						"faster reload rate" 0.1
+						"fire rate penalty" 2.5
+						"bullets per shot bonus" 3
+						"damage penalty" 0.7
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Heavy_IronFist
+		{
+			Class Heavyweapons
+			Name "Steel Gauntlet"
+			ClassIcon heavy_steelfist
+			Health 900
+			Scale 1.5
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+					Tag bot_gatebot				// having these will cause bots to run towards gates
+					BehaviorModifiers Push		// having these will cause bots to run towards gates
+					Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "Fists of Steel"
+					Item "MvM GateBot Light Heavy"
+					WeaponRestrictions MeleeOnly
+					Tag bot_giant
+					Skill Hard
+					CharacterAttributes
+					{
+						"airblast vulnerability multiplier" 0.5
+						"airblast vertical vulnerability multiplier" 0.75
+						"health regen" 1
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Fists of Steel"
+					CharacterAttributes
+					{
+						"airblast vulnerability multiplier" 0.5
+						"airblast vertical vulnerability multiplier" 0.75
+						"health regen" 1
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+					WeaponRestrictions MeleeOnly
+					Tag bot_giant
+					Skill Hard
+				}
+			}
+		}
+		T_TFGateBot_Heavy_IronFist_Airblast
+		{
+			Class Heavyweapons
+			Name "Steel Gauntlet Pusher"
+			ClassIcon heavy_steelfist
+			Health 900
+			Scale 1.5
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+					Tag bot_gatebot				// having these will cause bots to run towards gates
+					BehaviorModifiers Push		// having these will cause bots to run towards gates
+					Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "The carl"
+					Item "Fists of Steel"
+					ItemAttributes
+					{
+						ItemName "Fists of Steel"
+						"damage causes airblast" 1
+						"damage bonus" 1.5
+						"attach particle effect" 3
+					}
+					Item "MvM GateBot Light Heavy"
+					WeaponRestrictions MeleeOnly
+					Tag bot_giant
+					Skill Expert
+					CharacterAttributes
+					{
+						"airblast vulnerability multiplier" 0.5
+						"airblast vertical vulnerability multiplier" 0.75
+						"health regen" 1
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "The carl"
+					Item "Fists of Steel"
+					ItemAttributes
+					{
+						ItemName "Fists of Steel"
+						"damage causes airblast" 1
+						"damage bonus" 1.5
+						"attach particle effect" 3
+					}
+					WeaponRestrictions MeleeOnly
+					Tag bot_giant
+					Skill Expert
+					CharacterAttributes
+					{
+						"airblast vulnerability multiplier" 0.5
+						"airblast vertical vulnerability multiplier" 0.75
+						"health regen" 1
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Heavy_IronFist_Crit
+		{
+			Class Heavyweapons
+			Name "Steel Gauntlet"
+			ClassIcon heavy_steelfist
+			Health 900
+			Scale 1.5
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+					Tag bot_gatebot				// having these will cause bots to run towards gates
+					BehaviorModifiers Push		// having these will cause bots to run towards gates
+					Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "Fists of Steel"
+					Item "MvM GateBot Light Heavy"
+					Attributes AlwaysCrit
+					WeaponRestrictions MeleeOnly
+					Tag bot_giant
+					Skill Hard
+					CharacterAttributes
+					{
+						"airblast vulnerability multiplier" 0.5
+						"airblast vertical vulnerability multiplier" 0.75
+						"health regen" 1
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Fists of Steel"
+					CharacterAttributes
+					{
+						"airblast vulnerability multiplier" 0.5
+						"airblast vertical vulnerability multiplier" 0.75
+						"health regen" 1
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+					Attributes AlwaysCrit
+					WeaponRestrictions MeleeOnly
+					Tag bot_giant
+					Skill Hard
+				}
+			}
+		}
+		T_TFGateBot_Chief_Soldier_SlowCritBarrage
+		{
+			Class Soldier
+			Name "Major Crits"
+			ClassIcon soldier_barrage
+			Health 32000
+			Scale 1.7
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Item "Full Metal Drill Hat"
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Tag bot_giant
+					Skill Expert
+					Attributes MiniBoss
+					Attributes UseBossHealthBar
+					Attributes HoldFireUntilFullReload
+					Attributes AlwaysCrit
+					ItemAttributes
+					{
+						ItemName "Full Metal Drill Hat"
+						"set item tint rgb" 15185211
+					}
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"clip size upgrade atomic" 26.0
+						"faster reload rate" 0.22
+						"fire rate bonus" 0.2
+						"projectile spread angle penalty" 5
+						"damage bonus" 1.5
+						"Projectile speed decreased" 0.5
+						"killstreak tier" 2
+						"killstreak idleeffect" 5
+					}
+					CharacterAttributes
+					{
+						"health regen"	40
+						"move speed penalty"	0.5
+						"damage force reduction" 0.0
+						"airblast vulnerability multiplier" 0.0
+						"override footstep sound set" 3
+						"airblast vertical vulnerability multiplier" 0.0
+						"rage giving scale" 0.4
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Full Metal Drill Hat"
+					ItemAttributes
+					{
+						ItemName "Full Metal Drill Hat"
+						"set item tint rgb" 6773060
+					}
+					Tag bot_giant
+					Skill Expert
+					Attributes MiniBoss
+					Attributes UseBossHealthBar
+					Attributes HoldFireUntilFullReload
+					Attributes AlwaysCrit
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"clip size upgrade atomic" 26.0
+						"faster reload rate" 0.22
+						"fire rate bonus" 0.2
+						"projectile spread angle penalty" 5
+						"damage bonus" 1.5
+						"Projectile speed decreased" 0.5
+						"killstreak tier" 2
+						"killstreak idleeffect" 5
+					}
+					CharacterAttributes
+					{
+						"health regen"	40
+						"move speed penalty"	0.5
+						"damage force reduction" 0.0
+						"airblast vulnerability multiplier" 0.0
+						"override footstep sound set" 3
+						"airblast vertical vulnerability multiplier" 0.0
+						"rage giving scale" 0.4
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Soldier_SlowCritBarrage
+		{
+			Class Soldier
+			Name "Was-Major Crits"
+			ClassIcon soldier_barrage
+			Health 4200
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "Full Metal Drill Hat"
+					Tag bot_giant
+					Skill Expert
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Attributes AlwaysCrit
+					ItemAttributes
+					{
+						ItemName "Full Metal Drill Hat"
+						"set item tint rgb" 15185211
+					}
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"clip size upgrade atomic" 26.0
+						"faster reload rate" 0.22
+						"fire rate bonus" 0.2
+						"projectile spread angle penalty" 5
+						"damage bonus" 1.5
+						"Projectile speed decreased" 0.5
+						"killstreak tier" 2
+						"killstreak idleeffect" 5
+					}
+					CharacterAttributes
+					{
+						"health regen"	40
+						"move speed penalty"	0.5
+						"damage force reduction" 0.0
+						"airblast vulnerability multiplier" 0.0
+						"override footstep sound set" 3
+						"airblast vertical vulnerability multiplier" 0.0
+						"gesture speed increase" 3
+						"rage giving scale" 0.8
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Full Metal Drill Hat"
+					ItemAttributes
+					{
+						ItemName "Full Metal Drill Hat"
+						"set item tint rgb" 6773060
+					}
+					Tag bot_giant
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Attributes AlwaysCrit
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"clip size upgrade atomic" 26.0
+						"faster reload rate" 0.22
+						"fire rate bonus" 0.2
+						"projectile spread angle penalty" 5
+						"damage bonus" 1.5
+						"Projectile speed decreased" 0.5
+						"killstreak tier" 2
+						"killstreak idleeffect" 5
+					}
+					CharacterAttributes
+					{
+						"health regen"	40
+						"move speed penalty"	0.5
+						"damage force reduction" 0.0
+						"airblast vulnerability multiplier" 0.0
+						"override footstep sound set" 3
+						"airblast vertical vulnerability multiplier" 0.0
+						"gesture speed increase" 3
+						"rage giving scale" 0.8
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}		
+		T_TFGateBot_Giant_Soldier_SlowBarrage
+		{
+			Class Soldier
+			Name "Colonel Barrage"
+			ClassIcon soldier_barrage
+			Health 4200
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "Full Metal Drill Hat"
+					Tag bot_giant
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Full Metal Drill Hat"
+						"set item tint rgb" 15185211
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"clip size upgrade atomic" 26.0
+						"faster reload rate" 0.22
+						"fire rate bonus" 0.2
+						"projectile spread angle penalty" 5
+						"damage bonus" 1.5
+						"Projectile speed decreased" 0.5
+						"killstreak tier" 2
+						"killstreak idleeffect" 2
+					}
+					CharacterAttributes
+					{
+						"health regen"	40
+						"move speed penalty"	0.5
+						"damage force reduction" 0.0
+						"airblast vulnerability multiplier" 0.0
+						"override footstep sound set" 3
+						"airblast vertical vulnerability multiplier" 0.0
+						"gesture speed increase" 3
+						"rage giving scale" 0.8
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Full Metal Drill Hat"
+					ItemAttributes
+					{
+						ItemName "Full Metal Drill Hat"
+						"set item tint rgb" 6773060
+					}
+					Tag bot_giant
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload		
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"clip size upgrade atomic" 26.0
+						"faster reload rate" 0.22
+						"fire rate bonus" 0.2
+						"projectile spread angle penalty" 5
+						"damage bonus" 1.5
+						"Projectile speed decreased" 0.5
+						"killstreak tier" 2
+						"killstreak idleeffect" 2
+					}
+					CharacterAttributes
+					{
+						"health regen"	40
+						"move speed penalty"	0.5
+						"damage force reduction" 0.0
+						"airblast vulnerability multiplier" 0.0
+						"override footstep sound set" 3
+						"airblast vertical vulnerability multiplier" 0.0
+						"gesture speed increase" 3
+						"rage giving scale" 0.8
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Heavyweapons_Deflector
+		{
+			Class Heavyweapons
+			Name "Giant Deflector Heavy"
+			Health 5000
+			ClassIcon heavy_deflector
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "Officer's Ushanka"
+					Item "Deflector"
+					Skill Expert
+					MaxVisionRange 1200
+					Attributes MiniBoss
+					Tag bot_giant
+					ItemAttributes
+					{
+						ItemName "Officer's Ushanka"
+						"set item tint rgb" 15185211
+					}
+					ItemAttributes
+					{
+						ItemName "Deflector"
+						"damage bonus"	1.5 // copied from base mighty heavy
+						"attack projectiles" 2	// force ability to shoot down projectiles
+						"killstreak tier" 2
+						"killstreak idleeffect" 5
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.3
+						"airblast vulnerability multiplier" 0.15
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 2
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Officer's Ushanka"
+					Item "Deflector"
+					Skill Expert
+					MaxVisionRange 1200
+					Attributes MiniBoss
+					Tag bot_giant
+					ItemAttributes
+					{
+						ItemName "Deflector"
+						"damage bonus"	1.5 // copied from base mighty heavy
+						"attack projectiles" 2	// force ability to shoot down projectiles
+						"killstreak tier" 2
+						"killstreak idleeffect" 5
+					}
+					ItemAttributes
+					{
+						ItemName "Officer's Ushanka"
+						"set item tint rgb" 6773060
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.3
+						"airblast vulnerability multiplier" 0.15
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 2
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Heavyweapons_Heater
+		{
+			Class Heavyweapons
+			Name "Giant Heater Heavy"
+			ClassIcon heavy_heater_giant
+			Health 5000
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					MaxVisionRange 1500
+					Item "MvM GateBot Light Heavy"
+					Skill Expert
+					Item "The Huo Long Heatmaker"
+					Attributes MiniBoss
+					Tag bot_giant
+					ItemAttributes
+					{
+						ItemName "The Huo Long Heatmaker"
+						"ring of fire while aiming"	18
+						"damage bonus"	1.3
+						"killstreak tier" 2
+						"killstreak idleeffect" 3
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.3
+						"airblast vulnerability multiplier" 0.15
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 2
+						"head scale" 0.7		// make it not look dumb with the heavy gatebot hat
+												// don't worry head hitbox stays the same
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Skill Expert
+					MaxVisionRange 1500
+					Item "The Huo Long Heatmaker"
+					Attributes MiniBoss
+					Tag bot_giant
+					ItemAttributes
+					{
+						ItemName "The Huo Long Heatmaker"
+						"ring of fire while aiming"	18
+						"damage bonus"	1.3
+						"killstreak tier" 2
+						"killstreak idleeffect" 3
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.3
+						"airblast vulnerability multiplier" 0.15
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 2
+						"head scale" 0.7		// make it not look dumb with the heavy gatebot hat
+												// don't worry head hitbox stays the same
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Heavyweapons_Shotgun
+		{
+			Class Heavyweapons
+			Name "Giant Shotgun Heavy"
+			Health 5000
+			ClassIcon heavy_shotgun_giant
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+					Tag bot_gatebot				// having these will cause bots to run towards gates
+					BehaviorModifiers Push		// having these will cause bots to run towards gates
+					Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Heavy"
+					Skill Expert
+					WeaponRestrictions SecondaryOnly
+					MaxVisionRange 1200
+					Attributes MiniBoss
+					Tag bot_giant
+					Item "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+					ItemAttributes
+					{
+						ItemName "TF_WEAPON_SHOTGUN_HWG"
+						"fire rate penalty" 2.5
+						"bullets per shot bonus" 10
+						"damage penalty" 0.5
+						"faster reload rate" 0.1
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+						"fire rate penalty" 2.5
+						"bullets per shot bonus" 10
+						"damage penalty" 0.5
+						"faster reload rate" 0.1
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.7
+						"damage force reduction" 0.3
+						"airblast vulnerability multiplier" 0.15
+						"airblast vertical vulnerability multiplier" 0.5
+						// "attack projectiles" 1	// force ability to shoot down projectiles
+													// tested and doesn't work lol
+						"override footstep sound set" 2
+						"gesture speed increase" 0.4
+						"head scale" 0.7		// make it not look dumb with the heavy gatebot hat
+												// don't worry head hitbox stays the same
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Skill Expert
+					WeaponRestrictions SecondaryOnly
+					MaxVisionRange 1200
+					Attributes MiniBoss
+					Tag bot_giant
+					Item "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+					ItemAttributes
+					{
+						ItemName "TF_WEAPON_SHOTGUN_HWG"
+						"fire rate penalty" 2.5
+						"bullets per shot bonus" 10
+						"damage penalty" 0.5
+						"faster reload rate" 0.1
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+						"fire rate penalty" 2.5
+						"bullets per shot bonus" 10
+						"damage penalty" 0.5
+						"faster reload rate" 0.1
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.7
+						"damage force reduction" 0.3
+						"airblast vulnerability multiplier" 0.15
+						"airblast vertical vulnerability multiplier" 0.5
+						// "attack projectiles" 1	// force ability to shoot down projectiles
+													// tested and doesn't work lol
+						"override footstep sound set" 2
+						"gesture speed increase" 0.4
+						"head scale" 0.7		// make it not look dumb with the heavy gatebot hat
+												// don't worry head hitbox stays the same
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Heavyweapons_Shotgun_Crit
+		{
+			Class Heavyweapons
+			Name "Giant Shotgun Heavy"
+			Health 5000
+			ClassIcon heavy_shotgun_giant
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+					Tag bot_gatebot				// having these will cause bots to run towards gates
+					BehaviorModifiers Push		// having these will cause bots to run towards gates
+					Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Heavy"
+					Skill Expert
+					WeaponRestrictions SecondaryOnly
+					MaxVisionRange 1200
+					Attributes MiniBoss
+					Attributes AlwaysCrit
+					Tag bot_giant
+					Item "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+					ItemAttributes
+					{
+						ItemName "TF_WEAPON_SHOTGUN_HWG"
+						"fire rate penalty" 2.5
+						"bullets per shot bonus" 10
+						"damage penalty" 0.5
+						"faster reload rate" 0.1
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+						"fire rate penalty" 2.5
+						"bullets per shot bonus" 10
+						"damage penalty" 0.5
+						"faster reload rate" 0.1
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.7
+						"damage force reduction" 0.3
+						"airblast vulnerability multiplier" 0.15
+						"airblast vertical vulnerability multiplier" 0.5
+						// "attack projectiles" 1	// force ability to shoot down projectiles
+													// tested and doesn't work lol
+						"override footstep sound set" 2
+						"gesture speed increase" 0.4
+						"head scale" 0.7		// make it not look dumb with the heavy gatebot hat
+												// don't worry head hitbox stays the same
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Skill Expert
+					WeaponRestrictions SecondaryOnly
+					MaxVisionRange 1200
+					Attributes MiniBoss
+					Attributes AlwaysCrit
+					Tag bot_giant
+					Item "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+					ItemAttributes
+					{
+						ItemName "TF_WEAPON_SHOTGUN_HWG"
+						"fire rate penalty" 2.5
+						"bullets per shot bonus" 10
+						"damage penalty" 0.5
+						"faster reload rate" 0.1
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+						"fire rate penalty" 2.5
+						"bullets per shot bonus" 10
+						"damage penalty" 0.5
+						"faster reload rate" 0.1
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.7
+						"damage force reduction" 0.3
+						"airblast vulnerability multiplier" 0.15
+						"airblast vertical vulnerability multiplier" 0.5
+						// "attack projectiles" 1	// force ability to shoot down projectiles
+													// tested and doesn't work lol
+						"override footstep sound set" 2
+						"gesture speed increase" 0.4
+						"head scale" 0.7		// make it not look dumb with the heavy gatebot hat
+												// don't worry head hitbox stays the same
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Heavyweapons_HealOnKill
+		{
+			Class Heavyweapons
+			Name "Giant Heal-on-Kill Heavy"
+			Health 5000
+			ClassIcon heavy_deflector_healonkill
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+					Tag bot_gatebot				// having these will cause bots to run towards gates
+					BehaviorModifiers Push		// having these will cause bots to run towards gates
+					Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Tag bot_giant
+					Skill Expert
+					Item "The Tungsten Toque"
+					Item "Deflector"
+					ItemAttributes
+					{
+						ItemName "The Tungsten Toque"
+						"set item tint rgb" 15185211
+					}
+					MaxVisionRange 1200
+					Attributes UseBossHealthBar
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					ItemAttributes
+					{
+						ItemName "Deflector"
+						"damage bonus"	1.2
+						"attack projectiles" 2
+						"heal on kill" 5000
+						"killstreak tier" 2
+						"killstreak idleeffect" 5
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.4
+						"damage force reduction" 0.3
+						"airblast vulnerability multiplier" 0.15
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 2
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Skill Expert
+					Item "The Tungsten Toque"
+					Item "Deflector"
+					Tag bot_giant
+					MaxVisionRange 1200
+					Attributes UseBossHealthBar
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					ItemAttributes
+					{
+						ItemName "The Tungsten Toque"
+						"set item tint rgb" 6773060
+					}
+					ItemAttributes
+					{
+						ItemName "Deflector"
+						"damage bonus"	1.2
+						"attack projectiles" 2
+						"heal on kill" 5000
+						"killstreak tier" 2
+						"killstreak idleeffect" 5
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.4
+						"damage force reduction" 0.3
+						"airblast vulnerability multiplier" 0.15
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 2
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Chief_Heavyweapons_HealOnKill
+		{
+			Class Heavyweapons
+			Name "Chief Heal-On-Kill Heavy"
+			Health 70000
+			Scale 1.8
+			ClassIcon heavy_deflector_healonkill
+
+
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+					Tag bot_gatebot				// having these will cause bots to run towards gates
+					BehaviorModifiers Push		// having these will cause bots to run towards gates
+					Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Tag bot_giant
+					Skill Expert
+					Item "The Tungsten Toque"
+					ItemAttributes
+					{
+						ItemName "The Tungsten Toque"
+						"set item tint rgb" 15185211
+					}
+					Item "Deflector"
+					MaxVisionRange 1200
+					Attributes UseBossHealthBar
+					Attributes MiniBoss
+					ItemAttributes
+					{
+						ItemName "Deflector"
+						"damage bonus"	1.2
+						"attack projectiles" 2
+						"heal on kill" 8000
+						"killstreak tier" 2
+						"killstreak idleeffect" 5
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.4
+						"damage force reduction" 0.0
+						"airblast vulnerability multiplier" 0.0
+						"airblast vertical vulnerability multiplier" 0.0
+						"rage giving scale"	0.4
+						"override footstep sound set" 2
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Tag bot_giant
+					Skill Expert
+					Item "The Tungsten Toque"
+					Item "Deflector"
+					ItemAttributes
+					{
+						ItemName "The Tungsten Toque"
+						"set item tint rgb" 6773060
+					}
+					MaxVisionRange 1200
+					Attributes UseBossHealthBar
+					Attributes MiniBoss
+					ItemAttributes
+					{
+						ItemName "Deflector"
+						"damage bonus"	1.2
+						"attack projectiles" 2
+						"heal on kill" 8000
+						"killstreak tier" 2
+						"killstreak idleeffect" 5
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.4
+						"damage force reduction" 0.0
+						"airblast vulnerability multiplier" 0.0
+						"airblast vertical vulnerability multiplier" 0.0
+						"rage giving scale"	0.4
+						"override footstep sound set" 2
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Soldier_Extended_Concheror
+		{
+			Class Soldier
+			Name "Giant Concheror Soldier"
+			Health 4200
+			ClassIcon soldier_conch_giant
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Soldier"
+					Tag bot_giant
+					Skill Expert
+					Attributes HoldFireUntilFullReload
+					Attributes MiniBoss
+					Attributes SpawnWithFullCharge
+					Item "The Concheror"
+					ItemAttributes
+					{
+						ItemName "TF_WEAPON_ROCKETLAUNCHER"
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"deploy time increased" 1.34
+						"increase buff duration"	1001
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					Tag bot_giant
+					Skill Expert
+					Attributes HoldFireUntilFullReload
+					Attributes MiniBoss
+					Attributes SpawnWithFullCharge
+					Item "The Concheror"
+					ItemAttributes
+					{
+						ItemName "TF_WEAPON_ROCKETLAUNCHER"
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"deploy time increased" 1.34
+						"increase buff duration"	1001
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}		
+		T_TFGateBot_Giant_Soldier_Extended_Concheror_Crit
+		{
+			Class Soldier
+			Name "Giant Concheror Soldier"
+			Health 4200
+			ClassIcon soldier_conch_giant
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Soldier"
+					Tag bot_giant
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					Attributes HoldFireUntilFullReload
+					Attributes MiniBoss
+					Attributes SpawnWithFullCharge
+					Attributes AlwaysCrit
+					Item "The Concheror"
+					ItemAttributes
+					{
+						ItemName "TF_WEAPON_ROCKETLAUNCHER"
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"deploy time increased" 1.34
+						"increase buff duration"	1001
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					ItemAttributes
+					{
+						ItemName "TF_WEAPON_ROCKETLAUNCHER"
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"increase buff duration"	1001
+						"deploy time increased" 1.34
+					}
+					Tag bot_giant
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					Attributes HoldFireUntilFullReload
+					Attributes MiniBoss
+					Attributes SpawnWithFullCharge
+					Attributes AlwaysCrit
+					Item "The Concheror"
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Soldier_RocketPush
+		{
+			Class Soldier
+			ClassIcon soldier_libertylauncher_giant
+			Health 4200
+			Name "Giant Blast Soldier"
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "Dr's Dapper Topper"
+					Item "The Liberty Launcher"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "Dr's Dapper Topper"
+						"set item tint rgb" 15185211
+					}
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Tag bot_giant
+					ItemAttributes
+					{
+						ItemName "The Liberty Launcher"
+						"damage causes airblast" 1
+						"damage penalty" 0.5
+						"fire rate bonus" 0.25
+						"clip size upgrade atomic" 5
+						"faster reload rate" 0.2
+						"Blast radius increased" 1.2
+						"projectile spread angle penalty" 4
+						// "Projectile speed increased" 0.75
+						"killstreak tier" 2
+						"killstreak idleeffect" 5
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"override footstep sound set" 3
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Dr's Dapper Topper"
+					Item "The Liberty Launcher"
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Tag bot_giant
+					ItemAttributes
+					{
+						ItemName "Dr's Dapper Topper"
+						"set item tint rgb" 6773060
+					}
+					ItemAttributes
+					{
+						ItemName "The Liberty Launcher"
+						"damage causes airblast" 1
+						"damage penalty" 0.5
+						"fire rate bonus" 0.25
+						"clip size upgrade atomic" 5
+						"faster reload rate" 0.2
+						"Blast radius increased" 1.2
+						"projectile spread angle penalty" 4
+						// "Projectile speed increased" 0.75
+						"killstreak tier" 2
+						"killstreak idleeffect" 5
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"override footstep sound set" 3
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Soldier_BurstFire // Faster rocket speed + more damage
+		{
+			Class Soldier
+			Name "Giant Burst Fire Soldier"
+			ClassIcon soldier_burstfire
+			Health 4200
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "Tyrantium Helmet"
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Tag bot_giant
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "Tyrantium Helmet"
+						"set item tint rgb" 15185211
+					}
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"damage bonus" 2.0
+						"faster reload rate" 0.4
+						"fire rate bonus" 0.2
+						"clip size upgrade atomic" 5.0
+						"Projectile speed decreased" 0.9
+						"killstreak tier" 2
+						"killstreak idleeffect" 6
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Tyrantium Helmet"
+					ItemAttributes
+					{
+						ItemName "Tyrantium Helmet"
+						"set item tint rgb" 6773060
+					}
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Tag bot_giant
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"damage bonus" 2
+						"faster reload rate" 0.4
+						"fire rate bonus" 0.2
+						"clip size upgrade atomic" 5.0
+						"Projectile speed decreased" 0.9
+						"killstreak tier" 2
+						"killstreak idleeffect" 6
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Soldier_BurstFire_Crit // Faster rocket speed + more damage
+		{
+			Class Soldier
+			Name "Giant Burst Fire Soldier"
+			ClassIcon soldier_burstfire
+			Health 4200
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "Tyrantium Helmet"
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Attributes AlwaysCrit
+					Tag bot_giant
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "Tyrantium Helmet"
+						"set item tint rgb" 15185211
+					}
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"damage bonus" 2.0
+						"faster reload rate" 0.4
+						"fire rate bonus" 0.2
+						"clip size upgrade atomic" 5.0
+						"Projectile speed decreased" 0.9
+						"killstreak tier" 2
+						"killstreak idleeffect" 6
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Tyrantium Helmet"
+					ItemAttributes
+					{
+						ItemName "Tyrantium Helmet"
+						"set item tint rgb" 6773060
+					}
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Attributes AlwaysCrit
+					Tag bot_giant
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"damage bonus" 2.0
+						"faster reload rate" 0.4
+						"fire rate bonus" 0.2
+						"clip size upgrade atomic" 5.0
+						"Projectile speed decreased" 0.9
+						"killstreak tier" 2
+						"killstreak idleeffect" 6
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Soldier_RocketShotgun // Health regen on hit
+		{
+			Class Soldier
+			Name "Giant Black Box Soldier"
+			ClassIcon soldier_blackbox_giant
+			Health 4200
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					MaxVisionRange 1500
+					Item "The Black Box"
+					Item "MvM GateBot Light Soldier"
+					Skill Expert
+					Attributes MiniBoss
+					Tag bot_giant
+					WeaponRestrictions PrimaryOnly
+					Attributes HoldFireUntilFullReload
+					ItemAttributes
+					{
+						ItemName "The Black Box"
+						"damage penalty" 0.45
+						"fire rate bonus" -0.1
+						"reload time increased" 1.6
+						"blast radius increased" 1.25
+						//"Projectile speed increased" 0.4
+						"projectile spread angle penalty" 4
+						"heal on hit for rapidfire" 1000
+						"Projectile speed decreased" 0.9
+						"killstreak tier" 2
+						"killstreak idleeffect" 4
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					MaxVisionRange 1500
+					Item "The Black Box"
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					Skill Expert
+					Attributes MiniBoss
+					Tag bot_giant
+					WeaponRestrictions PrimaryOnly
+					Attributes HoldFireUntilFullReload
+					ItemAttributes
+					{
+						ItemName "The Black Box"
+						"damage penalty" 0.45
+						"fire rate bonus" -0.1
+						"reload time increased" 1.6
+						"blast radius increased" 1.25
+						//"Projectile speed increased" 0.4
+						"projectile spread angle penalty" 4
+						"heal on hit for rapidfire" 1000
+						"Projectile speed decreased" 0.9
+						"killstreak tier" 2
+						"killstreak idleeffect" 4
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Demo_Burst
+		{
+			Class Demoman
+			Name "Giant Burst Fire Demoman"
+			ClassIcon demo_burst_giant
+			Health 3300
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					MaxVisionRange 1500
+					Tag bot_giant
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Item "Tartan Tyrolean"
+					ItemAttributes
+					{
+						ItemName "Tartan Tyrolean"
+						"set item tint rgb" 15185211
+					}
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"faster reload rate" 0.65 //35% faster reload
+						"fire rate bonus" 0.1
+						"clip size upgrade atomic" 7.0
+						"projectile spread angle penalty" 5
+						"Projectile speed increased"	1.1
+						"killstreak tier" 2
+						"killstreak idleeffect" 6
+				
+						"auto fires when full" 1
+						"auto fires full clip" 1
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.25
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 4
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Tartan Tyrolean"
+					MaxVisionRange 1500
+					ItemAttributes
+					{
+						ItemName "Tartan Tyrolean"
+						"set item tint rgb" 6773060
+					}
+					Tag bot_giant
+					Skill Expert
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"faster reload rate" 0.65 //35% faster reload
+						"fire rate bonus" 0.1
+						"clip size upgrade atomic" 7.0
+						"projectile spread angle penalty" 5
+						"Projectile speed increased"	1.1
+						"killstreak tier" 2
+						"killstreak idleeffect" 6
+				
+						"auto fires when full" 1
+						"auto fires full clip" 1
+						"increased jump height" 1.5
+					}
+
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.25
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 4
+						no_duck 1
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Demo_Burst_Crit
+		{
+			Class Demoman
+			Name "Giant Burst Fire Demoman"
+			ClassIcon demo_burst_giant
+			Health 3300
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					MaxVisionRange 1500
+					Tag bot_giant
+					Attributes AlwaysCrit
+					Skill Expert
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Item "Tartan Tyrolean"
+					ItemAttributes
+					{
+						ItemName "Tartan Tyrolean"
+						"set item tint rgb" 15185211
+					}
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"faster reload rate" 0.65 //35% faster reload
+						"fire rate bonus" 0.1
+						"clip size upgrade atomic" 7.0
+						"projectile spread angle penalty" 5
+						"Projectile speed increased"	1.1
+						"killstreak tier" 2
+						"killstreak idleeffect" 6
+				
+						"auto fires when full" 1
+						"auto fires full clip" 1
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.25
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 4
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					MaxVisionRange 1500
+					Item "Tartan Tyrolean"
+					ItemAttributes
+					{
+						ItemName "Tartan Tyrolean"
+						"set item tint rgb" 6773060
+					}
+					Tag bot_giant
+					Attributes AlwaysCrit
+					Skill Expert
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"faster reload rate" 0.65 //35% faster reload
+						"fire rate bonus" 0.1
+						"clip size upgrade atomic" 7.0
+						"projectile spread angle penalty" 5
+						"Projectile speed increased"	1.1
+						"killstreak tier" 2
+						"killstreak idleeffect" 6
+				
+						"auto fires when full" 1
+						"auto fires full clip" 1
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.25
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 4
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Scout_FAN
+		{
+			Class Scout
+			Name "Force-a-Nature Super Scout"
+			ClassIcon scout_fan_giant
+			Health 1200
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					// Item "The Fed-Fightin' Fedora"
+					// Item "The Bolt Boy"
+					Item "The Force-a-Nature"
+					Item "MvM GateBot Light Scout"
+					Tag bot_giant
+					MaxVisionRange 1200
+					Skill Expert
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					ItemAttributes
+					{
+						ItemName "The Force-a-Nature"
+						//"clip size bonus" 2
+						"bullets per shot bonus" 2
+						"fire rate bonus" 0.5
+						"reload time increased" 1.7 // 70% slower reload
+						"scattergun knockback mult" 6
+						"damage penalty" 0.35		// 55% damage reduction
+						"weapon spread bonus" 0.4
+						"gesture speed increase" 0.43
+						"killstreak tier" 2
+						"killstreak idleeffect" 3
+					}
+					CharacterAttributes
+					{
+						"move speed bonus"	1.1
+						"damage force reduction" 0.7
+						"airblast vulnerability multiplier" 0.35
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 5
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					// Item "The Fed-Fightin' Fedora"
+					// Item "The Bolt Boy"
+					Item "The Force-a-Nature"
+					Item "MvM GateBot Light Scout"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Scout"
+						"item style override" 1
+					}
+					Tag bot_giant
+					MaxVisionRange 1200
+					Skill Expert
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					ItemAttributes
+					{
+						ItemName "The Force-a-Nature"
+						//"clip size bonus" 2
+						"bullets per shot bonus" 2
+						"fire rate bonus" 0.5
+						"reload time increased" 1.7 // 70% slower reload
+						"scattergun knockback mult" 6
+						"damage penalty" 0.35		// 55% damage reduction
+						"weapon spread bonus" 0.4
+						"gesture speed increase" 0.43
+						"killstreak tier" 2
+						"killstreak idleeffect" 3
+					}
+					CharacterAttributes
+					{
+						"move speed bonus"	1.1
+						"damage force reduction" 0.7
+						"airblast vulnerability multiplier" 0.35
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 5
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Soldier
+		{
+			Class Soldier
+			Name "Giant Soldier"
+			ClassIcon soldier_giant
+			Health 4200
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Soldier"
+					Tag bot_giant
+					Skill Expert
+					Attributes HoldFireUntilFullReload
+					Attributes MiniBoss
+					ItemAttributes
+					{
+						ItemName "TF_WEAPON_ROCKETLAUNCHER"
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					Tag bot_giant
+					Skill Expert
+					Attributes HoldFireUntilFullReload
+					Attributes MiniBoss
+					ItemAttributes
+					{
+						ItemName "TF_WEAPON_ROCKETLAUNCHER"
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Soldier_Spammer
+		{
+			Class Soldier
+			Name "Giant Rapid Fire Soldier"
+			ClassIcon soldier_spammer
+			Health 4200
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Skill Expert
+					Attributes MiniBoss
+					Tag bot_giant
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					Item "Honcho's Headgear"
+					ItemAttributes
+					{
+						ItemName "Honcho's Headgear"
+						"set item tint rgb" 15185211
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"reload time increased hidden" -0.1
+						"mod no reload DISPLAY ONLY" 1
+						"fire rate bonus" 0.5
+						"Projectile speed decreased" 0.65
+						"killstreak tier" 2
+						"killstreak idleeffect" 2
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						"head scale" 1.7
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Honcho's Headgear"
+					ItemAttributes
+					{
+						ItemName "Honcho's Headgear"
+						"set item tint rgb" 6773060
+					}
+					Skill Expert
+					Attributes MiniBoss
+					Tag bot_giant
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"reload time increased hidden" -0.1
+						"mod no reload DISPLAY ONLY" 1
+						"fire rate bonus" 0.5
+						"Projectile speed decreased" 0.65
+						"killstreak tier" 2
+						"killstreak idleeffect" 2
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						"head scale" 1.7
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Soldier_Spammer_Crit
+		{
+			Class Soldier
+			Name "Giant Rapid Fire Soldier"
+			ClassIcon soldier_spammer
+			Health 4200
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "Honcho's Headgear"
+					Skill Expert
+					Attributes AlwaysCrit
+					Attributes MiniBoss
+					Tag bot_giant
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Honcho's Headgear"
+						"set item tint rgb" 15185211
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"reload time increased hidden" -0.1
+						"mod no reload DISPLAY ONLY" 1
+						"fire rate bonus" 0.5
+						"Projectile speed decreased" 0.65
+						"killstreak tier" 2
+						"killstreak idleeffect" 2
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Honcho's Headgear"
+					ItemAttributes
+					{
+						ItemName "Honcho's Headgear"
+						"set item tint rgb" 6773060
+					}
+					Skill Expert
+					Attributes AlwaysCrit
+					Attributes MiniBoss
+					Tag bot_giant
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"reload time increased hidden" -0.1
+						"mod no reload DISPLAY ONLY" 1
+						"fire rate bonus" 0.5
+						"Projectile speed decreased" 0.65
+						"killstreak tier" 2
+						"killstreak idleeffect" 2
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Soldier_Spammer_Reload
+		{
+			Class Soldier
+			Name "Giant Burst Fire Soldier"
+			ClassIcon soldier_burstfire
+			Health 4200
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Skill Expert
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Tag bot_giant
+					Item "The Shellmet"
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "The Shellmet"
+						"set item tint rgb" 15185211
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"faster reload rate" 0.6
+						"fire rate bonus" 0.1
+						"clip size upgrade atomic" 5.0
+						"Projectile speed decreased" 0.65
+						"killstreak tier" 2
+						"killstreak idleeffect" 6
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						"head scale" 1.7
+						no_duck 1
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "The Shellmet"
+					ItemAttributes
+					{
+						ItemName "The Shellmet"
+						"set item tint rgb" 6773060
+					}
+					Skill Expert
+					Attributes MiniBoss
+					Attributes HoldFireUntilFullReload
+					Tag bot_giant
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+						"faster reload rate" 0.6
+						"fire rate bonus" 0.1
+						"clip size upgrade atomic" 5.0
+						"Projectile speed decreased" 0.65
+						"killstreak tier" 2
+						"killstreak idleeffect" 6
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.2
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+						"head scale" 1.7
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Pyro_AlwaysFire
+		{
+			Class Pyro
+			Name "Giant Pyro"
+			ClassIcon pyro_giant
+			Health 3300
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+					Tag bot_gatebot				// having these will cause bots to run towards gates
+					BehaviorModifiers Push		// having these will cause bots to run towards gates
+					Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Pyro"
+					Skill Expert
+					Attributes MiniBoss
+					Attributes AlwaysFireWeapon
+					Tag bot_giant
+					Item "Upgradeable TF_WEAPON_FLAMETHROWER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_FLAMETHROWER"
+						"damage bonus" 1.5
+						"weapon burn dmg increased" 2
+						"weapon burn time increased" 2
+						"flame life bonus" 1.75
+						"flame size bonus" 1.75
+						"deflection size multiplier" 1.75
+						"airblast_pushback_no_viewpunch" 1
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.6
+						"airblast vulnerability multiplier" 0.3
+						"airblast vertical vulnerability multiplier" 0.5
+					//	"head scale" 0.75
+						"head scale" 0.93	// to accomdate the larger head size I gave to regular Giant Pyros
+						"override footstep sound set" 6
+						no_duck 1
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Upgradeable TF_WEAPON_FLAMETHROWER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_FLAMETHROWER"
+						"damage bonus" 1.5
+						"weapon burn dmg increased" 2
+						"weapon burn time increased" 2
+						"flame life bonus" 1.75
+						"flame size bonus" 1.75
+						"deflection size multiplier" 1.75
+						"airblast_pushback_no_viewpunch" 1
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					Item "MvM GateBot Light Pyro"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Pyro"
+						"item style override" 1
+					}
+					Skill Expert
+					Attributes MiniBoss
+					Attributes AlwaysFireWeapon
+					Tag bot_giant
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.6
+						"airblast vulnerability multiplier" 0.3
+						"airblast vertical vulnerability multiplier" 0.5
+					//	"head scale" 0.75
+						"head scale" 0.93	// to accomdate the larger head size I gave to regular Giant Pyros
+						"override footstep sound set" 6
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Pyro_AlwaysFire_Crit
+		{
+			Class Pyro
+			Name "Giant Pyro"
+			ClassIcon pyro_giant
+			Health 3300
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+					Tag bot_gatebot				// having these will cause bots to run towards gates
+					BehaviorModifiers Push		// having these will cause bots to run towards gates
+					Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Item "MvM GateBot Light Pyro"
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					Attributes AlwaysFireWeapon
+					Attributes AlwaysCrit
+					Tag bot_giant
+					Item "Upgradeable TF_WEAPON_FLAMETHROWER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_FLAMETHROWER"
+						"damage bonus" 1.5
+						"weapon burn dmg increased" 2
+						"weapon burn time increased" 2
+						"flame life bonus" 1.75
+						"flame size bonus" 1.75
+						"deflection size multiplier" 1.75
+						"airblast_pushback_no_viewpunch" 1
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.6
+						"airblast vulnerability multiplier" 0.3
+						"airblast vertical vulnerability multiplier" 0.5
+					//	"head scale" 0.75
+						"head scale" 0.93	// to accomdate the larger head size I gave to regular Giant Pyros
+						"override footstep sound set" 6
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Pyro"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Pyro"
+						"item style override" 1
+					}
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					Attributes AlwaysFireWeapon
+					Attributes AlwaysCrit
+					Tag bot_giant
+					Item "Upgradeable TF_WEAPON_FLAMETHROWER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_FLAMETHROWER"
+						"damage bonus" 1.5
+						"weapon burn dmg increased" 2
+						"weapon burn time increased" 2
+						"flame life bonus" 1.75
+						"flame size bonus" 1.75
+						"deflection size multiplier" 1.75
+						"airblast_pushback_no_viewpunch" 1
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					CharacterAttributes
+					{
+						"move speed penalty"	0.5
+						"damage force reduction" 0.6
+						"airblast vulnerability multiplier" 0.3
+						"airblast vertical vulnerability multiplier" 0.5
+					//	"head scale" 0.75
+						"head scale" 0.93	// to accomdate the larger head size I gave to regular Giant Pyros
+						"override footstep sound set" 6
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+//====================== These templates below aren't made by Valve, but are Valve bots =======================================
+		// Scouts
+		T_TFGateBot_Scout_Melee_Crit
+		{
+			Class Scout
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes AlwaysCrit
+					Attributes DisableDodge
+					Item "MvM GateBot Light Scout"
+					Skill Hard
+					WeaponRestrictions MeleeOnly
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Attributes AlwaysCrit
+					Item "MvM GateBot Light Scout"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Scout"
+						"item style override" 1
+					}
+					Skill Hard
+					WeaponRestrictions MeleeOnly
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Scout_Easy_Crit
+		{
+			Class Scout
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes AlwaysCrit
+					Attributes DisableDodge
+					Item "MvM GateBot Light Scout"
+					Skill Easy
+					MaxVisionRange 1500
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Attributes AlwaysCrit
+					Item "MvM GateBot Light Scout"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Scout"
+						"item style override" 1
+					}
+					Skill Easy
+					MaxVisionRange 1500
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Scout_Normal_Crit
+		{
+			Class Scout
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Attributes AlwaysCrit
+					Attributes DisableDodge
+					Item "MvM GateBot Light Scout"
+					Skill Normal
+					MaxVisionRange 1500
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Attributes AlwaysCrit
+					Item "MvM GateBot Light Scout"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Scout"
+						"item style override" 1
+					}
+					Skill Normal
+					MaxVisionRange 1500
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Scout_Hard_Crit
+		{
+			Class Scout
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes DisableDodge
+					Attributes AlwaysCrit
+					Item "MvM GateBot Light Scout"
+					Skill Hard
+					MaxVisionRange 1500
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Attributes AlwaysCrit
+					Item "MvM GateBot Light Scout"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Scout"
+						"item style override" 1
+					}
+					Skill Hard
+					MaxVisionRange 1500
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Scout_Sandman_FastCharge_Expert
+		{
+			Class Scout
+			Name "Hyper League Scout"
+			Health 110
+			ClassIcon scout_stun
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Item "MvM GateBot Light Scout"
+					Skill Expert
+					WeaponRestrictions MeleeOnly
+					Item "The Sandman"
+					ItemAttributes
+					{
+						ItemName "The Sandman"
+						"effect bar recharge rate increased" 0.25
+						"max health additive penalty" -0
+					}
+					Item "Batter's Helmet"
+					ItemAttributes
+					{
+						ItemName "Batter's Helmet"
+						"set item tint rgb" 15185211
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Batter's Helmet"
+					ItemAttributes
+					{
+						ItemName "Batter's Helmet"
+						"set item tint rgb" 8289918
+					}
+					Item "The Sandman"
+					ItemAttributes
+					{
+						ItemName "The Sandman"
+						"effect bar recharge rate increased" 0.25
+						"max health additive penalty" -0
+					}
+					Skill Expert
+					WeaponRestrictions MeleeOnly
+				}
+			}
+		}
+		T_TFGateBot_Scout_Sandman_FastCharge_Expert_Crit
+		{
+			Class Scout
+			Name "Hyper League Scout"
+			Health 110
+			ClassIcon scout_stun
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Item "MvM GateBot Light Scout"
+					Skill Expert
+					WeaponRestrictions MeleeOnly
+					Item "The Sandman"
+					Attributes AlwaysCrit
+					ItemAttributes
+					{
+						ItemName "The Sandman"
+						"effect bar recharge rate increased" 0.25
+						"max health additive penalty" -0
+					}
+					Item "Batter's Helmet"
+					ItemAttributes
+					{
+						ItemName "Batter's Helmet"
+						"set item tint rgb" 15185211
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Batter's Helmet"
+					ItemAttributes
+					{
+						ItemName "Batter's Helmet"
+						"set item tint rgb" 8289918
+					}
+					Item "The Sandman"
+					Attributes AlwaysCrit
+					ItemAttributes
+					{
+						ItemName "The Sandman"
+						"effect bar recharge rate increased" 0.25
+						"max health additive penalty" -0
+					}
+					Skill Expert
+					WeaponRestrictions MeleeOnly
+				}
+			}
+		}
+		// Soldiers
+		T_TFGateBot_Soldier_Extended_Concheror_Hard
+		{
+			Class Soldier
+			Name "Extended Conch Soldier"
+			ClassIcon soldier_conch
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Item "The Concheror"
+					Item "MvM GateBot Light Soldier"
+					Skill Hard
+					Attributes DisableDodge
+					Attributes SpawnWithFullCharge
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"deploy time increased" 1.34
+						"increase buff duration"	1001
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "The Concheror"
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"deploy time increased" 1.34
+						"increase buff duration"	1001
+					}
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					Skill Hard
+					Attributes SpawnWithFullCharge
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		// Pyros
+		// Demomen
+		T_TFGateBot_Demo_Burst_Expert
+		{
+			Class Demoman
+			Name "Burst Fire Demoman"
+			ClassIcon demo_burst
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Item "Tartan Tyrolean"
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+					Skill Expert
+					Attributes DisableDodge
+					Attributes HoldFireUntilFullReload
+					ItemAttributes
+					{
+						ItemName "Tartan Tyrolean"
+						"set item tint rgb" 15185211
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"reload time increased" 1.211
+						"fire rate bonus" 0.05
+						"damage penalty" 0.5
+						"projectile spread angle penalty" 3
+						//"Projectile speed increased"	1.1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "Tartan Tyrolean"
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+					Skill Expert
+					Attributes HoldFireUntilFullReload
+					ItemAttributes
+					{
+						ItemName "Tartan Tyrolean"
+						"set item tint rgb" 6773060
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"reload time increased" 1.211
+						"fire rate bonus" 0.05
+						"damage penalty" 0.5
+						"projectile spread angle penalty" 3
+						//"Projectile speed increased"	1.1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		// Snipers
+		T_TFGateBot_Sniper_Huntsman_Hard
+		{
+			Class Sniper
+			Name "Bowman"
+			Health	125
+			ClassIcon sniper_bow
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					MaxVisionRange 1500
+					Item "MvM GateBot Light Sniper"
+					Skill Hard
+					Attributes DisableDodge
+					Item "The Huntsman"
+
+					ItemAttributes
+					{
+						ItemName "The Huntsman"
+						"dmg penalty vs players" 0.5
+						"dmg penalty vs buildings" 0.5
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Sniper"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Sniper"
+						"item style override" 1
+					}
+					MaxVisionRange 1500
+					Skill Hard
+					Item "The Huntsman"
+
+					ItemAttributes
+					{
+						ItemName "The Huntsman"
+						"dmg penalty vs players" 0.5
+						"dmg penalty vs buildings" 0.5
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Sniper_Huntsman_Hard_Crit
+		{
+			Class Sniper
+			Name "Bowman"
+			Health	125
+			ClassIcon sniper_bow
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Item "MvM GateBot Light Sniper"
+					Skill Hard
+					Attributes DisableDodge
+					Attributes	AlwaysCrit
+					MaxVisionRange 1500
+					Item "The Huntsman"
+
+					ItemAttributes
+					{
+						ItemName "The Huntsman"
+						"dmg penalty vs players" 0.5
+						"dmg penalty vs buildings" 0.5
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Sniper"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Sniper"
+						"item style override" 1
+					}
+					Skill Hard
+					MaxVisionRange 1500
+					Attributes	AlwaysCrit
+					Item "The Huntsman"
+
+					ItemAttributes
+					{
+						ItemName "The Huntsman"
+						"dmg penalty vs players" 0.5
+						"dmg penalty vs buildings" 0.5
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		// Giant Scout
+		T_TFGatebot_Giant_Scout
+		{
+			Class Scout
+			Name "Giant Scout"
+			ClassIcon scout_giant
+			Health 1600
+			EventChangeAttributes
+			{
+				Default
+				{
+					Skill Expert
+					Tag bot_gatebot
+					Tag bot_giant
+					Tag nav_prefer_gate1_flank
+					BehaviorModifiers Push		
+					Attributes IgnoreFlag			
+					Attributes DisableDodge
+
+					MaxVisionRange 1200
+					Item "MvM Gatebot Light Scout"
+					Attributes MiniBoss
+					Item "Upgradeable TF_WEAPON_SCATTERGUN"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_SCATTERGUN"
+						"bullets per shot bonus" 1.2
+						"damage bonus" 1.25
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					CharacterAttributes
+					{
+						"damage force reduction" 0.7
+						"airblast vulnerability multiplier" 0.35
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 5
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Skill Expert
+					Tag bot_giant
+					Tag nav_prefer_gate1_flank
+					MaxVisionRange 1200
+					Item "MvM Gatebot Light Scout"
+					Attributes MiniBoss
+					Item "Upgradeable TF_WEAPON_SCATTERGUN"	
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_SCATTERGUN"
+						"bullets per shot bonus" 1.2
+						"damage bonus" 1.25
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					ItemAttributes
+					{
+						ItemName "MvM Gatebot Light Scout"
+						"item style override" 1
+					}
+					CharacterAttributes
+					{
+						"damage force reduction" 0.7
+						"airblast vulnerability multiplier" 0.35
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 5
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Scout_Fast //unused
+		{
+			Class Scout
+			Name "Super Scout"
+			ClassIcon scout_fan_giant
+			Health 1200
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Item "MvM GateBot Light Scout"
+					Tag bot_giant
+					Skill Easy
+					Item "The Holy Mackerel"
+					Attributes MiniBoss
+					CharacterAttributes
+					{
+						"move speed bonus"	1.3
+						"damage force reduction" 0.7
+						"airblast vulnerability multiplier" 0.35
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 5
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Scout"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Scout"
+						"item style override" 1
+					}
+					Tag bot_giant
+					Skill Easy
+					Attributes MiniBoss
+					WeaponRestrictions	MeleeOnly
+					Item "The Holy Mackerel"
+					CharacterAttributes
+					{
+						"move speed bonus"	1.3
+						"damage force reduction" 0.7
+						"airblast vulnerability multiplier" 0.35
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 5
+					}
+				}
+			}
+		}
+		// Giant Demomen
+		T_TFGateBot_Giant_Demo_RapidFire  // same as Valve version
+		{
+			Class Demoman
+			Name "Giant Demoman"
+			ClassIcon demo_giant
+			Health 3300
+			EventChangeAttributes
+			{
+				Default
+				{
+					Skill Expert
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+					Item "MvM Gatebot Light Demoman"
+					Attributes IgnoreFlag
+					Tag bot_giant
+					Tag bot_gatebot
+					Tag nav_prefer_gate1_flank
+					Attributes DisableDodge
+					Attributes MiniBoss
+					BehaviorModifiers Push
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"fire rate bonus" 0.5
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					CharacterAttributes
+					{
+						"move speed penalty" 0.5
+						"damage force reduction" 0.5
+						"airblast vulnerability multiplier" 0.25
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 5
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Skill Expert
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+					Item "MvM Gatebot Light Demoman"
+					Tag bot_giant
+					Attributes MiniBoss
+					ItemAttributes
+					{
+						ItemName "MvM Gatebot Light Demoman"
+						"item style override" 1
+					}
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"fire rate bonus" 0.5
+						"killstreak tier" 2
+						"killstreak idleeffect" 1
+					}
+					CharacterAttributes
+					{
+						"move speed penalty" 0.5
+						"damage force reduction" 0.5
+						"airblast vulnerability multiplier" 0.25
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 5
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+
+//====================== Custom bot templates concepts by mc, may not be made by mc only =======================================
+		T_TFGateBot_Pyro_Dragon_Fury_Easy
+		{
+			Class Pyro
+			Name "Fireball Pyro"
+			ClassIcon pyro_dragon_fury_swordstone
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Item "MvM GateBot Light Pyro"
+					Skill Easy
+					Attributes DisableDodge
+					MaxVisionRange 800
+					Item "The Dragon's Fury"
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Pyro"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Pyro"
+						"item style override" 1
+					}
+					Skill Easy
+					MaxVisionRange 800
+					Item "The Dragon's Fury"
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Pyro_Dragon_Fury_Easy_Crit
+		{
+			Class Pyro
+			Name "Fireball Pyro"
+			ClassIcon pyro_dragon_fury_swordstone
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Item "MvM GateBot Light Pyro"
+					Skill Easy
+					Attributes DisableDodge
+					MaxVisionRange 800
+					Attributes AlwaysCrit
+					Item "The Dragon's Fury"
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Pyro"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Pyro"
+						"item style override" 1
+					}
+					Skill Easy
+					MaxVisionRange 800
+					Attributes AlwaysCrit
+					Item "The Dragon's Fury"
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Pyro_Dragon_Fury_Normal
+		{
+			Class Pyro
+			Name "Fireball Pyro"
+			ClassIcon pyro_dragon_fury_swordstone
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Item "MvM GateBot Light Pyro"
+					Skill Normal
+					Attributes DisableDodge
+					MaxVisionRange 800
+					Item "The Dragon's Fury"
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Pyro"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Pyro"
+						"item style override" 1
+					}
+					Skill Normal
+					MaxVisionRange 800
+					Item "The Dragon's Fury"
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+		T_TFGateBot_Pyro_Dragon_Fury_Hard
+		{
+			Class Pyro
+			Name "Fireball Pyro"
+			ClassIcon pyro_dragon_fury_swordstone
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers Push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Item "MvM GateBot Light Pyro"
+					Skill Hard
+					Attributes DisableDodge
+					MaxVisionRange 800
+					Item "The Dragon's Fury"
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Pyro"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Pyro"
+						"item style override" 1
+					}
+					Skill Hard
+					MaxVisionRange 800
+					Item "The Dragon's Fury"
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+	    T_TFGateBot_Pyro_Dragon_Extended_Concheror_Normal
+        {
+            Name "Extended Conch Fireball Pyro"
+            ClassIcon pyro_dragon_fury_swordstone_conch_litho
+            Class Pyro
+
+            EventChangeAttributes
+            {
+                Default
+                {
+				    MaxVisionRange 800
+                    Skill Normal // Hard Dragon Fury Pyros are too accurate
+                    Tag bot_gatebot
+                    Tag nav_prefer_gate1_flank
+					Attributes IgnoreFlag
+					Attributes DisableDodge
+					BehaviorModifiers Push
+
+                    Item "The Dragon's Fury"
+                    Item "The Concheror"
+                    Item "MvM Gatebot Light Pyro"
+                    Attributes SpawnWithFullCharge
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"deploy time increased" 1.34
+                        "increase buff duration" 1001	// cosmectic
+					}
+					CharacterAttributes
+					{
+						"increase buff duration" 1001
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+                }
+                RevertGateBotsBehavior
+                {
+				    MaxVisionRange 800
+                    Skill Normal //Hard Dragon Fury Pyros are too accurate
+                    Item "The Dragon's Fury"
+                    Item "The Concheror"
+                    Item "MvM Gatebot Light Pyro"
+                    Attributes SpawnWithFullCharge
+                    ItemAttributes
+                    {
+                        ItemName "MvM Gatebot Light Pyro"
+                        "item style override" 1
+                    }
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"deploy time increased" 1.34
+                        "increase buff duration" 1001	// cosmectic
+					}
+					CharacterAttributes
+					{
+						"increase buff duration" 1001
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+                }
+            }
+        }
+		// Sniper
+		T_TFGateBot_Sniper_Huntsman_Spammer_Small_Expert_Crit
+		{
+			Class Sniper
+			Name "Rapid Fire Bowman"
+			Health	125
+			ClassIcon sniper_bow_multi
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+					BehaviorModifiers push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+					Item "MvM GateBot Light Sniper"
+					Skill Expert
+					MaxVisionRange 1500
+					Attributes DisableDodge
+					Attributes	AlwaysCrit
+					Item "The Huntsman"
+					Item "Starduster"
+
+					ItemAttributes  // 30 damage
+									// 36 if bot has crit and player has full crit res 
+					{
+						ItemName "The Fortified Compound"
+						"dmg penalty vs players" 0.25
+						"dmg penalty vs buildings" 0.25
+						"fire rate bonus" 0.1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Sniper"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Sniper"
+						"item style override" 1
+					}
+					Skill Expert
+					MaxVisionRange 1500
+					Attributes	AlwaysCrit
+					Item "The Huntsman"
+					Item "Starduster"
+
+					ItemAttributes  // 30 damage
+									// 36 if bot has crit and player has full crit res 
+					{
+						ItemName "The Fortified Compound"
+						"dmg penalty vs players" 0.25
+						"dmg penalty vs buildings" 0.25
+						"fire rate bonus" 0.1
+					}
+					CharacterAttributes
+					{
+						no_duck 1
+						"increased jump height" 1.5
+						"increased air control" 2
+					}
+				}
+			}
+		}
+	}
+}

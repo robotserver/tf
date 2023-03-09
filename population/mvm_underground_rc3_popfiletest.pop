@@ -1,0 +1,201 @@
+// 
+// test fire legnth 
+// made by zombie AI
+#base robot_standard.pop
+#base robot_giant.pop
+// #base robot_brugge.pop !!original map!! 
+ 
+WaveSchedule
+{
+	StartingCurrency 4600
+	CanBotsAttackWhileInSpawnRoom Yes
+	RespawnWaveTime 13 
+	Mission
+	{
+		Objective	DestroySentries
+		Where	spawnbot
+		BeginAtWave	1
+		InitialCooldown	30
+		CooldownTime	30
+		DesiredCount	1
+		TFBot
+		{
+			Template	T_TFBot_SentryBuster
+				CharacterAttributes
+					{
+					"airblast vulnerability multiplier" 0.0001
+					"airblast vertical vulnerability multiplier" 0.0001
+					"damage force reduction" 0.001
+					"move speed bonus" 2
+					"rage giving scale" 0.001
+					"dmg taken increased" 0.5
+					}
+		}
+	}
+	
+	Mission
+	{
+		Objective	Sniper
+		Where	spawnbot
+		BeginAtWave	1
+		RunForThisManyWaves	1
+		InitialCooldown	10
+		CooldownTime    65
+		DesiredCount	1
+		TFBot
+		{
+			Class Sniper
+			Skill Hard
+			Attributes SpawnWithFullCharge
+			WeaponRestrictions SecondaryOnly
+			Item	"The Cleaner's Carbine"
+			ItemAttributes
+			{
+				ItemName	"tf_weapon_sniperrifle"
+				"is_passive_weapon" 1
+				"increase buff duration HIDDEN" 99
+			}
+			ItemAttributes
+			{
+				ItemName	"The Cleaner's Carbine"
+				// "is_passive_weapon" 1
+				"increase buff duration HIDDEN" 99
+			}
+			
+		}
+	}
+	Templates
+	{
+		T_TFBot_Engineer_zombie
+		{
+		Class Engineer
+			Name "Armored Engineer"
+			Skill Expert
+			Health 800
+			Scale 1.2
+			Attributes IgnoreFlag
+			CharacterAttributes
+			{
+				"engy dispenser radius increased" 5
+				"engy building health bonus" 2
+				"damage force reduction" 0.2
+				"airblast vulnerability multiplier" 0.001
+				"airblast vertical vulnerability multiplier" 0.001
+				"build rate bonus" 0.8
+				"rage giving scale" 0.001
+				"move speed bonus"	1
+				"dmg taken increased" 0.7
+			}
+			
+			ClassIcon	engineer
+		
+		}
+		T_TFBot_Engineer_zombie_teletohint
+		{
+		Class Engineer
+			Name "Teleporter Engineer"
+			Skill Expert
+			Health 800
+			Scale 1.2
+			Attributes TeleportToHint
+			Attributes IgnoreFlag
+			CharacterAttributes
+			{
+				"engy dispenser radius increased" 5
+				"engy building health bonus" 3
+				"damage force reduction" 0.2
+				"airblast vulnerability multiplier" 0.001
+				"airblast vertical vulnerability multiplier" 0.001
+				"build rate bonus" 0.5
+				"rage giving scale" 0.001
+				"move speed bonus"	1.1
+			}
+			
+			ClassIcon	engineer
+		
+		}
+	}	
+
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target	wave_start_relay_ironman
+			Action	Trigger
+		}
+		
+		DoneOutput
+		{
+			Target	wave_finished_relay
+			Action	Trigger
+		}
+		WaveSpawn
+		{
+			Name "1_12D"
+			TotalCount 30
+			SpawnCount 1
+			MaxActive 2
+			WaitBeforeStarting 3
+			WaitBetweenSpawns 8
+			Where spawnbot
+			TotalCurrency 100
+			TFBot
+			{
+				Class Scout
+				Skill Hard
+				Attributes	AlwaysFireWeapon
+				Item	"The Soda Popper"
+				ItemAttributes
+					{
+						ItemName	"The Soda Popper"
+						"damage bonus"	0.1
+						"crit from behind" 1
+						
+					}
+				CharacterAttributes
+					{
+					"airblast vulnerability multiplier" 0.0001
+					"airblast vertical vulnerability multiplier" 0.0001
+					"damage force reduction" 0.001
+					"move speed bonus" 0.01
+					}
+			}
+			
+		}
+		WaveSpawn
+		{
+			Name "1_12D"
+			TotalCount 33
+			SpawnCount 1
+			MaxActive 2
+			WaitBeforeStarting 3
+			WaitBetweenSpawns 8
+			WaitForAllSpawned "1_12A"
+			Where spawnbot
+			TotalCurrency 100
+			TFBot
+			{
+				Class Soldier
+				Skill Hard
+				Item "The Black Box"
+				ItemAttributes 
+				{
+					ItemName "The Black Box"
+					"redirected_flame_size_mult" 2
+					"mult_end_flame_size" 2
+					"flame life bonus" 1.05
+					"Projectile speed increased"	0.0001
+					// "projectile no deflect" 1 // Easter Egg for somebody . tell them this is upgraded rockcts!! 
+				}
+				CharacterAttributes
+					{
+					"airblast vulnerability multiplier" 0.0001
+					"airblast vertical vulnerability multiplier" 0.0001
+					"damage force reduction" 0.001
+					"move speed bonus" 0.01
+					}
+			}
+			
+		}
+	}
+}

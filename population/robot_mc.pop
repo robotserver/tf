@@ -1,0 +1,5547 @@
+// I am good Boy. I follow Tindal example on MaxVisionRange.
+// !!!!!!! THIS IS WHY I ADDED NO_DUCK TO ALL BOTS !!!!!!!
+// "TF2 bots (and players) desync their hitboxes if you crouch after dropping off a cliff while in air, this can
+// easily be fixed by preventing bots from crouching in air in mvm"
+// https://cdn.discordapp.com/attachments/469624624515383306/649776031770869773/unknown.png
+//
+Gamiing
+{
+	Templates
+	{
+		// Standard - Edited Valve Bots
+		// Sniper
+		T_TFBot_Sniper
+		{
+			Class Sniper
+			Skill Hard
+			MaxVisionRange 3000
+			ItemAttributes	// intentional
+			{
+				ItemName "Upgradeable TF_WEAPON_SNIPERRIFLE"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes	// intentional
+			{
+				ItemName "TF_WEAPON_SNIPERRIFLE"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes	// intentional
+			{
+				ItemName "Upgradeable TF_WEAPON_CLUB"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes	// intentional
+			{
+				ItemName "TF_WEAPON_CLUB"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			CharacterAttributes
+			{
+				"killstreak tier" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Sniper_Razorback
+		{
+			Class Sniper
+			Name "Razorback Sniper"
+			Skill Hard
+			Item "The Razorback"
+			MaxVisionRange 3000
+			ItemAttributes	// intentional
+			{
+				ItemName "Upgradeable TF_WEAPON_SNIPERRIFLE"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes	// intentional
+			{
+				ItemName "TF_WEAPON_SNIPERRIFLE"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes	// disable razorback recharging
+			{
+				ItemName "The Razorback"
+			//	"item_meter_charge_rate" 0
+				"item_meter_charge_type" 0
+			}
+			ItemAttributes	// intentional
+			{
+				ItemName "Upgradeable TF_WEAPON_CLUB"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes	// intentional
+			{
+				ItemName "TF_WEAPON_CLUB"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			CharacterAttributes
+			{
+				"killstreak tier" 1
+				"increased jump height" 1.5
+				no_duck 1
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Sniper_Sydney_Sleeper
+		{
+			Class Sniper
+			Name "Sydney Sniper"
+			Skill Hard
+			ClassIcon sniper_sydneysleeper
+			Item "The Sydney Sleeper"
+			MaxVisionRange 2000
+			ItemAttributes	// intentional
+			{
+				ItemName "The Sydney Sleeper"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes	// intentional
+			{
+				ItemName "Upgradeable TF_WEAPON_CLUB"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes	// intentional
+			{
+				ItemName "TF_WEAPON_CLUB"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			CharacterAttributes
+			{
+				"killstreak tier" 1
+				"increased jump height" 1.5
+				no_duck 1
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Sniper_Sydney_Sleeper_Razorback	// a custom, but a needed one
+		{
+			Class Sniper
+			Name "Razorback Sydney Sniper"
+			Skill Hard
+			ClassIcon sniper_sydneysleeper
+			Item "The Sydney Sleeper"
+			Item "The Razorback"
+			MaxVisionRange 2000
+			ItemAttributes	// intentional
+			{
+				ItemName "The Sydney Sleeper"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes	// disable razorback recharging
+			{
+				ItemName "The Razorback"
+			//	"item_meter_charge_rate" 0
+				"item_meter_charge_type" 0
+			}
+			ItemAttributes	// intentional
+			{
+				ItemName "Upgradeable TF_WEAPON_CLUB"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes	// intentional
+			{
+				ItemName "TF_WEAPON_CLUB"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			CharacterAttributes
+			{
+				"killstreak tier" 1
+				"increased jump height" 1.5
+				no_duck 1
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Sniper_Jarate	// Named "Apprentice" because doesnt use melee
+		{
+			Class Sniper
+			Name "Jarate Apprentice"
+			Skill Easy
+			ClassIcon sniper_jarate
+			Item "Jarate"
+			//Item "Master's Yellow Belt" // doesn't appear on robot models
+			Item "Desert Marauder"
+			MaxVisionRange 1000
+		//	Attributes AlwaysFireWeapon	// for ease when designing pops
+			WeaponRestrictions SecondaryOnly
+			ItemAttributes
+			{
+				ItemName "Jarate"
+				"effect bar recharge rate increased" -2
+				"killstreak tier" 2
+				"killstreak idleeffect" 7
+				"fire rate penalty" 2.5
+				
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes	// intentional
+			{
+				ItemName "Upgradeable TF_WEAPON_SNIPERRIFLE"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes	// intentional
+			{
+				ItemName "TF_WEAPON_SNIPERRIFLE"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes	// intentional
+			{
+				ItemName "Upgradeable TF_WEAPON_CLUB"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes	// intentional
+			{
+				ItemName "TF_WEAPON_CLUB"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			CharacterAttributes
+			{
+				"killstreak tier" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Sniper_Huntsman
+		{
+			Class Sniper
+			Name "Bowman"
+			Skill Hard
+			ClassIcon sniper_bow
+			MaxVisionRange 1500
+			Item "The Huntsman"
+
+			ItemAttributes
+			{
+				ItemName "The Huntsman"
+				"dmg penalty vs players" 0.5
+				"dmg penalty vs buildings" 0.5
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Sniper_Huntsman_Spammer
+		{
+			Class Sniper
+			Name "Rapid Fire Bowman"
+			Item "The Huntsman"
+			ClassIcon sniper_bow_multi
+			Skill Hard
+			Health 1200
+			Scale 1.5
+			MaxVisionRange 1500
+			ItemAttributes
+			{
+				ItemName "The Huntsman"
+				"fire rate bonus" 0.6
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"head scale" 0.7
+				"move speed penalty" 0.85
+				"airblast vulnerability multiplier" 0.5
+				"airblast vertical vulnerability multiplier" 0.75
+				"health regen" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Sniper_Huntsman_Spammer_gettysburg	// lol
+		{
+			Class Sniper
+			Name "Rapid Fire Bow-chin-man"
+			Item "The Huntsman"
+			ClassIcon sniper_bow_multi
+			Skill Hard
+			Health 1200
+			Scale 1.5
+			MaxVisionRange 1500
+			ItemAttributes
+			{
+				ItemName "The Huntsman"
+				"fire rate bonus" 0.6
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"move speed penalty" 0.85
+				"airblast vulnerability multiplier" 0.5
+				"airblast vertical vulnerability multiplier" 0.75
+				"health regen" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		// Scout
+		T_TFBot_Scout_Melee
+		{
+			Class Scout
+			Skill Hard // increased to improve ability to hit with melee
+			WeaponRestrictions MeleeOnly
+			Name "Bat Scout"
+			ClassIcon scout_bat
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Scout_Fish
+		{
+			Class Scout
+			Skill Hard
+			WeaponRestrictions MeleeOnly
+			Item "The Holy Mackerel"
+			Name "Fish Scout"
+			ClassIcon scout_fish_nys // if you love God use this icon for all of your fish scouts
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+ 		T_TFBot_Scout_SunStick
+		{
+			Class Scout
+			Skill Hard
+			WeaponRestrictions MeleeOnly
+			Item "Sun-on-a-Stick"
+			Item "The Bolt Boy"
+			Name "SunStick Scout"
+			ClassIcon scout_sunstick
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Scout_Bonk
+		{
+			Class Scout
+			Skill Hard
+			Item "Bonk! Atomic Punch"
+			Item "Bonk Helm"
+			Name "Bonk Scout"
+			WeaponRestrictions MeleeOnly
+			ClassIcon scout_bonk
+			ItemAttributes
+			{
+				ItemName "Bonk! Atomic Punch"
+				"deploy time increased" 1.34
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Scout_Sandman
+		{
+			Class Scout
+			Name "Minor League Scout"
+			Skill Hard
+			Health 110
+			MaxVisionRange 1000
+			ClassIcon scout_stun
+			WeaponRestrictions MeleeOnly
+			Item "The Sandman"
+			Item "Batter's Helmet"
+			ItemAttributes
+			{
+				ItemName "The Sandman"
+				"max health additive penalty" -0
+				"effect bar recharge rate increased" 0.4
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Scout_Sandman_FastCharge
+		{
+			Class Scout
+			Name "Hyper League Scout"
+			Skill Expert
+			Health 110
+			MaxVisionRange 1000
+			ClassIcon scout_stun
+			WeaponRestrictions MeleeOnly
+			Item "The Sandman"
+			Item "Batter's Helmet"
+			ItemAttributes
+			{
+				ItemName "The Sandman"
+				"effect bar recharge rate increased" 0.2
+				"max health additive penalty" -0
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Scout_Wrap_Assassin
+		{
+			Class Scout
+			Name "Wrap Assassin Scout"
+			Skill Hard
+			MaxVisionRange 1000
+			WeaponRestrictions MeleeOnly
+			ClassIcon scout_assassin
+			Item "The Wrap Assassin"
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Scout_Wrap_Assassin_Sigsegv
+		{
+			Class Scout
+			Name "Wrap Assassin Scout"
+			Skill Hard
+			MaxVisionRange 1000
+			WeaponRestrictions MeleeOnly
+			ClassIcon scout_assassin_sig
+			Item "The Wrap Assassin"
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Scout_Jumping_Sandman
+		{
+			Class Scout
+			Name "Jumping Sandman Scout"
+			Health 110
+			Skill Hard
+			MaxVisionRange 1500
+			ClassIcon scout_jumping
+			WeaponRestrictions MeleeOnly
+			Item "The Sandman"
+			Item "The Hanger-On Hood"
+			Item "The Flight of the Monarch"
+			Item "The Mantreads"
+			Attributes AutoJump
+				AutoJumpMin 5
+				AutoJumpMax 5
+			ItemAttributes
+			{
+				ItemName "The Sandman"
+				"effect bar recharge rate increased" 0.4
+				"max health additive penalty" -0
+			//	"increased air control" 3.0		// makes them more annoying since when they jump they refuse to move forward and just circles
+												// around the jump spot they wanted to be at lmao
+			}
+			CharacterAttributes
+			{
+				"increased jump height" 2
+				no_duck 1
+			//	"increased air control" 3.0
+			}
+		}
+
+		T_TFBot_Scout_Scattergun_SlowFire
+		{
+			Class Scout
+			Skill Easy
+			MaxVisionRange 1500
+			Item "Upgradeable TF_WEAPON_SCATTERGUN"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_SCATTERGUN"
+				"fire rate penalty" 1.15 //fire slower
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Scout_FAN
+		{
+			Class Scout
+			Skill Expert
+			ClassIcon scout_fan
+			Name "Force-A-Nature Scout"
+			Item "The Fed-Fightin' Fedora"
+			Item "The Bolt Boy"
+			Item "The Force-a-Nature"
+			MaxVisionRange 500
+			ItemAttributes
+			{
+				ItemName "The Force-a-Nature"
+				"reload time increased" 1.6 // 60% slower reload
+				"scattergun knockback mult" 1.5
+				"damage penalty" 0.55		// 35% damage reduction
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Scout_Shortstop
+		{
+			Class Scout
+			Skill Easy
+			ClassIcon scout_shortstop
+			Item "The Shortstop"
+			Name "Shortstop Scout"
+			MaxVisionRange 1500
+			Health 650
+			Scale 1.4
+			Tag bot_giant
+
+			ItemAttributes
+			{
+				ItemName "The Shortstop"
+				"damage force increase text" 0  // this doesn't do anything yeah
+				"airblast vulnerability multiplier" 0.8
+				"damage force reduction" 0.8
+			}
+			CharacterAttributes
+			{
+				"head scale" 0.7
+				"move speed bonus" 1.25
+				"airblast vulnerability multiplier" 0.5
+				"airblast vertical vulnerability multiplier" 0.75
+				no_duck 1
+				"health regen" 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		// Spy
+		T_TFBot_Spy
+		{
+			Class Spy
+			Skill Expert
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_REVOLVER"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_BUILDER_SPY"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_KNIFE"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			CharacterAttributes
+			{
+				"killstreak tier" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		// Medic
+		T_TFBot_Medic
+		{
+			Class Medic
+			Name "Uber Medic"
+			ClassIcon medic_uber
+			Skill Normal
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			Item "Upgradeable TF_WEAPON_MEDIGUN" // no way to see it
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_MEDIGUN"
+				"ubercharge rate bonus" 2
+				"heal rate bonus" 5
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Medic_QuickUber
+		{
+			Class Medic
+			Name "Quick-Uber Medic"
+			ClassIcon medic_uber
+			Skill Normal
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			Item "The Byte'd Beak"
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			Item "Upgradeable TF_WEAPON_MEDIGUN" // no way to see it
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_MEDIGUN"
+				"ubercharge rate bonus" 5	// buffed to 10, 5 is just too weak
+													// 8 seconds to refill uber
+				"uber duration bonus" -3	// and now it needs a shorter uber lol
+				"heal rate penalty" 0.1
+				"overheal penalty" 0		// required or they're kinda bad in being a quick-uber lol
+											// 
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Medic_BigHeal
+		{
+			Class Medic
+			Name "Big-Heal Medic"
+			Skill Normal
+			Item "The Overdose"
+			Item "The Quick-Fix"
+			Item "The Combat Medic's Crusher Cap"
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "The Overdose"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "The Quick-Fix"
+				"ubercharge rate penalty" -0.1
+				"heal rate bonus" 20
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+				"hand scale" 1.5
+			}
+		}
+
+		T_TFBot_Medic_QuickFix
+		{
+			Class Medic
+			Name "Quick-Fix Medic"
+			Skill Normal
+			Item "The Overdose"
+			Item "The Quick-Fix"
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "The Overdose"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "The Quick-Fix"
+				"ubercharge rate bonus" 4	// lol lower overheal penalty increases it
+											// ~11 seconds to fill ubercharge with medic sometimes losing target
+				"heal rate bonus" 5			// lets keep this the same
+				"healing received penalty" 0.2	// self heal is divided by 5
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Medic_SlowRecharge
+		{
+			Class Medic
+			Name "Slow-Uber Medic"
+			ClassIcon medic_uber
+		//	ClassIcon medic_uber_extended	// idk if I should use it
+			Skill Normal
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+		//	Item "Field Practice"	// can't be noticed!
+			Item "The Warsworn Helmet"
+			Item "Upgradeable TF_WEAPON_MEDIGUN"
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_MEDIGUN"
+		//		"ubercharge rate penalty" 0.5
+		//		"heal rate bonus" 3		
+		//		"uber duration bonus" 3		// buff this man, 'evil'_soldier_chuckle_file_name_number1.sound_file_format
+											// I really just wanted to write this plz dont judge :((((((((((((((
+				"ubercharge rate penalty" 0.5
+				"heal rate bonus" 5
+				"uber duration bonus" 4		// buff this man, 'evil'_soldier_chuckle_file_name_number1.sound_file_format
+											// I really just wanted to write this plz dont judge :((((((((((((((
+				"overheal penalty" 0.5
+			}
+			ItemAttributes
+			{
+				ItemName "Blighted Beak"
+				"item style override" 0
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Medic_Extended_Uber		// this is a custom bot, a second variant of T_TFBot_Medic_SlowRecharge
+		{
+			Class Medic
+			Name "Extended Uber Medic"
+			ClassIcon medic_uber
+		//	ClassIcon medic_uber_extended	// idk if I should use it
+			Skill Normal
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+		//	Item "Field Practice"	// can't be noticed!
+			Item "The Warsworn Helmet"
+			Item "Upgradeable TF_WEAPON_MEDIGUN"
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_MEDIGUN"
+			//	"ubercharge rate penalty" 0.5	// not needed, they already recharge slow
+				"heal rate penalty" 0.1
+				"uber duration bonus" 4		// buff this man, 'evil'_soldier_chuckle_file_name_number1.sound_file_format
+											// I really just wanted to write this plz dont judge :((((((((((((((
+			//	"overheal penalty" 0.5
+			}
+			ItemAttributes
+			{
+				ItemName "Blighted Beak"
+				"item style override" 0
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Medic_Vaccinator_Bullet
+		{
+			Class Medic
+			Skill Expert
+			Name "Bullet Immunity Medic"
+			ClassIcon medic_bullet
+			Item "powerhouse_medigun_sparkoflife"
+			Item "The Byte'd Beak"
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "powerhouse_medigun_sparkoflife"
+				"ubercharge rate bonus" 25
+				"medigun bullet resist passive" 0.74
+				"medigun bullet resist deployed" 0.99
+				"medigun charge is resists" 3
+				"lunchbox adds minicrits" 3
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Medic_Vaccinator_Blast
+		{
+			Class Medic
+			Skill Expert
+			Name "Blast Immunity Medic"
+			ClassIcon medic_blast
+			Item "concealedkiller_medigun_maskedmender"
+			Item "The Byte'd Beak"
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "concealedkiller_medigun_maskedmender"
+				"ubercharge rate bonus" 25
+				"medigun blast resist passive" 0.74
+				"medigun blast resist deployed" 0.99
+				"medigun charge is resists" 4
+				"lunchbox adds minicrits" 3
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Medic_Vaccinator_Fire
+		{
+			Class Medic
+			Skill Expert
+			Name "Fire Immunity Medic"
+			ClassIcon medic_fire
+			Item "pyroland_medigun_flowerpower"
+			Item "The Byte'd Beak"
+			Item "Coldfront Commander"
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "pyroland_medigun_flowerpower"
+				"ubercharge rate bonus" 25
+				"medigun fire resist passive" 0.74
+				"medigun fire resist deployed" 0.99
+				"medigun charge is resists" 5
+				"lunchbox adds minicrits" 3
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+				"medic regen penalty" 0.0001
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Medic_Vaccinator_Bullet_Linger
+		{
+			Class Medic
+			Skill Expert
+			Name "Bullet Immunity Medic"
+			ClassIcon medic_bullet
+			Item "powerhouse_medigun_sparkoflife"
+			Item "The Byte'd Beak"
+		//	Item "Titanium Tyrolean"	// conflicts with byted beak on bots, dissapointment 100
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "powerhouse_medigun_sparkoflife"
+				"ubercharge rate bonus" 25
+				"uber duration bonus" 50000  // doesn't do anything just display only
+				"medigun bullet resist passive" 0.99
+				"medigun bullet resist deployed" 0.99
+				"medigun charge is resists" 3
+			//	"lunchbox adds minicrits" 3  // default weapon mode allows inf vac uber duration even with or without the duration bonus att
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		//	CharacterAttributes		// MUST BE GIVEN TO PATIENTS!
+		//	{
+		//		"dmg taken from bullets reduced" 0
+		//	}
+		//	Attributes BulletsImmune	// Alternatively, just use this
+		}
+
+		T_TFBot_Medic_Vaccinator_Blast_Linger
+		{
+			Class Medic
+			Skill Expert
+			Name "Blast Immunity Medic"
+			ClassIcon medic_blast
+			Item "concealedkiller_medigun_maskedmender"
+			Item "The Byte'd Beak"
+		//	Item "Titanium Tyrolean"	// conflicts with byted beak on bots, dissapointment 100
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "concealedkiller_medigun_maskedmender"
+				"ubercharge rate bonus" 400
+				"uber duration bonus" -8  // doesn't do anything just display only
+				"medigun blast resist passive" 0.99
+				"medigun blast resist deployed" 0.99
+				"bot medic uber health threshold" 300
+				"medigun charge is resists" 4
+			//	"lunchbox adds minicrits" 3  // default weapon mode allows inf vac uber duration even with or without the duration bonus att
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		//	CharacterAttributes		// MUST BE GIVEN TO PATIENTS!
+		//	{
+		//		"dmg taken from blast reduced" 0
+		//	}
+		//	Attributes BlastImmune	// Alternatively, just use this
+		}
+
+		T_TFBot_Medic_Vaccinator_Fire_Linger
+		{
+			Class Medic
+			Skill Expert
+			Name "Fire Immunity Medic"
+			ClassIcon medic_fire
+			Item "pyroland_medigun_flowerpower"
+			Item "The Byte'd Beak"
+		//	Item "Titanium Tyrolean"	// conflicts with byted beak on bots, dissapointment 100
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "pyroland_medigun_flowerpower"
+				"ubercharge rate bonus" 25
+				"uber duration bonus" 50000  // doesn't do anything just display only
+				"medigun fire resist passive" 0.74
+				"medigun fire resist deployed" 0.99
+				"bot medic uber health threshold" 300
+				"medigun charge is resists" 5
+			//	"lunchbox adds minicrits" 3  // default weapon mode allows inf vac uber duration even with or without the duration bonus att
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		//	CharacterAttributes		// MUST BE GIVEN TO PATIENTS!
+		//	{
+		//		"dmg taken from fire reduced" 0
+		//	}
+		//	Attributes FireImmune	// Alternatively, just use this
+		}
+
+		T_TFBot_Medic_Vaccinator_Bullet_Linger_VoiceSpam		// Needs to add additional 75 to ubercharge rate for every vac medic in the squad
+		{
+			Class Medic
+			Skill Expert
+			Name "Bullet Immunity Medic"
+			ClassIcon medic_bullet
+			Item "powerhouse_medigun_sparkoflife"
+			Item "The Byte'd Beak"
+		//	Item "Titanium Tyrolean"	// conflicts with byted beak on bots, dissapointment 100
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "powerhouse_medigun_sparkoflife"
+				"ubercharge rate bonus" 75		// for one vac med
+			//	"ubercharge rate bonus" 150		// for two vac meds
+			//	"ubercharge rate bonus" 215		// for three vac meds
+			//	and so on......
+
+				"uber duration bonus" -8  // force uber end immediately
+				"medigun bullet resist passive" 0.99
+				"medigun bullet resist deployed" 0.99
+				"bot medic uber health threshold" 300
+				"medigun charge is resists" 3
+			//	"lunchbox adds minicrits" 3  // default weapon mode allows inf vac uber duration even with or without the duration bonus att
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		//	CharacterAttributes		// MUST BE GIVEN TO PATIENTS!
+		//	{
+		//		"dmg taken from bullets reduced" 0
+		//	}
+		//	Attributes BulletsImmune	// Alternatively, just use this
+		}
+
+		T_TFBot_Medic_Vaccinator_Blast_Linger_VoiceSpam		// Needs to add additional 75 to ubercharge rate for every vac medic in the squad
+		{
+			Class Medic
+			Skill Expert
+			Name "Blast Immunity Medic"
+			ClassIcon medic_blast
+			Item "concealedkiller_medigun_maskedmender"
+			Item "The Byte'd Beak"
+		//	Item "Titanium Tyrolean"	// conflicts with byted beak on bots, dissapointment 100
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "concealedkiller_medigun_maskedmender"
+				"ubercharge rate bonus" 75		// for one vac med
+			//	"ubercharge rate bonus" 150		// for two vac meds
+			//	"ubercharge rate bonus" 215		// for three vac meds
+			//	and so on......
+
+				"uber duration bonus" -8  // force uber end immediately
+				"medigun blast resist passive" 0.99
+				"medigun blast resist deployed" 0.99
+				"bot medic uber health threshold" 300
+				"medigun charge is resists" 4
+			//	"lunchbox adds minicrits" 3  // default weapon mode allows inf vac uber duration even with or without the duration bonus att
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		//	CharacterAttributes		// MUST BE GIVEN TO PATIENTS!
+		//	{
+		//		"dmg taken from blast reduced" 0
+		//	}
+		//	Attributes BlastImmune	// Alternatively, just use this
+		}
+		T_TFBot_Medic_Vaccinator_Fire_Linger_VoiceSpam		// Needs to add additional 75 to ubercharge rate for every vac medic in the squad
+		{
+			Class Medic
+			Skill Expert
+			Name "Fire Immunity Medic"
+			ClassIcon medic_fire
+			Item "pyroland_medigun_flowerpower"
+			Item "The Byte'd Beak"
+		//	Item "Titanium Tyrolean"	// conflicts with byted beak on bots, dissapointment 100
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "pyroland_medigun_flowerpower"
+				"ubercharge rate bonus" 75		// for one vac med
+			//	"ubercharge rate bonus" 150		// for two vac meds
+			//	"ubercharge rate bonus" 215		// for three vac meds
+			//	and so on......
+
+				"uber duration bonus" -8  // force uber end immediately
+				"medigun fire resist passive" 0.99
+				"medigun fire resist deployed" 0.99
+				"bot medic uber health threshold" 300
+				"medigun charge is resists" 5
+			//	"lunchbox adds minicrits" 3  // default weapon mode allows inf vac uber duration even with or without the duration bonus att
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		//	CharacterAttributes		// MUST BE GIVEN TO PATIENTS!
+		//	{
+		//		"dmg taken from fire reduced" 0
+		//	}
+		//	Attributes FireImmune	// Alternatively, just use this
+		}
+
+		// Heavyweapons
+		T_TFBot_Heavyweapons_Fist
+		{
+			Class Heavyweapons
+			Name "Steel Gauntlet"
+			Skill Hard
+			ClassIcon heavy_steelfist
+			//Attributes DefensiveBuffHigh	// Passive damage reduction, replaces high health
+			Health 900
+			Scale 1.5						// Force scale to 1 when "Health" set high
+			WeaponRestrictions MeleeOnly
+			Item "Fists of Steel"
+			Tag bot_giant
+			CharacterAttributes
+			{
+				"airblast vulnerability multiplier" 0.5
+				"airblast vertical vulnerability multiplier" 0.75
+				"health regen" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Heavyweapons_Heavyweight_Champ
+		{
+			Class Heavyweapons
+			Name "Heavyweight Champ"
+			Skill Hard
+			ClassIcon heavy_champ
+			WeaponRestrictions MeleeOnly
+			Item "the killing gloves of boxing"
+			Item "Pugilist's Protector"
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Heavyweapons_Heavyweight_Champ_Fast
+		{
+			Class Heavyweapons
+			Name "Heavyweight Champ"
+			Skill Hard
+			ClassIcon heavy_gru
+			WeaponRestrictions MeleeOnly
+			Item "Gloves of Running Urgently MvM"
+			Item "Pugilist's Protector"
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Heavyweapons_Gnome
+		{
+			Class Heavyweapons
+			Name "Heavy Mittens"
+			Skill Expert
+			ClassIcon heavy_mittens
+			//Scale 0.65
+			WeaponRestrictions MeleeOnly
+			Health 60
+			Attributes AlwaysCrit
+			//Item "The All-Father"
+			Item "Point and Shoot"
+			Item "The Holiday Punch"
+			ItemAttributes
+			{
+				ItemName "The Holiday Punch"
+				"gesture speed increase" 1.5  // evil
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	1.3
+				"health regen" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Heavyweapons_Gnome_NotFake
+		{
+			Class Heavyweapons
+			Name "Heavy Mittens"
+			Skill Expert
+			ClassIcon heavy_mittens
+			Scale 0.65
+			WeaponRestrictions MeleeOnly
+			Health 60
+			Attributes AlwaysCrit
+			Item "The All-Father"
+			Item "Point and Shoot"
+			Item "The Holiday Punch"
+			ItemAttributes
+			{
+				ItemName "The Holiday Punch"
+				"damage penalty" 0.2
+				"gesture speed increase" 1.5
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	1.3
+				"health regen" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Heavyweapons_Shotgun
+		{
+			Class Heavyweapons
+			ClassIcon heavy_shotgun
+			Name "Shotgun Heavy"
+			Skill Hard
+			MaxVisionRange 1500
+			WeaponRestrictions SecondaryOnly
+			Item "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SHOTGUN_HWG"
+				"faster reload rate" 0.1
+				"fire rate penalty" 2.5
+				"bullets per shot bonus" 3
+				"damage penalty" 0.7
+			}
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+				"faster reload rate" 0.1
+				"fire rate penalty" 2.5
+				"bullets per shot bonus" 3
+				"damage penalty" 0.7
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Heavy_IronFist_Airblast
+		{
+			Class Heavyweapons
+			Name "Steel Gauntlet Pusher"
+			ClassIcon heavy_steelfist
+			Health 900
+			Scale 1.5
+			WeaponRestrictions MeleeOnly			
+			Skill Expert	
+			Item "The carl"
+			Item "Fists of Steel"
+			ItemAttributes
+			{
+				ItemName "Fists of Steel"
+				"damage causes airblast" 1
+				"damage bonus" 1.5
+				"attach particle effect" 3
+			}
+			CharacterAttributes
+			{
+				"airblast vulnerability multiplier" 0.5
+				"airblast vertical vulnerability multiplier" 0.75
+				"health regen" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}			
+		}
+		// Demoman
+		T_TFBot_Demoman
+		{
+			Class Demoman
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Demoman_Knight
+		{
+			Class Demoman
+			Name "Demoknight"
+			Health 150
+			ClassIcon demoknight
+			Skill Hard
+			Item "The Chargin' Targe"
+			Item "The Eyelander"
+			WeaponRestrictions MeleeOnly
+			ItemAttributes
+			{
+				ItemName "The Eyelander"
+				"critboost on kill" 3
+				"max health additive penalty" -0
+			}
+			ItemAttributes	// 12 - (12 * 0.667) = 8.004
+							// the attribute's just funny with values
+							// this is here to make up for them being dumb and cancelling their charges sometimes
+							// "attack not cancel charge" might help? Maybe
+			{
+				ItemName "The Chargin' Targe"
+		//		"charge recharge rate increased" 1.5
+				"charge recharge rate increased" 1.333
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Demoman_Samurai // Jumps high randomly, will charge towards player after it hits peak jump height
+		//Ask programmer about multiple attributes on weapons
+		{
+			Class Demoman
+			Tag bot_giant
+			Name "Samurai Demoman"
+			ClassIcon demoknight_samurai
+			Skill Expert
+			Item "The Half-Zatoichi"
+			Item "The Splendid Screen"
+			ItemAttributes
+			{
+				ItemName "The Splendid Screen"
+				"Attack not cancel charge" 1
+				"charge time increased" 2
+				"charge recharge rate increased" 7
+				"charge impact damage increased" 2.2
+				"killstreak tier" 2
+				"killstreak idleeffect" 7
+			}
+			ItemAttributes
+			{
+				ItemName "The Half-Zatoichi"
+				"damage bonus"	1.5
+				"increased air control" 3.0
+				"cancel falling damage" 1
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			Item "Demo Kabuto"
+			Scale 1.3
+			Health 650
+			WeaponRestrictions MeleeOnly
+			Attributes AirChargeOnly
+			//Attributes AlwaysCrit
+			SuppressTimedFetchFlag 1 [$SIGSEGV]
+			Action Mobber [$SIGSEGV]
+			Attributes AutoJump
+			AutoJumpMin 10
+			AutoJumpMax 10
+			CharacterAttributes
+			{
+				"increased jump height" 2.3
+				"bot custom jump particle"	1
+				"airblast vulnerability multiplier" 0.5
+				"airblast vertical vulnerability multiplier" 0.75
+				"health regen" 1
+				no_duck 1
+			}
+		}
+
+		T_TFBot_Demo_Burst
+		{
+			Class Demoman
+			Name "Burst Fire Demoman"
+			ClassIcon demo_burst
+			Skill Expert
+			Attributes HoldFireUntilFullReload
+			Item "Tartan Tyrolean"
+			Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+				"reload time increased" 1.75
+				"fire rate bonus" 0.05
+				"clip size penalty" 0.5
+				"projectile spread angle penalty" 3
+				//"Projectile speed increased"	1.1
+				"auto fires full clip" 1
+				"auto fires when full" 1
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Demo_Burst_Type2
+		{
+			Class Demoman
+			Name "Burst Fire Demoman"
+			ClassIcon demo_burst
+			Skill Expert
+			Attributes HoldFireUntilFullReload
+			Item "Tartan Tyrolean"
+			Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+				"reload time increased" 1.059  // lol actual correct calculation by Flowaria_
+				"fire rate bonus" 0.05
+				"damage penalty" 0.5
+				"projectile spread angle penalty" 3
+				//"Projectile speed increased"	1.1
+				"auto fires full clip" 1
+				"auto fires when full" 1
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		// Soldier
+		T_TFBot_Soldier_Buff_Banner
+		{
+			Class Soldier
+			Name "Buff Soldier"
+			Skill Hard
+			ClassIcon soldier_buff
+			Attributes SpawnWithFullCharge
+			Item "The Buff Banner"
+			Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+			ItemAttributes	// 600 Damage required to fully fill the Buff Banner, +100 rage on hit means min 6 hits to fill it
+							// hmm should I make it min 4 hits only? since they gotta reload, damage falloff and all that jazz
+			{
+				ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+				"mod rage on hit bonus" 150
+			}
+			ItemAttributes
+			{
+				ItemName "The Buff Banner"
+				"deploy time increased" 1.34
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Soldier_Extended_Buff_Banner
+		{
+			Class Soldier
+			Name "Extended Buff Soldier"
+			Skill Normal
+			ClassIcon soldier_buff
+			Attributes SpawnWithFullCharge
+			Item "The Buff Banner"
+			ItemAttributes
+			{
+				ItemName "The Buff Banner"
+				"deploy time increased" 1.34
+				"increase buff duration"	1001
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Soldier_Extended_Concheror
+		{
+			Class Soldier
+			Name "Extended Conch Soldier"
+			Skill Normal
+			ClassIcon soldier_conch
+			Attributes SpawnWithFullCharge
+			Item "The Concheror"
+			ItemAttributes
+			{
+				ItemName "The Concheror"
+				"deploy time increased" 1.34
+				"increase buff duration"	1001
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Soldier_Extended_Battalion
+		{
+			Class Soldier
+			Health 220
+			Name "Extended Backup Soldier"
+			Skill Normal
+			ClassIcon soldier_backup
+			Attributes SpawnWithFullCharge
+			Item "The Battalion's Backup"
+			ItemAttributes
+			{
+				ItemName "The Battalion's Backup"
+				"deploy time increased" 1.34
+				"increase buff duration"	1001
+				"max health additive bonus" -0
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Soldier_RocketPush
+		{
+			Class Soldier
+			Skill Expert
+			Item "The Liberty Launcher"
+			Name "Blast Soldier"
+			ClassIcon soldier_libertylauncher
+			Attributes HoldFireUntilFullReload
+			ItemAttributes
+			{
+				ItemName "The Liberty Launcher"
+				"damage causes airblast" 1
+				"auto fires when full" 1
+				"auto fires full clip" 1
+				"damage penalty" .2
+				"fire rate bonus" -0.1
+				"clip size bonus" 0
+				"clip size penalty" 0.7	// 3 * 0.7 = 2.1
+				"reload time increased" 1.5
+				"Blast radius increased" 1.2
+				"projectile spread angle penalty" 2
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Soldier_RocketPush_NoBeggars
+		{
+			Class Soldier
+			Skill Expert
+			Item "The Liberty Launcher"
+			Name "Blast Soldier"
+			ClassIcon soldier_libertylauncher
+			Attributes HoldFireUntilFullReload
+			ItemAttributes
+			{
+				ItemName "The Liberty Launcher"
+				"damage causes airblast" 1
+				"damage penalty" .2
+				"fire rate bonus" -0.1
+				"clip size bonus" 0
+				"clip size penalty" 0.7	// 3 * 0.7 = 2.1
+				"reload time increased" 1.5
+				"Blast radius increased" 1.2
+				"projectile spread angle penalty" 2
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Soldier_RocketPush_Valve		// CUSTOM
+		{
+			Class Soldier
+			Skill Expert
+			Item "The Liberty Launcher"
+			Name "Blast Soldier"
+			ClassIcon soldier_libertylauncher
+			Attributes HoldFireUntilFullReload
+			ItemAttributes
+			{
+				ItemName "The Liberty Launcher"
+				"damage causes airblast" 1
+				"auto fires when full" 1
+				"auto fires full clip" 1
+				"damage penalty" .2
+				"fire rate bonus" -0.1
+			//	"clip size bonus" 0
+				"clip size penalty" 0.6	// 5 * 0.6 = 3
+				"reload time increased" 1.5
+				"Blast radius increased" 1.2
+				"projectile spread angle penalty" 2
+			}
+		}
+
+		T_TFBot_Soldier_RocketPush_Valve_NoBeggars		// CUSTOM
+		{
+			Class Soldier
+			Skill Expert
+			Item "The Liberty Launcher"
+			Name "Blast Soldier"
+			ClassIcon soldier_libertylauncher
+			Attributes HoldFireUntilFullReload
+			ItemAttributes
+			{
+				ItemName "The Liberty Launcher"
+				"damage causes airblast" 1
+				"damage penalty" .2
+				"fire rate bonus" -0.1
+			//	"clip size bonus" 0
+				"clip size penalty" 0.6	// 5 * 0.6 = 3
+				"reload time increased" 1.5
+				"Blast radius increased" 1.2
+				"projectile spread angle penalty" 2
+			}
+		}
+
+		T_TFBot_Soldier_RocketShotgun
+		{
+			Class Soldier
+			ClassIcon soldier_blackbox
+			Item "The Black Box"
+			Name "Black Box Soldier"
+			Skill Normal
+			Attributes HoldFireUntilFullReload
+			ItemAttributes
+			{
+				ItemName "The Black Box"
+				"damage penalty" 0.33
+				"fire rate bonus" -0.1
+				"faster reload rate" 0.9
+				"blast radius increased" 1.25
+				//"Projectile speed increased" 0.4
+				"projectile spread angle penalty" 2
+				"heal on hit for rapidfire" 60
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		// Pyro
+		T_TFBot_Pyro
+		{
+			Class Pyro
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_FLAMETHROWER"
+				"airblast_pushback_no_viewpunch" 1
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Pyro_Flaregun
+		{
+			Class Pyro
+			Name "Flare Pyro"
+			Skill Normal
+			ClassIcon pyro_flare
+			Item "The Flare Gun"
+			WeaponRestrictions SecondaryOnly
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_ScorchShot
+		{
+			Class Pyro
+			Name "Pusher Pyro"
+			Skill Expert
+			ClassIcon pyro_scorch
+			Item "The Scorch Shot"
+			WeaponRestrictions SecondaryOnly
+			Attributes AlwaysCrit
+		//	MaxVisionRange 2000
+			ItemAttributes
+			{
+				ItemName "The Scorch Shot"
+				"fire rate bonus" 0.75
+				"reload time increased" 1.25
+				"Projectile speed decreased" 0.35
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_ScorchShot_FastShot
+		{
+			Class Pyro
+			Name "Fast Scorch Shot Pyro"
+			Skill Expert
+			ClassIcon pyro_scorch
+			Item "The Scorch Shot"
+			WeaponRestrictions SecondaryOnly
+			MaxVisionRange 1500
+			ItemAttributes
+			{
+				ItemName "The Scorch Shot"
+				"fire rate bonus" 0.75
+				"Projectile speed increased" 1.3
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		//Engineer
+		T_TFBot_Engineer_Sentry_Teleporter
+		{
+			Class Engineer
+			ClassIcon engineer
+			Skill Expert
+			TeleportWhere spawnbot
+			Health 275
+			Attributes TeleportToHint
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SHOTGUN_PRIMARY"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_WRENCH"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_WRENCH"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_BUILDER"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			CharacterAttributes
+			{
+				"killstreak tier" 1
+				"health regen" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		//TELEPORT INTO MAP DO NOT BUILD TELEPORTER
+		T_TFBot_Engineer_Sentry_Battle_TeleIn
+		{
+			Class Engineer
+			ClassIcon engineer
+			Skill Expert
+			Health 275
+			Attributes TeleportToHint
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SHOTGUN_PRIMARY"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_WRENCH"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_WRENCH"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_BUILDER"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			CharacterAttributes
+			{
+				"killstreak tier" 1
+				"health regen" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		//NOT TELEPORT INTO MAP ENGY
+		T_TFBot_Engineer_Sentry_Tele_Battle
+		{
+			Class Engineer
+			Name Engineer
+			Skill Expert
+			TeleportWhere spawnbot
+			Health 275
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SHOTGUN_PRIMARY"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_WRENCH"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_WRENCH"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_BUILDER"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			CharacterAttributes
+			{
+				"killstreak tier" 1
+				"health regen" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		//NOT TELEPORT INTO MAP ENGY AND DOES NOT BUILD A TELEPORTER
+		T_TFBot_Engineer_Sentry_Battle
+		{
+			Class Engineer
+			Name Engineer
+			Skill Expert
+			Health 275
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SHOTGUN_PRIMARY"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_WRENCH"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_WRENCH"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_BUILDER"
+				"killstreak idleeffect" 1
+				"killstreak effect" 0
+			}
+			CharacterAttributes
+			{
+				"killstreak tier" 1
+				"health regen" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		//Giant - Edited Valve Bots
+		// Standard Classes ////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		T_TFBot_Giant_Scout
+		{
+			Class Scout
+			Name "Giant Scout"
+			ClassIcon scout_giant
+			Skill Expert
+			Health 1600
+			MaxVisionRange 1200
+			Attributes MiniBoss
+			Item "Upgradeable TF_WEAPON_SCATTERGUN"
+			Item "Upgradeable TF_WEAPON_PISTOL"
+			Item "Upgradeable TF_WEAPON_BAT"
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_SCATTERGUN"
+				"bullets per shot bonus" 1.2
+				"damage bonus" 1.25
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"damage force reduction" 0.7
+				"airblast vulnerability multiplier" 0.35
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 5
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Soldier
+		{
+			Class Soldier
+			Name "Giant Soldier"
+			ClassIcon soldier_giant
+			Skill Expert
+			Health 4200
+			MaxVisionRange 1500
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+			Tag bot_giant
+			Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+			//	"blast radius increased" 1.2
+			//	"projectile speed increased" 1.5
+				"damage bonus" 1.2					// this is the superior one :o
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.2
+				"airblast vertical vulnerability multiplier" 0.5
+				"head scale" 1.7
+				"override footstep sound set" 3
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Pyro
+		{
+			Class Pyro
+			Name "Giant Pyro"
+			ClassIcon pyro_giant
+			Skill Expert
+			Health 3300
+			Attributes MiniBoss
+			Item "Upgradeable TF_WEAPON_FLAMETHROWER"
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_FLAMETHROWER"
+				"damage bonus" 1.5
+				"weapon burn dmg increased" 2
+				"weapon burn time increased" 2
+				"flame life bonus" 1.75
+				"flame size bonus" 1.75
+				"deflection size multiplier" 1.75
+				"airblast_pushback_no_viewpunch" 1
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.3
+				"airblast vertical vulnerability multiplier" 0.5
+				"head scale" 1.2
+				"override footstep sound set" 6
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Demoman  // this is actually a rapid fire? get your sh- nah, I don't misuse words
+		{
+			Class Demoman
+			Name "Giant Rapid Fire Demoman"
+			ClassIcon demo_spammer_giant
+			Skill Expert
+			Health 3300
+			MaxVisionRange 1500
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+			Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+			Item "The Pure Tin Capotain"
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+				"fire rate bonus" 0.75
+				"reload time increased hidden" -0.1
+				"mod no reload DISPLAY ONLY" 1
+				"killstreak tier" 2
+				"killstreak idleeffect" 2
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.5
+				"airblast vulnerability multiplier" 0.25
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Demo_RapidFire  // this is actually a regular giant? get your sh- nah, I don't misuse words
+		{
+			Class Demoman
+			Name "Giant Demoman"
+			ClassIcon demo_giant
+			Health 3300
+			Skill Expert
+			MaxVisionRange 1500
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+			Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+				"fire rate bonus" 0.5
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.5
+				"airblast vulnerability multiplier" 0.25
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Heavyweapons
+		{
+			Class Heavyweapons
+			Name "Giant Heavy"
+			ClassIcon heavy_giant
+			Skill Expert
+			Health 5000
+			MaxVisionRange 1200
+			Attributes MiniBoss
+			Item "Upgradeable TF_WEAPON_MINIGUN"
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_MINIGUN"
+				"damage bonus"	1.5
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.15
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 2
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Medic
+		{
+			Class Medic
+			Name "Giant Medic"
+			ClassIcon medic_giant
+			Skill Expert
+			Health 4500
+			Item "The Overdose"
+			Item "The Quick-Fix"
+			Attributes SpawnWithFullCharge
+			Attributes MiniBoss
+			Attributes IgnoreEnemies
+			Tag bot_giant
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "The Overdose"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "The Quick-Fix"
+				"heal rate bonus" 200
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.3
+				"airblast vertical vulnerability multiplier" 0.5
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		// Special Classes ////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////
+		T_TFBot_Giant_Heavyweapons_Deflector
+		{
+			Class Heavyweapons
+			Name "Giant Deflector Heavy"
+			ClassIcon heavy_deflector
+			Skill Expert
+			Health 5000
+			Item "The U-clank-a"
+			Item "Deflector"
+			WeaponRestrictions PrimaryOnly
+			MaxVisionRange 1200
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "Deflector"
+				"damage bonus"	1.5 // copied from base mighty heavy
+				"attack projectiles" 2	// force ability to shoot down projectiles
+				"killstreak tier" 2
+				"killstreak idleeffect" 5
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.15
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 2
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Heavyweapons_Shotgun
+		{
+			Class Heavyweapons
+			Name "Giant Shotgun Heavy"
+			ClassIcon heavy_shotgun_giant
+			Skill Expert
+			Health 5000
+			WeaponRestrictions SecondaryOnly
+			MaxVisionRange 1200
+			Attributes MiniBoss
+			//Attributes HoldFireUntilFullReload
+			Tag bot_giant
+			Item "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SHOTGUN_HWG"
+				"fire rate penalty" 2.5
+				"bullets per shot bonus" 10
+				"damage penalty" 0.5
+				"faster reload rate" 0.1
+				"killstreak tier" 2
+				"killstreak idleeffect" 6
+			}
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_SHOTGUN_PRIMARY"
+				"fire rate penalty" 2.5
+				"bullets per shot bonus" 10
+				"damage penalty" 0.5
+				"faster reload rate" 0.1
+				"killstreak tier" 2
+				"killstreak idleeffect" 6
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.7
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.15
+				"airblast vertical vulnerability multiplier" 0.5
+				// "attack projectiles" 1	// force ability to shoot down projectiles
+				// tested and doesn't work lol
+				"gesture speed increase" 0.4
+				"override footstep sound set" 2
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Heavyweapons_BrassBeast
+		{
+			Class Heavyweapons
+			Name "Giant Brass Beast Heavy"
+			ClassIcon heavy_giant
+			Item "The Brass Beast"
+			Skill Expert
+			Health 5000
+			WeaponRestrictions PrimaryOnly
+			Attributes MiniBoss
+			Tag bot_giant
+			MaxVisionRange 1200
+			ItemAttributes
+			{
+				ItemName "The Brass Beast"
+				"damage bonus"	1.7
+				"minigun spinup time increased" 2.5
+				"killstreak tier" 2
+				"killstreak idleeffect" 2
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.15
+				"airblast vertical vulnerability multiplier" 0.5
+				"gesture speed increase" 0.4
+				"override footstep sound set" 2
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Heavyweapons_Natascha
+		{
+			Class Heavyweapons
+			Name "Giant Natascha Heavy"
+			ClassIcon heavy_slowonhit_giant
+			Item "Natascha"
+			Skill Expert
+			Health 5000
+			Attributes MiniBoss
+			Tag bot_giant
+			MaxVisionRange 1200
+			ItemAttributes
+			{
+				ItemName "Natascha"
+				"damage bonus"	1.5
+				"killstreak tier" 2
+				"killstreak idleeffect" 3
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.15
+				"airblast vertical vulnerability multiplier" 0.5
+				"gesture speed increase" 0.8
+				"override footstep sound set" 2
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Heavyweapons_HealOnKill // Air blast pushback on damage. Pins players, low damage, slow move speed
+		{
+			Class Heavyweapons
+			Name "Giant Heal-on-Kill Heavy"
+			Item "Deflector"
+			Item "The Tungsten Toque"
+			ClassIcon heavy_deflector_healonkill
+			Skill Expert
+			Health 5000
+			Attributes UseBossHealthBar
+			MaxVisionRange 1200
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "Deflector"
+				"damage bonus"	1.2
+				"attack projectiles" 2
+				// "weapon spread bonus" 1
+				// "fire rate penalty" 4
+				"heal on kill" 5000
+				"killstreak tier" 2
+				"killstreak idleeffect" 5
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.35
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.15
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 2
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Chief_Heavyweapons_HealOnKill // Air blast pushback on damage. Pins players, low damage, slow move speed
+		{
+			Class Heavyweapons
+			Name "Chief Heal-on-Kill Heavy"
+			ClassIcon heavy_deflector_healonkill
+			Skill Expert
+			Item "The Tungsten Toque"
+			Item "Deflector"
+			Health 70000
+			Scale 1.8
+			MaxVisionRange 1200
+			Attributes UseBossHealthBar
+			WeaponRestrictions PrimaryOnly
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "Deflector"
+				"damage bonus"	1.2
+				"attack projectiles" 2
+				// "weapon spread bonus" 1
+				// "fire rate penalty" 4
+				"heal on kill" 8000
+				"killstreak tier" 2
+				"killstreak idleeffect" 5
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.4
+				"damage force reduction" 0.0
+				"airblast vulnerability multiplier" 0.0
+				"airblast vertical vulnerability multiplier" 0.0
+				"rage giving scale"	0.4
+				"override footstep sound set" 2
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Heavyweapons_Heater
+		{
+			Class Heavyweapons
+			Name "Giant Heater Heavy"
+			ClassIcon heavy_heater_giant
+			Skill Expert
+			Health 5000
+			MaxVisionRange 1200
+			Item "The Huo Long Heatmaker"
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The Huo Long Heatmaker"
+				"ring of fire while aiming"	40
+				"damage bonus"	1.3
+				"killstreak tier" 2
+				"killstreak idleeffect" 3
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.15
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 2
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Heavyweapons_Heater     // lol a custom bot here smh
+		{
+			Class Heavyweapons
+			Name "Giant Heater Heavy"
+			ClassIcon heavy_heater_giant
+			Skill Expert
+			Health 5000
+			MaxVisionRange 1200
+			Item "The Huo Long Heatmaker"
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The Huo Long Heatmaker"
+				"ring of fire while aiming"	40
+				"damage bonus" 1.3
+				"killstreak tier" 2
+				"killstreak idleeffect" 3
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.15
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 2
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Scout_Fast // high movement speed, melee only
+		{
+			Class Scout
+			Name "Super Scout"
+			ClassIcon scout_giant_fast
+			Skill Easy
+			Item "Bonk Boy"
+			Item "The Holy Mackerel"
+			Health 1200
+			WeaponRestrictions MeleeOnly
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The Holy Mackerel"
+				"killstreak tier" 2
+				"killstreak idleeffect" 3
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	1.3  // 2 // actual speed is only 1.3 in-game due to speed limit
+				"damage force reduction" 0.7
+				"airblast vulnerability multiplier" 0.35
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 5
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Scout_FAN // knockbacks any lone chasers away, but slower than actual Super Scout
+		{
+			Class Scout
+			Name "Force-a-Nature Super Scout"
+			ClassIcon scout_fan_giant
+			Item "The Fed-Fightin' Fedora"
+			Item "The Bolt Boy"
+			Item "The Force-a-Nature"
+			Health 1200
+			Attributes MiniBoss
+			Skill Expert
+			MaxVisionRange 1200
+			Tag bot_giant
+
+			ItemAttributes
+			{
+				ItemName "The Force-a-Nature"
+				//"clip size bonus" 2
+				"bullets per shot bonus" 2
+				"fire rate bonus" 0.5
+				"reload time increased" 1.7 // 70% slower reload
+				"scattergun knockback mult" 6
+				"damage penalty" 0.35		// 55% damage reduction
+				"weapon spread bonus" 0.4
+				"gesture speed increase" 0.43
+				"killstreak tier" 2
+				"killstreak idleeffect" 3
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	1.1  // removing this is debatable for my inner self
+				"damage force reduction" 0.7
+				"airblast vulnerability multiplier" 0.35
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 5
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Scout_Jumping_Sandman
+		{
+			Class scout
+			Skill Expert
+			Health 1600
+			ClassIcon scout_jumping_g
+			MaxVisionRange 2000
+			Name "Giant Jumpy Sandman Scout"
+			WeaponRestrictions MeleeOnly
+			Item "The Sandman"
+			Item "The Hanger-On Hood"
+			Item "The Flight of the Monarch"
+			Item "The Mantreads"
+			Attributes MiniBoss
+			Attributes AutoJump
+			AutoJumpMin 5
+			AutoJumpMax 5
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The Sandman"
+				"damage bonus"	2
+				"effect bar recharge rate increased" 0.1
+				"max health additive penalty" -0
+				"increased air control" 3.0
+				"cancel falling damage" 1
+				"killstreak tier" 2
+				"killstreak idleeffect" 2
+			}
+			CharacterAttributes
+			{
+				"increased jump height" 2
+				//"move speed bonus"	1.5
+				"damage force reduction" 0.7
+				"airblast vulnerability multiplier" 0.35
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 5
+				"head scale" 1.5
+				no_duck 1
+			//	"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_DemoMan_PrinceTavish // Fast Moving DemoKnight, or supposed to
+		{
+			Class Demoman
+			ClassIcon demoknight_giant
+			Name "Giant Demoknight"
+			Skill Expert
+			Health 3300
+			Item "Prince Tavish's Crown"
+			Item "The Chargin' Targe"
+			Item "The Eyelander"
+			Item "Ali Baba's Wee Booties"
+			WeaponRestrictions MeleeOnly
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The Eyelander"
+				"critboost on kill" 3
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "Ali Baba's Wee Booties"
+				"max health additive bonus" -0
+			}
+			CharacterAttributes
+			{
+				"move speed penalty" 0.5
+				"damage force reduction" 0.5
+				"airblast vulnerability multiplier" 0.25
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Scout_Baseball  // Baseball Giant
+									  // lol if this breaks in wavebar its not my fault lol
+									  // ur gay if you broke the icon
+		{
+			Class Scout
+			Name "Major League Scout"
+			ClassIcon scout_stun_giant
+			Skill Expert
+			Health 1600
+			MaxVisionRange 1500
+			Item "Batter's Helmet"
+			Item "MNC Mascot Outfit"
+			Item "The Sandman"
+			WeaponRestrictions MeleeOnly
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The Sandman"
+				"effect bar recharge rate increased" 0.1
+				"max health additive penalty" -0
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"damage force reduction" 0.7
+				"airblast vulnerability multiplier" 0.35
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 5
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Scout_Baseball_Armored  // Baseball Giant with more health and faster fire rate
+		{
+			Class Scout
+			Name "Armored Major League Scout"
+			ClassIcon scout_stun_giant_armored
+			Skill Expert
+			Health 3000
+			MaxVisionRange 1500
+			Item "Batter's Helmet"
+			Item "MNC Mascot Outfit"
+			Item "The Sandman"
+			WeaponRestrictions MeleeOnly
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The Sandman"
+				"effect bar recharge rate increased" 0.05
+				"max health additive penalty" -0
+				"killstreak tier" 2
+				"killstreak idleeffect" 2
+			}
+			CharacterAttributes
+			{
+				"damage force reduction" 0.7
+				"airblast vulnerability multiplier" 0.35
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 5
+				"move speed penalty" 0.75
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Scout_Bonk
+		{
+			Class Scout
+			Skill Expert
+			Name "Giant Bonk Scout"
+			Item "Bonk! Atomic Punch"
+			Item "Bonk Helm"
+			WeaponRestrictions MeleeOnly
+			ClassIcon scout_bonk_giant
+			Health 1600
+			Attributes MiniBoss
+			Item "Upgradeable TF_WEAPON_BAT"
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_BAT"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "Bonk! Atomic Punch"
+				"deploy time increased" 1.34
+				"effect bar recharge rate increased" 0.55
+			}
+			CharacterAttributes
+			{
+				"damage force reduction" 0.7
+				"airblast vulnerability multiplier" 0.35
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 5
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Soldier_Crit // Super slow crit rocket flight speed, fires one at a time
+		{
+			Class Soldier
+			Name "Giant Charged Soldier"
+			ClassIcon soldier_crit
+			Skill Normal
+			Health 4200
+			Item "The Original"
+			Attributes AlwaysCrit
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The Original"
+				"faster reload rate" 0.2
+				"fire rate penalty" 2
+				"Projectile speed decreased" 0.5
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.2
+				"airblast vertical vulnerability multiplier" 0.5
+				"head scale" 1.7
+				"override footstep sound set" 3
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Pyro_Flare_Spammer // Spams flare gun fire
+		{
+			Class Pyro
+			Name "Giant Rapid Fire Detonator Pyro"
+			ClassIcon pyro_flare_giant
+			Skill Expert
+			Health 3300
+			Item "The detonator"
+			Item "Old Guadalajara"
+			WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The detonator"
+				"fire rate bonus" 0.3
+				"mod no reload DISPLAY ONLY" 1
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.7
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.3
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 6
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Pyro_Flare_Spammer_ScorchShot // Spams flare gun fire with pushback, slower move speed
+		{
+			Class Pyro
+			Name "Giant Rapid Fire Scorch Pyro"
+			ClassIcon pyro_scorch_spammer_giant
+			Skill Expert
+			Health 3300
+			Item "The Scorch Shot"
+			Item "Old Guadalajara"
+			WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The Scorch Shot"
+				"fire rate bonus" 0.2
+				"damage causes airblast" 1
+				"mod no reload DISPLAY ONLY" 1
+				"killstreak tier" 2
+				"killstreak idleeffect" 2
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.35
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.3
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 6
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Pyro_Pusher // Air blast pushback scaled to 5x, fire does little initial damage
+		{
+			Class Pyro
+			Name "Giant Airblast Pyro"
+			Skill Expert
+			Item "The Degreaser"
+			Item "Traffic Cone"
+			Health 3300
+			ClassIcon pyro_reflect_daan_giant
+			WeaponRestrictions PrimaryOnly
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The Degreaser"
+				"damage penalty"	0.5
+				"weapon burn dmg increased" 2
+				"weapon burn time increased" 2
+				"flame life bonus" 1.75
+				"flame size bonus" 1.75
+				"deflection size multiplier" 1.75
+				"airblast_pushback_no_viewpunch" 1
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+				"airblast pushback scale" 5
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.3
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 6
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Boxing_Heavy
+		{
+			Class heavyweapons
+			Name "Super Heavyweight Champ"
+			ClassIcon heavy_champ_giant
+			Skill Expert
+			Health 5000
+			Item "the killing gloves of boxing"
+			Item "Pugilist's Protector"
+			WeaponRestrictions MeleeOnly
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "the killing gloves of boxing"
+				"fire rate bonus" 0.6
+				"damage bonus" 1.2
+				"gesture speed increase" 2.4
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.15
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 2
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Demo_Burst
+		{
+			Class Demoman
+			Name "Giant Burst Fire Demoman"
+			ClassIcon demo_burst_giant
+			Health 3300
+			Skill Expert
+			Attributes MiniBoss
+		//	Attributes HoldFireUntilFullReload
+			Tag bot_giant
+			Item "Tartan Tyrolean"
+			Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+				"faster reload rate" 0.65 //35% faster reload
+				"fire rate bonus" 0.1
+				"clip size upgrade atomic" 7.0
+				"projectile spread angle penalty" 5
+				"Projectile speed increased"	1.1
+				"killstreak tier" 2
+				"killstreak idleeffect" 6
+				
+				"auto fires when full" 1
+				"auto fires full clip" 1
+			}
+
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.25
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Demo_Spammer_Reload_Chief
+		{
+			Class Demoman
+			// Name "Giant Rapid Fire Demo Chief"
+			Name "Chief Burst Fire Demoman"
+			// ClassIcon demo_giant
+			ClassIcon demo_burst_giant
+			Health 60000
+			Scale 1.9
+			Skill Expert
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Attributes HoldFireUntilFullReload
+			Attributes AlwaysCrit
+			Tag bot_giant
+			Item "Tartan Tyrolean"
+			Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+				"faster reload rate" 0.65 //35% faster reload
+				"fire rate bonus" 0.1
+				"clip size upgrade atomic" 7.0
+				"projectile spread angle penalty" 2
+				"Projectile speed increased"	1.1
+				"killstreak tier" 2
+				"killstreak idleeffect" 6
+			}
+
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.15
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Soldier_Spammer
+		{
+			Class Soldier
+			Name "Giant Rapid Fire Soldier"
+			ClassIcon soldier_spammer
+			Health 4200
+			Skill Expert
+			WeaponRestrictions PrimaryOnly
+			Tag bot_giant
+			Attributes MiniBoss
+			Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+			Item "Honcho's Headgear"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+				"fire rate bonus" 0.5
+				"reload time increased hidden" -0.1
+				"mod no reload DISPLAY ONLY" 1
+				"Projectile speed decreased" 0.65
+				"killstreak tier" 2
+				"killstreak idleeffect" 2
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.2
+				"airblast vertical vulnerability multiplier" 0.5
+				"head scale" 1.7
+				"override footstep sound set" 3
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Soldier_Spammer_Reload
+		{
+			Class Soldier
+			Name "Giant Burst Fire Soldier"
+			ClassIcon soldier_burstfire
+			Health 4200
+			Skill Expert
+			WeaponRestrictions PrimaryOnly
+			Attributes MiniBoss
+			Attributes HoldFireUntilFullReload
+			Tag bot_giant
+			Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+			Item "The Shellmet"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+				"faster reload rate" 0.6
+				"fire rate bonus" 0.1
+				"clip size upgrade atomic" 5.0
+				"Projectile speed decreased" 0.65
+			//	"gesture speed increase" 3	// lol this affected his hurt anims
+				"killstreak tier" 2
+				"killstreak idleeffect" 6
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.2
+				"airblast vertical vulnerability multiplier" 0.5
+				"head scale" 1.7
+				"override footstep sound set" 3
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Soldier_Extended_Buff_Banner
+		{
+			Class Soldier
+			Name "Giant Buff Banner Soldier"
+			ClassIcon soldier_buff_giant
+			Skill Expert
+			Health 4200
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+			Attributes SpawnWithFullCharge
+			Tag bot_giant
+			Item "The Buff Banner"
+			ItemAttributes
+			{
+				ItemName "The Buff Banner"
+				"deploy time increased" 1.34
+				"increase buff duration"	1001
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.2
+				"airblast vertical vulnerability multiplier" 0.5
+				"head scale" 1.7
+				"override footstep sound set" 3
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Soldier_Extended_Concheror
+		{
+			Class Soldier
+			Name "Giant Concheror Soldier"
+			ClassIcon soldier_conch_giant
+			Skill Expert
+			Health 4200
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+			Attributes SpawnWithFullCharge
+			Tag bot_giant
+			Item "The Concheror"
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_ROCKETLAUNCHER"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName  "The Concheror"
+				"deploy time increased" 1.34
+				"increase buff duration"	1001
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.2
+				"airblast vertical vulnerability multiplier" 0.5
+				"head scale" 1.7
+				"override footstep sound set" 3
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Soldier_Extended_Battalion
+		{
+			Class Soldier
+			Name "Giant Battalion Soldier"
+			ClassIcon soldier_backup_giant
+			Skill Expert
+			Health 4200
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+			Attributes SpawnWithFullCharge
+			Tag bot_giant
+			Item "The Battalion's Backup"
+			ItemAttributes
+			{
+				ItemName  "The Battalion's Backup"
+				"deploy time increased" 1.34
+				"max health additive bonus" 0
+				"increase buff duration"	1001
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.2
+				"airblast vertical vulnerability multiplier" 0.5
+				"head scale" 1.7
+				"override footstep sound set" 3
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Soldier_RocketShotgun // Health regen on hit
+		{
+			Class Soldier
+			ClassIcon soldier_blackbox_giant
+			Name "Giant Black Box Soldier"
+			Health 4200
+			Tag bot_giant
+
+			Item "The Black Box"
+			Skill Expert
+			Attributes MiniBoss
+			Attributes HoldFireUntilFullReload
+			ItemAttributes
+			{
+				ItemName "The Black Box"
+				"damage penalty" 0.45
+				"fire rate bonus" -0.1
+				"reload time increased" 1.6
+				"blast radius increased" 1.25
+				//"Projectile speed increased" 0.4
+				"projectile spread angle penalty" 4
+				"heal on hit for rapidfire" 1000
+				"Projectile speed decreased" 0.9
+				"killstreak tier" 2
+				"killstreak idleeffect" 4
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.2
+				"airblast vertical vulnerability multiplier" 0.5
+				"head scale" 1.7
+				"override footstep sound set" 3
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Medic_Regen
+		{
+			Class Medic
+			Name "Giant Regen Medic"
+			ClassIcon medic_giant
+			Skill Expert
+			Health 4500
+			Item "The Overdose"
+			Item "The Quick-Fix"
+			Item "The Surgeon's Stahlhelm"
+			// WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			Attributes IgnoreEnemies
+			Tag bot_giant
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "The Overdose"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "The Quick-Fix"
+				"ubercharge rate penalty" -0.1 // pretty much disables ubercharge
+				"heal rate bonus" 200
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.3
+				"airblast vertical vulnerability multiplier" 0.5
+				"health regen"	40
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_SentryBuster
+		{
+			Class Scout
+			Name "Sentry Buster"
+			Skill Expert
+			Health 2500
+			Item "Sun-on-a-Stick"
+			WeaponRestrictions MeleeOnly
+			ClassIcon sentry_buster
+			Attributes MiniBoss
+			Attributes DisableDodge
+			Attributes IgnoreEnemies
+			Attributes SuppressFire
+			Tag bot_giant
+			Tag bot_sentrybuster
+			CharacterAttributes
+			{
+				"move speed bonus" 2
+				"damage force reduction" 0.5
+				"airblast vulnerability multiplier" 0.25
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 7
+				"cannot be backstabbed" 1
+				"rage giving scale" 0.1
+				no_duck 1
+				"increased jump height" 1.5
+			}
+		}
+
+		T_TFBot_Soldier_BurstFire
+		{
+			Class Soldier
+			Name "Giant Burst Fire Soldier"
+			ClassIcon soldier_burstfire
+			Health 4200
+			Tag bot_giant
+			Skill Expert
+			Attributes MiniBoss
+			Attributes HoldFireUntilFullReload
+			Attributes AlwaysCrit
+			Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+			Item "Tyrantium Helmet"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+				"damage bonus" 2.0
+				"faster reload rate" 0.4
+				"fire rate bonus" 0.2
+				"clip size upgrade atomic" 5.0
+				"Projectile speed decreased" 0.9
+			//	"gesture speed increase" 3	// lol this affected his hurt anims
+				"killstreak tier" 2
+				"killstreak idleeffect" 6
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.2
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 3
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Soldier_SlowBarrage
+		{
+			Class Soldier
+			Name "Was-Colonel Barrage"
+			ClassIcon soldier_barrage
+			Health 4200
+			Tag bot_giant
+			Skill Expert
+			Attributes MiniBoss
+			Attributes HoldFireUntilFullReload
+			Item "Full Metal Drill Hat"
+			Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+				"clip size upgrade atomic" 26.0
+				"faster reload rate" 0.22
+				"fire rate bonus" 0.2
+				"projectile spread angle penalty" 5
+				"damage bonus" 1.5
+				"Projectile speed decreased" 0.5
+				"killstreak tier" 2
+				"killstreak idleeffect" 2
+			}
+			CharacterAttributes
+			{
+				"health regen"	40
+				"move speed penalty"	0.5
+				"damage force reduction" 0.0
+				"airblast vulnerability multiplier" 0.0
+				"override footstep sound set" 3
+				"airblast vertical vulnerability multiplier" 0.0
+			//	"gesture speed increase" 3	// lol this affected his hurt anims
+				"head scale" 1.7
+				"rage giving scale" 0.8
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		
+		T_TFBot_Chief_Gauntlet
+		{
+			Class Heavyweapons
+			Skill Expert
+			WeaponRestrictions MeleeOnly
+			Name "Captain Punch"
+			ClassIcon heavy_chief
+			Health 60000
+			Scale 1.9
+			Item "War Head"
+			Item "Fists of Steel"
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "Fists of Steel"
+				"fire rate bonus" 0.6
+				"damage bonus" 5
+				"gesture speed increase" 2.4
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"health regen"	250
+				"move speed penalty"	0.4
+				"damage force reduction" 0.0
+				"airblast vulnerability multiplier" 0.0
+				"override footstep sound set" 2
+				"airblast vertical vulnerability multiplier" 0.0
+				"rage giving scale" 0.4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Chief_Tavish
+		{
+			Class Demoman
+			Skill Expert
+			WeaponRestrictions MeleeOnly
+			Name "Chief Tavish"
+			ClassIcon demoknight_giant
+			Health 55000
+			Scale 1.9
+			Item "Prince Tavish's Crown"
+			Item "The Chargin' Targe"
+			Item "The Eyelander"
+			Item "Ali Baba's Wee Booties"
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The Eyelander"
+				"damage bonus" 5
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"health regen"	500
+				"move speed penalty"	0.4
+				"damage force reduction" 0.0
+				"airblast vulnerability multiplier" 0.0
+				"override footstep sound set" 2
+				"airblast vertical vulnerability multiplier" 0.0
+				"rage giving scale" 0.4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Chief_Pyro
+		{
+			Class Pyro
+			Skill Expert
+			Name "Chief Pyro"
+			ClassIcon pyro_giant
+			Health 55000
+			Scale 1.9
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Tag bot_giant
+			Item "Upgradeable TF_WEAPON_FLAMETHROWER"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_FLAMETHROWER"
+				"airblast pushback scale" 2.0
+				"damage bonus" 5
+				"airblast_pushback_no_viewpunch" 1
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				"health regen"	500
+				"move speed penalty"	0.4
+				"damage force reduction" 0.0
+				"airblast vulnerability multiplier" 0.0
+				"override footstep sound set" 2
+				"airblast vertical vulnerability multiplier" 0.0
+				"rage giving scale" 0.4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Chief_Soldier
+		{
+			Class Soldier
+			Skill Expert
+			Name "Sergeant Crits"
+			ClassIcon soldier_sergeant_crits
+			Health 60000
+			Scale 1.9
+			Item "Tyrant's Helm"
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Attributes HoldFireUntilFullReload
+			Attributes AlwaysCrit
+			Tag bot_giant
+			Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+				"damage bonus" 1.5
+				"faster reload rate" 0.6
+				"fire rate bonus" 0.2
+				"clip size upgrade atomic" 7.0
+				"Projectile speed increased" 1.3
+				"killstreak tier" 2
+				"killstreak idleeffect" 6
+			}
+			CharacterAttributes
+			{
+				"health regen"	250
+				"move speed penalty"	0.5
+				"damage force reduction" 0.0
+				"airblast vulnerability multiplier" 0.0
+				"override footstep sound set" 3
+				"airblast vertical vulnerability multiplier" 0.0
+				"rage giving scale" 0.4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Chief_Soldier_SlowCrit
+		{
+			Class Soldier
+			Skill Expert
+			Name "Major Crits"
+			Item "Full Metal Drill Hat"
+			ClassIcon soldier_major_crits
+			Health 60000
+			Scale 1.9
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Attributes HoldFireUntilFullReload
+			Attributes AlwaysCrit
+			Tag bot_giant
+			Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+				"clip size upgrade atomic" 26.0
+				"faster reload rate" 0.22
+				"fire rate bonus" 0.2
+				"projectile spread angle penalty" 5
+				"damage bonus" 1.5
+				"Projectile speed decreased" 0.4
+				"killstreak tier" 2
+				"killstreak idleeffect" 5
+			}
+			CharacterAttributes
+			{
+				"health regen"	250
+				"move speed penalty"	0.5
+				"damage force reduction" 0.0
+				"airblast vulnerability multiplier" 0.0
+				"override footstep sound set" 3
+				"airblast vertical vulnerability multiplier" 0.0
+			//	"gesture speed increase" 3	// lol this affected his hurt anims
+				"rage giving scale" 0.4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Soldier_RocketPush
+		{
+			Class Soldier
+			Skill Expert
+			Item "The Liberty Launcher"
+			ClassIcon soldier_libertylauncher_giant
+			Attributes MiniBoss
+			Attributes HoldFireUntilFullReload
+			Name "Giant Blast Soldier"
+			Item "Dr's Dapper Topper"
+			Tag bot_giant
+			Health 4200
+
+			ItemAttributes
+			{
+				ItemName "The Liberty Launcher"
+				"damage causes airblast" 1
+				"damage penalty" 0.5
+				"fire rate bonus" 0.25
+				"clip size upgrade atomic" 5
+				"faster reload rate" 0.2
+				"Blast radius increased" 1.2
+				"projectile spread angle penalty" 4
+				// "Projectile speed decreased" 0.35
+				"killstreak tier" 2
+				"killstreak idleeffect" 5
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"override footstep sound set" 3
+				"damage force reduction" 0.0
+				"airblast vulnerability multiplier" 0.15
+				"airblast vertical vulnerability multiplier" 0.1
+				"head scale" 1.7
+			//	"gesture speed increase" 4	// lol this affected his hurt anims
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Chief_Soldier_RocketPush
+		{
+			Class Soldier
+			Skill Expert
+			Item "The Liberty Launcher"
+			Item "Dr's Dapper Topper"
+			ClassIcon soldier_libertylauncher
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Attributes HoldFireUntilFullReload
+			Health 60000
+			Scale 1.8
+			Name "Chief Blast Soldier"
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The Liberty Launcher"
+				"damage causes airblast" 1
+				"fire rate bonus" 0.25
+				"clip size upgrade atomic" 5
+				"faster reload rate" 0.4
+				"Blast radius increased" 1.2
+				"projectile spread angle penalty" 4
+				// "Projectile speed increased" 0.75
+				"killstreak tier" 2
+				"killstreak idleeffect" 2
+				"killstreak tier" 2
+				"killstreak idleeffect" 4
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"override footstep sound set" 3
+				"damage force reduction" 0.0
+				"airblast vulnerability multiplier" 0.0
+				"airblast vertical vulnerability multiplier" 0.0
+				"head scale" 1.7
+			//	"gesture speed increase" 5	// lol this affected his hurt anims
+				"rage giving scale"	0.4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Chief_Soldier_Atomic
+		{
+			Class Soldier
+			Skill Expert
+			Name "Major Crits"
+			Item "The Team Captain"
+			Item "The Black Box"
+			Item "Fancy Dress Uniform"
+			Item "The Gunboats"
+			ClassIcon soldier_sergeant_crits
+			Health 40000
+			Scale 1.9
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Attributes HoldFireUntilFullReload
+			Attributes AlwaysCrit
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The Black Box"
+				"damage bonus" 5
+				"damage causes airblast" 1
+				"reload time increased" 3
+				"fire rate penalty" 2
+				"projectile spread angle penalty" 1
+				"use large smoke explosion" 1
+				"blast radius increased" 2
+				"killstreak tier" 2
+				"killstreak idleeffect" 6
+			}
+			CharacterAttributes
+			{
+				"health regen"	1
+				"move speed penalty"	0.4
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.0
+				"override footstep sound set" 3
+				"head scale" 1.7
+				"gesture speed increase" 0.4
+				"airblast vertical vulnerability multiplier" 0.0
+				"increased jump height" 1.5
+			}
+		}
+
+		T_TFBot_Chief_Demo_Atomic
+		{
+			Class Demoman
+			Name "Sir Nukesalot"
+			ClassIcon demo_atomic_giant
+			Health 50000
+			Scale 1.9
+			Skill Expert
+			WeaponRestrictions PrimaryOnly
+			Item "The Loose Cannon"
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Attributes HoldFireUntilFullReload
+			Attributes AlwaysFireWeapon
+			Attributes AlwaysCrit
+			Tag bot_giant
+
+			ItemAttributes
+			{
+				ItemName "The Loose Cannon"
+				"grenade launcher mortar mode" 0
+				"reload time increased" 1.8
+				"fire rate penalty" 2
+				"clip size penalty" 0.5
+				"Projectile speed decreased" 0.8
+				"projectile spread angle penalty" 5
+				"damage bonus" 7
+				"damage causes airblast" 1
+				"blast radius increased" 1.2
+				"use large smoke explosion" 1
+				"killstreak tier" 2
+				"killstreak idleeffect" 7
+			}
+
+			CharacterAttributes
+			{
+				"move speed penalty"	0.35
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.0
+				"airblast vertical vulnerability multiplier" 0.0
+				"gesture speed increase" 0.5
+				"override footstep sound set" 4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Major_League
+		{
+			Class Scout
+			Name "Major League"
+			ClassIcon scout_major_league_v2
+			Skill Expert
+			Health 10000
+			Scale 1.9
+			MaxVisionRange 1500
+			Item "The Cockfighter"
+			Item "The Boston Boom-Bringer"
+			Item "Summer Shades"
+			Item "The Sandman"
+			WeaponRestrictions MeleeOnly
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The Sandman"
+				"effect bar recharge rate increased" 0.001
+				"max health additive penalty" -0
+				"killstreak tier" 2
+				"killstreak idleeffect" 6
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	8
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 1.5
+				"override footstep sound set" 5
+				"airblast vertical vulnerability multiplier" 0.0
+				"rage giving scale" 0.7
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Metalbeard
+		{
+			Class Demoman
+			Name "Major Bomber"
+			ClassIcon demo_bomber
+			Skill Normal
+			Health 40000
+			Item "Prince Tavish's Crown"
+			Attributes AlwaysCrit
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Attributes HoldFireUntilFullReload
+			Tag bot_giant
+			Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+				"fire rate bonus" 0.2
+				"faster reload rate" 0.3
+				"clip size bonus" 3.0
+				"Projectile speed increased" 1.5
+				"killstreak tier" 2
+				"killstreak idleeffect" 4
+			}
+			CharacterAttributes
+			{
+				"health regen"	200
+				"move speed penalty"	0.32
+				"damage force reduction" 0.0
+				"airblast vulnerability multiplier" 0.0
+				"override footstep sound set" 4
+				"airblast vertical vulnerability multiplier" 0.0
+				"gesture speed increase" 8
+				"rage giving scale" 0.4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Chief_Soldier_Extended_Concheror
+		{
+			Class Soldier
+			Name "Chief Concheror Soldier"
+			ClassIcon soldier_conch_giant
+			Attributes UseBossHealthBar
+			Skill Expert
+			Health 50000
+			Scale 1.8
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+			Attributes SpawnWithFullCharge
+			Tag bot_giant
+			Item "The Concheror"
+			ItemAttributes
+			{
+				ItemName "The Concheror"
+				"deploy time increased" 1.34
+				"increase buff duration"	1001
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.0
+				"airblast vulnerability multiplier" 0.0
+				"override footstep sound set" 3
+				"airblast vertical vulnerability multiplier" 0.0
+				"rage giving scale"	0.4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+//====================== Custom bot templates concepts by mc, may not be made by mc only =======================================
+
+//======== SECTION 1: ENSURE OLD POPS WORK (below) ========
+
+		T_TFBot_Addicted_Scout	// I am good boy, I follow good example from Tindall.
+		{
+			Class Scout
+			MaxVisionRange 1500		// don't pepper people, also makes them save their clip size 
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Addicted_Soldier	// EXCEPT HoldFireUntilFullReload CUZ IT SUCKS
+									// ez to fight them heh
+									// guess its Tindall's unique "my creation" identifier
+		{
+			Class Soldier
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Addicted_Heavy
+		{
+			Class Heavyweapons
+			MaxVisionRange 1200
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Addicted_Heavyweapons
+		{
+			Class Heavyweapons
+			MaxVisionRange 1200
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+//======== SECTION 1: ENSURE OLD POPS WORK (above) ========
+
+//======== SECTION 2: START OF DUMMY TEMPLATES ========
+
+		T_TFBot_Dummy
+		{
+			Class Scout
+			Skill Expert
+			Item "Mad Milk"
+			WeaponRestrictions SecondaryOnly
+			Attributes AlwaysFireWeapon
+			ItemAttributes
+			{
+				ItemName "Mad Milk"
+				"gesture speed increase" 0
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Scout_Dummy		// same as above
+		{
+			Class Scout
+			Skill Expert
+			Item "Mad Milk"
+			WeaponRestrictions SecondaryOnly
+			Attributes AlwaysFireWeapon
+			ItemAttributes
+			{
+				ItemName "Mad Milk"
+				"gesture speed increase" 0
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Scout_Testing_Dummy		// same as above
+		{
+			Class Scout
+			Skill Expert
+			Item "Mad Milk"
+			WeaponRestrictions SecondaryOnly
+			Attributes AlwaysFireWeapon
+			ItemAttributes
+			{
+				ItemName "Mad Milk"
+				"gesture speed increase" 0
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Scout_Testing_Dummy_Idle
+		{
+			Class Scout
+			Skill Expert
+			Item "Mad Milk"
+			WeaponRestrictions SecondaryOnly
+			Attributes AlwaysFireWeapon
+			Attributes IgnoreEnemies
+			ItemAttributes
+			{
+				ItemName "Mad Milk"
+				"gesture speed increase" 0
+			}
+			CharacterAttributes
+			{
+				"no_duck" 1
+				"move speed penalty" 0.001
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+//======== SECTION 2: END OF DUMMY TEMPLATES ========
+
+//======== SECTION 3: THE ACTUAL PART (BELOW) ========
+
+		T_TFBot_Scout	// I am good boy, I follow good example from Tindall.
+		{
+			Class Scout
+			MaxVisionRange 1500		// don't pepper people, also makes them save their clip size 
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Soldier	// EXCEPT HoldFireUntilFullReload CUZ IT SUCKS 
+									// ez to fight them heh
+									// guess its Tindall's unique "my creation" identifier
+		{
+			Class Soldier
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Heavyweapons
+		{
+			Class Heavyweapons
+			Skill Easy
+			MaxVisionRange 1200
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Medic_Base	// yeah this is a thing lol
+		{
+			Class Medic
+			Skill Normal
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Medic_Vaccinator_Bullet_Resist  // Nothing note worthy for REDs to read;No Upgradeable weapons
+		{
+			Class Medic
+			Skill Expert
+			Name "Bullet Resistance Medic"
+			ClassIcon medic_bullet
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			Item "powerhouse_medigun_sparkoflife"
+			ItemAttributes
+			{
+				ItemName "powerhouse_medigun_sparkoflife"
+				"ubercharge rate bonus" 25
+				"medigun bullet resist passive" 0.5
+				"medigun bullet resist deployed" 0.7
+				"bot medic uber health threshold" 300
+				"medigun charge is resists" 3
+				"lunchbox adds minicrits" 3
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+				"set_item_texture_wear" 0.6
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Medic_Vaccinator_Blast_Resist
+		{
+			Class Medic
+			Skill Expert
+			Name "Blast Resistance Medic"
+			ClassIcon medic_blast
+			Item "concealedkiller_medigun_maskedmender"
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "concealedkiller_medigun_maskedmender"
+				"ubercharge rate bonus" 25
+				"medigun blast resist passive" 0.5
+				"medigun blast resist deployed" 0.7
+				"bot medic uber health threshold" 300
+				"medigun charge is resists" 4
+				"lunchbox adds minicrits" 3
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+				"set_item_texture_wear" 0.6
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Medic_Vaccinator_Fire_Resist
+		{
+			Class Medic
+			Skill Expert
+			Name "Fire Resistance Medic"
+			ClassIcon medic_fire
+			Item "pyroland_medigun_flowerpower"
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "pyroland_medigun_flowerpower"
+				"ubercharge rate bonus" 25
+				"medigun fire resist passive" 0.5
+				"medigun fire resist deployed" 0.7
+				"bot medic uber health threshold" 300
+				"medigun charge is resists" 5
+				"lunchbox adds minicrits" 3
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+				"set_item_texture_wear" 0.6
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Medic_Vaccinator_Bullet_Resist_Linger
+		{
+			Class Medic
+			Skill Expert
+			Name "Bullet Resistance Medic"
+			ClassIcon medic_bullet
+			Item "powerhouse_medigun_sparkoflife"
+			Item "Titanium Tyrolean"
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "powerhouse_medigun_sparkoflife"
+				"ubercharge rate bonus" 25
+				"uber duration bonus" 50000  // doesn't do anything just display only
+				"medigun bullet resist passive" 0.7
+				"medigun bullet resist deployed" 0.7
+				"bot medic uber health threshold" 300
+				"medigun charge is resists" 3
+			//	"lunchbox adds minicrits" 3  // default weapon mode allows inf vac uber duration even with or without the duration bonus att
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+				"set_item_texture_wear" 0.6
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		//	CharacterAttributes		// MUST BE GIVEN TO PATIENTS!
+		//	{
+		//		"dmg taken from bullets reduced" 0.5
+		//	}
+		}
+
+		T_TFBot_Medic_Vaccinator_Blast_Resist_Linger
+		{
+			Class Medic
+			Skill Expert
+			Name "Blast Resistance Medic"
+			ClassIcon medic_blast
+			Item "concealedkiller_medigun_maskedmender"
+			Item "Titanium Tyrolean"
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "concealedkiller_medigun_maskedmender"
+				"ubercharge rate bonus" 25
+				"uber duration bonus" 50000  // doesn't do anything just display only
+				"medigun blast resist passive" 0.7
+				"medigun blast resist deployed" 0.7
+				"bot medic uber health threshold" 300
+				"medigun charge is resists" 4
+			//	"lunchbox adds minicrits" 3  // default weapon mode allows inf vac uber duration even with or without the duration bonus att
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+				"set_item_texture_wear" 0.6
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		//	CharacterAttributes		// MUST BE GIVEN TO PATIENTS!
+		//	{
+		//		"dmg taken from blast reduced" 0.5
+		//	}
+		}
+
+		T_TFBot_Medic_Vaccinator_Fire_Resist_Linger
+		{
+			Class Medic
+			Skill Expert
+			Name "Fire Resistance Medic"
+			ClassIcon medic_fire
+			Item "pyroland_medigun_flowerpower"
+			Item "Titanium Tyrolean"
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "pyroland_medigun_flowerpower"
+				"ubercharge rate bonus" 25
+				"uber duration bonus" 50000  // doesn't do anything just display only
+				"medigun fire resist passive" 0.7
+				"medigun fire resist deployed" 0.7
+				"bot medic uber health threshold" 300
+				"medigun charge is resists" 5
+			//	"lunchbox adds minicrits" 3  // default weapon mode allows inf vac uber duration even with or without the duration bonus att
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+				"set_item_texture_wear" 0.6
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		//	CharacterAttributes		// MUST BE GIVEN TO PATIENTS!
+		//	{
+		//		"dmg taken from fire reduced" 0.5
+		//	}
+		}
+
+		T_TFBot_Medic_Vaccinator_Bullet_Resist_Linger_VoiceSpam		// Needs to add additional 75 to ubercharge rate for every vac medic in the squad
+		{
+			Class Medic
+			Skill Expert
+			Name "Bullet Resistance Medic"
+			ClassIcon medic_bullet
+			Item "powerhouse_medigun_sparkoflife"
+		//	Item "Titanium Tyrolean"	// conflicts with byted beak on bots, dissapointment 100
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "powerhouse_medigun_sparkoflife"
+				"ubercharge rate bonus" 75		// for one vac med
+			//	"ubercharge rate bonus" 150		// for two vac meds
+			//	"ubercharge rate bonus" 215		// for three vac meds
+			//	and so on......
+
+				"uber duration bonus" -8  // force uber end immediately
+				"medigun bullet resist passive" 0.7
+				"medigun bullet resist deployed" 0.7
+				"medigun charge is resists" 3
+			//	"lunchbox adds minicrits" 3  // default weapon mode allows inf vac uber duration even with or without the duration bonus att
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		//	CharacterAttributes		// MUST BE GIVEN TO PATIENTS!
+		//	{
+		//		"dmg taken from bullets reduced" 0.5
+		//	}
+		//	If these stack with Vaccinator's, remove the res from their Vaccinators.
+		}
+
+		T_TFBot_Medic_Vaccinator_Blast_Resist_Linger_VoiceSpam		// Needs to add additional 75 to ubercharge rate for every vac medic in the squad
+		{
+			Class Medic
+			Skill Expert
+			Name "Blast Resistance Medic"
+			ClassIcon medic_blast
+			Item "concealedkiller_medigun_maskedmender"
+		//	Item "Titanium Tyrolean"	// conflicts with byted beak on bots, dissapointment 100
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "concealedkiller_medigun_maskedmender"
+				"ubercharge rate bonus" 75		// for one vac med
+			//	"ubercharge rate bonus" 150		// for two vac meds
+			//	"ubercharge rate bonus" 215		// for three vac meds
+			//	and so on......
+
+				"uber duration bonus" -8  // force uber end immediately
+				"medigun blast resist passive" 0.7
+				"medigun blast resist deployed" 0.7
+				"medigun charge is resists" 4
+			//	"lunchbox adds minicrits" 3  // default weapon mode allows inf vac uber duration even with or without the duration bonus att
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		//	CharacterAttributes		// MUST BE GIVEN TO PATIENTS!
+		//	{
+		//		"dmg taken from blast reduced" 0.5
+		//	}
+		//	If these stack with Vaccinator's, remove the res from their Vaccinators.
+		}
+
+		T_TFBot_Medic_Vaccinator_Fire_Resist_Linger_VoiceSpam		// Needs to add additional 75 to ubercharge rate for every vac medic in the squad
+		{
+			Class Medic
+			Skill Expert
+			Name "Fire Resistance Medic"
+			ClassIcon medic_fire
+			Item "pyroland_medigun_flowerpower"
+		//	Item "Titanium Tyrolean"	// conflicts with byted beak on bots, dissapointment 100
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "pyroland_medigun_flowerpower"
+				"ubercharge rate bonus" 75		// for one vac med
+			//	"ubercharge rate bonus" 150		// for two vac meds
+			//	"ubercharge rate bonus" 215		// for three vac meds
+			//	and so on......
+
+				"uber duration bonus" -8  // force uber end immediately
+				"medigun fire resist passive" 0.7
+				"medigun fire resist deployed" 0.7
+				"medigun charge is resists" 5
+			//	"lunchbox adds minicrits" 3  // default weapon mode allows inf vac uber duration even with or without the duration bonus att
+				"ubercharge overheal rate penalty" 0.67
+				"overheal fill rate reduced" 0.34
+				"kill eater score type" 1
+				"kill eater score type 2" 2
+			}
+			CharacterAttributes
+			{
+				"health drain" -1	// this shows their health and reduces their natural regen rate!
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		//	CharacterAttributes		// MUST BE GIVEN TO PATIENTS!
+		//	{
+		//		"dmg taken from fire reduced" 0.5
+		//	}
+		//	If these stack with Vaccinator's, remove the res from their Vaccinators.
+		}
+		T_TFBot_Giant_Pyro_Flare_Spammer_Real // Spams flare gun fire
+		{
+			Class Pyro
+			Name "Giant Rapid Fire Detonator Pyro"
+			ClassIcon pyro_detonator_rapidfire_giant
+			Skill Expert
+			Health 3300
+			Item "The detonator"
+			Item "Old Guadalajara"
+			WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			Tag bot_giant
+			ItemAttributes
+			{
+				ItemName "The detonator"
+				"fire rate bonus" 0.1
+				"mod no reload DISPLAY ONLY" 1
+				"no self blast dmg" 2 // does this do anything on Detonators?
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.7
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.3
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 6
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		// Scouts
+		T_TFBot_Scout_CTTR_Energy_Shotgun
+		{
+			Class Scout
+			ClassIcon scout_atomic
+			Scale 1.4
+			Health 650
+			Name "Energy Shotgun Scout"
+			Item "pyroland_scattergun_shottohell"
+			Item "The Bolt Boy"
+			Skill Normal
+			MaxVisionRange 1200
+			ItemAttributes
+			{
+				ItemName "pyroland_scattergun_shottohell"
+				"faster reload rate" -0.1
+				"damage bonus" 1.5
+				"bullets per shot bonus" 0.8
+				"fire rate penalty" 1.4
+				"spread penalty" 1.15
+				"sniper fires tracer" 1
+				"ragdolls become ash" 1
+				"shot penetrate all players" 1
+				"killstreak tier" 2
+				"killstreak idleeffect" 2
+				"set_item_texture_wear" 0.2
+			}
+			CharacterAttributes
+			{
+				"move speed penalty" 0.9
+				"airblast vulnerability multiplier" 0.5
+				"airblast vertical vulnerability multiplier" 0.75
+				"health regen" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		// Soldiers
+		T_TFBot_Soldier_Jumper // Incredible
+		{
+			Class Soldier
+			Skill Expert
+			ClassIcon soldier_jug_market
+			Attributes DisableDodge
+			Attributes AlwaysFireWeapon
+			Name "Man of the Jumps"
+			Item "Rocket Jumper"
+			Item "The Mantreads"
+			Item "The Market Gardener"
+			ItemAttributes
+			{
+				ItemName "Rocket Jumper"
+				"provide on active" 1
+				"override projectile type" 3
+				"grenade no bounce" 1
+				"custom projectile model" "models/workshop/weapons/c_models/c_quadball/w_quadball_grenade.mdl"
+				"fuse bonus" 0.3
+				"damage penalty" 0.0
+				"apply z velocity on damage" 50
+				"apply look velocity on damage" 1300
+				"faster reload rate" 0
+				"fire rate penalty" 1.5 
+				"projectile speed decreased" 0.0001
+				"grenade no spin" 1
+				"increased jump height" 0.7
+				"blast radius increased" 2
+				"self dmg push force increased" 3
+				"deploy time decreased" 0.0
+				"cannot pick up intelligence" 0
+			}
+			ItemAttributes
+			{
+				ItemName "The Mantreads"
+				"cancel falling damage" 1
+				"increased air control" 101
+			}
+			ItemAttributes
+			{
+				ItemName "The Market Gardener"
+				"deploy time decreased" 0.0
+				"damage bonus" 1.5
+				"is_passive_weapon" 1
+			}
+			CharacterAttributes
+			{
+				"move speed penalty" 0.6
+			}
+		}
+		// Pyros
+	    T_TFBot_Pyro_Dragon_Fury_Extended_Concheror
+        {
+            Name "Extended Conch Fireball Pyro"
+            ClassIcon pyro_dragon_fury_swordstone_conch_litho
+            Class Pyro
+			MaxVisionRange 800
+			Skill Normal // Hard Dragon Fury Pyros are too accurate
+			Item "The Dragon's Fury"
+			Item "The Concheror"
+			Attributes SpawnWithFullCharge
+			ItemAttributes
+			{
+				ItemName "The Concheror"
+				"deploy time increased" 1.34
+				"increase buff duration" 1001	// cosmectic
+			}
+			CharacterAttributes
+			{
+				"increase buff duration" 1001
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+        }
+		T_TFBot_Pyro_Gas_EOI_Balanced
+		{
+			Class Pyro
+			ClassIcon pyro_gascann_explode
+			Name "Explode on Ignite Gas Pyro"
+			Item "The Gas Passer"
+			Item "The Rainblower"
+			Item "The Rusty Reaper"
+			WeaponRestrictions SecondaryOnly
+			MaxVisionRange 1000
+			ItemAttributes
+			{
+				ItemName "The Rainblower"
+				"damage penalty" 0.1
+				"weapon burn dmg reduced" 0.0
+				"weapon burn time reduced" 0.0	// Only sets afterburn to the lowest possible afterburn time visually, eh???
+												// Disallow is just lets multiple EOI bombs to work, can be comboed when pyro's solo 
+			}
+			ItemAttributes
+			{
+				ItemName "The Gas Passer"
+				"dmg penalty vs players" 0.25	// 350 * 25% = 87.5, so 88 damage?	
+												// faking the fire resistances :^)
+				"item_meter_charge_rate" 20
+				"mult_item_meter_charge_rate" 0.125
+				"fire rate penalty" 2.5
+				"weapon burn dmg reduced" 0.0
+				"weapon burn time reduced" 0.0	// Disallow is just lets multiple EOI bombs to work, can be comboed when pyro's solo 
+				"explode_on_ignite" 1
+				"counts as assister is some kind of pet this update is going to be awesome" 1
+			}
+			ItemAttributes	// Dayal's and Jaka's
+			{
+				ItemName "The Rusty Reaper"
+				"set item tint RGB" 12073019 //red
+				"head scale" 1.28	// surprising fits just well in the head hitbox
+			}
+			CharacterAttributes
+			{
+				"increased jump height" 1.5
+				"increased air control" 2
+				no_duck 1
+			}
+		}
+		// Medics
+		T_TFBot_Medic_Armored // 450 HP overall
+		{
+			Class Medic
+			ClassIcon medic_uber_armored
+			Name "+50 Defense Uber Medic"
+			Scale 1.3
+			Health 300
+			Skill Normal
+			Attributes IgnoreEnemies
+			Item "Das Metalmeatencasen"
+			Item "Das Naggenvatcher"
+			Item "Upgradeable TF_WEAPON_MEDIGUN"
+			Item "The Overdose"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_MEDIGUN"
+				"ubercharge rate bonus" 2
+				"heal rate bonus" 5
+			}
+			CharacterAttributes	// from Platinum Parade
+								// Rip Typeless damage like EOI, EH, Shield, etc
+								// Rip Bleed and Afterburn entirely
+			{
+				"dmg taken increased"	0.05
+				"dmg taken from crit reduced" 0.5
+				"dmg from melee increased"	10
+				"dmg from ranged reduced"	10
+				
+				"bot medic uber health threshold" 25
+
+				"health drain" -3
+				"airblast vulnerability multiplier" 0.5
+				"airblast vertical vulnerability multiplier" 0.75
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Medic_Shield_Chadder
+		{
+			Class Medic
+			ClassIcon medic_shield_armored_qf
+			Name "+50 Defense Shield Medic"
+			Scale 1.3
+			Health 300
+			Skill Hard
+			WeaponRestrictions SecondaryOnly
+			Attributes SpawnWithFullCharge
+			Attributes ProjectileShield
+			Tag bot_squad_member
+			Item "Das Metalmeatencasen"
+			Item "Das Naggenvatcher"
+			Item "Platinum Pickelhaube"
+			ItemAttributes
+			{
+				ItemName TF_WEAPON_MEDIGUN
+				"ubercharge rate penalty" -3
+				"generate rage on heal" 2
+				"increase buff duration" 1001
+			}
+			CharacterAttributes
+			{
+				"bot medic uber health threshold" 25
+				"bot medic uber deploy delay duration" 9999
+
+				"mod soldier buff type" 5	// 5 + 1
+				"deploy time increased" 1.34
+			}
+			CharacterAttributes	// from Platinum Parade
+								// Rip Typeless damage like EOI, EH, Shield, etc
+								// Rip Bleed and Afterburn entirely
+			{
+				"dmg taken increased"	0.05
+				"dmg taken from crit reduced" 0.5
+				"dmg from melee increased"	10
+				"dmg from ranged reduced"	10
+				
+				"bot medic uber health threshold" 25
+
+				"health drain" -3
+				"airblast vulnerability multiplier" 0.5
+				"airblast vertical vulnerability multiplier" 0.75
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+			Item "The Buff Banner"
+		} 
+		T_TFBot_Medic_Megaheal_Inf
+		{
+		    Class Medic
+			ClassIcon medic_infpop
+			Name "Infinite Mega-Heal Medic"
+			Tag bot_giant //Because Mega-Heal disable stuns, addcond 71 makes them able to be backstabbed at any angle
+		    Skill Normal	// Don't overheal anyone else, pocket your patient
+			WeaponRestrictions SecondaryOnly
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			Item "The Overdose"
+			Item "The Quick-Fix"
+			Item "Titanium Tyrolean"
+			ItemAttributes
+			{
+			    ItemName "The Quick-Fix"
+			    "bot medic uber health threshold" 400
+				"ubercharge rate bonus" 200
+				"uber duration bonus" -508
+				"heal rate bonus" 1.2
+				"healing received bonus" 1.1
+			}
+			ItemAttributes
+			{
+				ItemName "The Overdose"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Medic_Megaheal_Inf_Chad
+		{
+		    Class Medic
+			ClassIcon medic_infpop
+			Name "Giga-Heal Medic"
+			Tag bot_giant //Because Mega-Heal disable stuns, addcond 71 makes them able to be backstabbed at any angle
+		    Skill Normal	// Don't overheal anyone else, pocket your patient
+			WeaponRestrictions SecondaryOnly
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			Item "The Overdose"
+			Item "The Quick-Fix"
+			Item "Titanium Tyrolean"
+			ItemAttributes
+			{
+				ItemName "The Overdose"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+			    ItemName "The Quick-Fix"
+			    "bot medic uber health threshold" 400
+				"ubercharge rate bonus" 200
+				"uber duration bonus" -508
+				"heal rate bonus" 50
+				"healing received penalty" 0.0333333334	// only x5 healing to self
+														// literally its 5 lmao, if it rounded off...
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+				"health drain" -3
+			}
+		}
+		T_TFBot_Medic_Shield
+		{
+			Class Medic
+			Name "Shield Medic"
+			ClassIcon medic_shield_qf
+			Skill Normal
+			WeaponRestrictions SecondaryOnly
+			Attributes SpawnWithFullCharge
+			Attributes ProjectileShield
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+		//	Item "Das Metalmeatencasen"  // Dayal is using this for shield medics
+						// leaving this out so others can use their armored medics	
+		//	Item "Das Naggenvatcher"  // Dayal and Jaka is using this for shield medics
+			Item "Platinum Pickelhaube"  // Hell-met and Braindawg is using this for shield medics
+			ItemAttributes
+			{
+				ItemName TF_WEAPON_MEDIGUN
+				"ubercharge rate penalty" -3
+				"generate rage on heal" 2
+				"increase buff duration" 3
+			}
+			CharacterAttributes
+			{
+				"bot medic uber health threshold" 25
+				"bot medic uber deploy delay duration" 9999
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Medic_Shield_Chad
+		{
+			Class Medic
+			ClassIcon medic_shield_qf
+			Name "Aggressive Shield Medic"
+			Skill Normal
+			WeaponRestrictions SecondaryOnly
+			Attributes SpawnWithFullCharge
+			Attributes ProjectileShield
+			Tag bot_squad_member
+			Item "Platinum Pickelhaube"
+			ItemAttributes
+			{
+				ItemName TF_WEAPON_MEDIGUN
+				"ubercharge rate penalty" -3
+				"generate rage on heal" 2
+				"increase buff duration" 1001
+			}
+			CharacterAttributes
+			{
+				"bot medic uber health threshold" 25
+				"bot medic uber deploy delay duration" 9999
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+
+				"mod soldier buff type" 5	// 5 + 1
+				"deploy time increased" 1.34
+			}
+			Item "The Buff Banner"
+		} // creative commons copyright by mc do not rob with no permission or I will sue you in court kid
+		T_TFBot_Medic_QuickFix_Shield
+		{
+			Class Medic
+			Name "Quick-Fix Shield Medic"
+			ClassIcon medic_shield_qf
+			Skill Normal
+			Attributes SpawnWithFullCharge
+			Attributes ProjectileShield
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			Item "The Overdose"
+			Item "The Quick-Fix"
+		//	Item "Das Metalmeatencasen"  // Dayal is using this for shield medics
+						// leaving this out so others can use their armored medics	
+			Item "Das Naggenvatcher"  // Dayal and Jaka is using this for shield medics
+			ItemAttributes
+			{
+				ItemName "The Overdose"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "The Quick-Fix"
+				"generate rage on heal" 2
+				"increase buff duration" 3
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Medic_QuickFix_Shield_NoUber
+		{
+			Class Medic
+			Name "Quick-Fix Shield Medic"
+			ClassIcon medic_shield_qf
+			Skill Normal
+			Attributes SpawnWithFullCharge
+			Attributes ProjectileShield
+			Attributes IgnoreEnemies
+			Tag bot_squad_member
+			Item "The Overdose"
+			Item "The Quick-Fix"
+		//	Item "Das Metalmeatencasen"  // Dayal is using this for shield medics
+						// leaving this out so others can use their armored medics	
+			Item "Das Naggenvatcher"  // Dayal and Jaka is using this for shield medics
+			ItemAttributes
+			{
+				ItemName "The Overdose"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "The Quick-Fix"
+				"ubercharge rate penalty" -3
+				"generate rage on heal" 2
+				"increase buff duration" 2
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Medic_QuickFix_Beef_FullCharge
+		{
+			Class Medic
+			Item "The Quick-Fix"
+			Tag bot_squad_member
+			Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+			Skill Hard
+			Name "Mega-heal Medic"
+			Scale 1.3
+			Health 800
+			Item "The Overdose"
+			Item "The Quick-Fix"
+			ItemAttributes
+			{
+				ItemName "The Overdose"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "The Quick-Fix"
+				"heal rate bonus" 5
+				"ubercharge rate bonus" 3
+			}
+			CharacterAttributes
+			{
+				"bot medic uber health threshold" 100
+				"bot medic uber deploy delay duration" 0.8
+				"health regen" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Sniper_Huntsman_Fire
+		{
+			Class Sniper
+			Name "Fiery Arrows Bowman"
+			Skill Hard
+			ClassIcon sniper_bow_ignite
+			MaxVisionRange 1500
+			Item "The Huntsman"
+
+			ItemAttributes	// 40 damage arrows
+							// actual value is 40.00000000000000000008, crit would be 120.00000000000000000024
+							// crit then rounds off to 120
+			{
+				ItemName "The Huntsman"
+				"attach particle effect" 13
+				"dmg penalty vs players" 0.333333333333333333334
+				"dmg penalty vs buildings" 0.333333333333333333334
+				"Set DamageType Ignite" 1
+				"weapon burn dmg increased" 3	// 4 * 0.333333333333333333334 = 1.33333333333333333336
+												// 1.3336 * 3 = 4.000000000000000000008 afterburn dmg
+				// "Why so many '3's?", you may ask, this is done so the extra digit at the back doesn't cause the whole number to round off to
+				// one number higher than intended
+				// EX: If it was (4 * 0.3334) * 3, then afterburn damage would sometimes deal 3 damage and sometimes 4 damage  	
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Sniper_Huntsman_Spammer_Small	// can't make them fire more faster... even with reload rate and fire rate removing bow charge 
+												// entirely...
+		{
+			Class Sniper
+			Name "Rapid Fire Bowman"
+			Skill Expert
+			ClassIcon sniper_bow_multi
+			MaxVisionRange 1500
+			Item "The Huntsman"
+			Item "Starduster"
+
+			ItemAttributes  // 30 damage arrows
+							// 36 if bot has crit and player has full crit res 
+			{
+				ItemName "The Huntsman"
+				"dmg penalty vs players" 0.25
+				"dmg penalty vs buildings" 0.25
+				"fire rate bonus" 0.1
+			}
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Soldier_RocketShotgun_NoHeal // Start as terrifying Rocket Shotgunner, then become a Rocket Barrager
+												// ToD is Ticket to Die, should be TTD but we called it ToD???
+												// (ToD still sounds cool, mentioning it is just for fun) This is used in our Trainyard adv mission ^^
+		{
+			Class Soldier
+			//  Name "Sergeant Rocket Shotgun"
+			Name "Giant Rocket Rain Soldier"
+			ClassIcon soldier_rocketrain_giant
+			Health 4200
+			Skill Expert
+			Attributes MiniBoss
+			Attributes HoldFireUntilFullReload
+			Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+			Item "The Rebel Rouser"
+			Item "Exquisite Rack"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+				"faster reload rate" 0.3
+				"fire rate bonus" 0.05
+				"damage penalty" 0.5
+				"clip size upgrade atomic" 13
+				"projectile speed decreased" 0.4
+				"projectile spread angle penalty" 10
+				"fire rate bonus with reduced health" 0.1
+				"gesture speed increase" 1.5
+				"blast radius decreased" 0.85
+				"dmg falloff increased" 1.3
+				"rocket jump damage reduction" 0.05
+				"killstreak tier" 2
+				"killstreak idleeffect" 7
+			}
+			CharacterAttributes
+			{
+				"move speed penalty" 0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.2
+				"rage giving scale"	0.4
+				"airblast vertical vulnerability multiplier" 0.5
+				"override footstep sound set" 3
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Giant_Medic_Regen_Super
+		{
+			Class Medic
+			Name "Super Regen Medic"
+			ClassIcon medic_giant
+			Skill Expert
+			Health 4500
+			Item "The Quick-Fix"
+			Item "The Surgeon's Stahlhelm"
+			Item "The Overdose"
+			// WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			Attributes IgnoreEnemies
+			Tag bot_giant
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "The Overdose"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "The Surgeon's Stahlhelm"
+				"set item tint RGB" 3329330 // LIME
+				"attach particle effect" 70
+			}
+			ItemAttributes	// 670 self heal per uber apparently, and ~5 seconds to refill uber
+							// 670 is combined with healing penalty from under fire, guess what happens if you leave it alone
+			{
+				ItemName "The Quick-Fix"
+				"ubercharge rate bonus" 15
+				"uber duration bonus" -7
+				"heal rate bonus" 200
+				"healing received penalty" 0.05
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+				"bot medic uber health threshold" 4501
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.3
+				"airblast vertical vulnerability multiplier" 0.5
+				"health drain"	-3
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Giant_Medic_QuickUber
+		{
+			Class Medic
+			Name "Giant Quick-Uber Medic"
+			ClassIcon medic_uber_giant
+			Skill Expert
+			Health 4500
+			Item "Upgradeable TF_WEAPON_MEDIGUN"
+			Item "The Byte'd Beak"
+			Attributes MiniBoss
+			Attributes IgnoreEnemies
+			Tag bot_giant
+			Tag bot_squad_member
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+			}
+			ItemAttributes
+			{
+				ItemName "The Byte'd Beak"
+				"set item tint RGB" 3329330 // LIME
+				"attach particle effect" 70
+			}
+			ItemAttributes	// reminds me of platformer games's disappearing platforms
+			{
+				ItemName "Upgradeable TF_WEAPON_MEDIGUN"	// ~3 seconds to fill uber
+				"ubercharge rate bonus" 30
+				"uber duration bonus" -7
+				"heal rate bonus" 200
+				"killstreak tier" 2
+				"killstreak idleeffect" 1
+				"bot medic uber health threshold" 4501
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.3
+				"airblast vertical vulnerability multiplier" 0.5
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+		T_TFBot_Boss_Soldier_RocketShotgun  // Start as terrifying Rocket Shotgunner, then become a Rocket Barrager
+		{
+			Class Soldier
+			//  Name "Sergeant Rocket Shotgun"
+			Name "Major Rocket Shotgun"
+			//  Name "Captain Rocket Flurry"  // reserved RJ variant... :) 
+			ClassIcon soldier_blackbox_giant
+			Health 50000
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Attributes HoldFireUntilFullReload
+			Item "The Black Box"
+			Item "The Rebel Rouser"
+			Item "Exquisite Rack"
+			ItemAttributes
+			{
+				ItemName "The Black Box"
+				"faster reload rate" 0.07
+				"fire rate bonus" 0.025
+				"damage penalty" 0.7
+				"clip size upgrade atomic" 31
+				"projectile speed decreased" 0.4
+				"projectile spread angle penalty" 8
+				"minicritboost on kill" 5
+				"fire rate bonus with reduced health" 0.05
+				"gesture speed increase" 1.5
+				"blast radius decreased" 0.85
+				"dmg falloff increased" 1.3
+				"rocket jump damage reduction" 0.05
+				"heal on kill" 5000  // discourage pyros
+				"paintkit_proto_def_index" 217 // Bomber Soul
+				"set_item_texture_wear" 0.2 // required for potatoes, FN
+				"killstreak tier" 2
+				"killstreak idleeffect" 6
+			}
+			CharacterAttributes
+			{
+				"cancel falling damage" 1
+				"move speed penalty" 0.5
+				"damage force reduction" 0.0
+				"airblast vulnerability multiplier" 0.0
+				"airblast vertical vulnerability multiplier" 0.0
+				"rage giving scale"	0.3
+				"override footstep sound set" 3
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Boss_Soldier_RocketShotgun_ToD  // Start as terrifying Rocket Shotgunner, then become a Rocket Barrager
+												// ToD is Ticket to Die, should be TTD but we called it ToD???
+												// (ToD still sounds cool, mentioning it is just for fun) This is used in our Trainyard adv mission ^^
+		{
+			// There isn't a Skill key, strange, but lets just say its intended
+			Class Soldier
+			//  Name "Sergeant Rocket Shotgun"
+			Name "Sergeant Rocket Storm"
+			ClassIcon soldier_rocketrain_giant
+			Health 14000
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Attributes HoldFireUntilFullReload
+			Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+			Item "The Rebel Rouser"
+			Item "Exquisite Rack"
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+				"kill eater" 0
+				"kill eater 2" 0
+				"kill eater 3" 0
+				"kill eater score type 2" 34
+				"kill eater score type 3" 37
+				"faster reload rate" 0.15
+				"fire rate bonus" 0.025
+				"damage penalty" 0.5
+				"clip size upgrade atomic" 13
+				"projectile speed decreased" 0.4
+				"projectile spread angle penalty" 10
+				"fire rate bonus with reduced health" 0.05
+				"gesture speed increase" 1.5
+				"blast radius decreased" 0.85
+				"dmg falloff increased" 1.3
+				"rocket jump damage reduction" 0.05
+				"paintkit_proto_def_index" 217 // Bomber Soul
+				"set_item_texture_wear" 0.2 // required for potatoes, FN
+				"killstreak tier" 2
+				"killstreak idleeffect" 7
+			}
+			CharacterAttributes
+			{
+				"cancel falling damage" 1
+				"move speed penalty" 0.5
+				"damage force reduction" 0.0
+				"airblast vulnerability multiplier" 0.0
+				"rage giving scale"	0.4
+				"airblast vertical vulnerability multiplier" 0.0
+				"override footstep sound set" 3
+
+				"dmg taken increased" 0.05 
+				"dmg from melee increased" 20
+				"dmg from ranged reduced" 20
+				"boots falling stomp" 1
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+		T_TFBot_Boss_Pyro_Fireball_Chief
+		{
+			Class Pyro
+			Name "Certified Fireball Master"
+			Health 10000
+			MaxVisionRange 800
+			ClassIcon pyro_dragon_fury_swordstone
+			Skill Expert
+			Item "The Dragon's Fury"
+			Item "Burny's Boney Bonnet"
+		//	Item "The Cauterizer's Caudal Appendage"
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			ItemAttributes
+			{
+				ItemName "The Dragon's Fury"
+				"damage bonus" 1.25
+				"weapon burn dmg increased" 3
+				"mult_item_meter_charge_rate" 0.3
+				"critboost on kill" 8
+			}
+			CharacterAttributes
+			{
+				"move speed penalty" 0.4
+				"health regen" 100
+				"damage force reduction" 0.0
+				"airblast vulnerability multiplier" 0.0
+				"override footstep sound set" 2
+				"airblast vertical vulnerability multiplier" 0.0
+				"rage giving scale" 0.4
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+		}
+
+//====================== Custom bot templates concepts stolen, like other templates, most templates here aren't used and may be in here for different reasons =======================================
+
+
+		T_TFBot_Sephan_Giant_Soldier_Frostbite	// Those Frostbite soldiers's "template parents" are in the same template pop, so its fine
+		{
+			ClassIcon    soldier_frostbite_giant
+			Health    4000
+			Name    "Giant Frostbite Soldier"
+			Skill    Expert
+			Template    T_TFBot_Giant_Soldier_Crit
+			ItemAttributes
+			{
+				ItemName    "the original"
+				"damage bonus" 1.5
+				"fire rate penalty"    1.5
+				"slow enemy on hit major"    2
+				"bleeding duration"    2
+				"apply z velocity on damage" -30
+			//	"attach particle effect" 87		// frosbite unu weapon effect
+				"attach particle effect" 703	// cool unu weapon effect
+				"Projectile speed decreased" 0.5
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"    0.4
+				"damage force reduction"    0.4
+				"airblast vulnerability multiplier"    0.2
+				"airblast vertical vulnerability multiplier"    0.5
+
+				no_duck 1	// yep I added it myself
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+			Item    "the brown bomber"
+		}
+		T_TFBot_Sephan_Giant_Soldier_Frostbite_Battalion
+		{
+			ClassIcon    soldier_frostbite_bats
+			Health    4000
+			Name    "Giant Frostbite Backup Soldier"
+			Template    T_TFBot_Giant_Soldier_Extended_Battalion
+			Attributes    "AlwaysCrit"
+			ItemAttributes
+			{
+				ItemName    "the original"
+				"fire rate bonus" 	0.6		//	0.5
+				"faster reload rate"    -0.8
+				"slow enemy on hit major"    2
+				"bleeding duration"    2
+				"zpply z velocity on damage" -30
+				"damage penalty"    0.65
+				"Projectile speed decreased" 0.5
+			//	"attach particle effect" 87		// frosbite unu weapon effect
+				"attach particle effect" 703	// cool unu weapon effect
+			}
+			CharacterAttributes
+			{
+				"move speed penalty"    0.4
+				"damage force reduction"    0.4
+			//	"airblast vulnerability multiplier"    0.1
+				"airblast vulnerability multiplier"    0.2
+				"airblast vertical vulnerability multiplier"    0.5
+
+				no_duck 1	// yep I added it myself
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+			Item    "the original"
+			Item    "the brown bomber"
+		}
+		T_TFBot_Tind_Medic_Uber_Extended
+        {
+            Class Medic
+            Name "Extended Uber Medic"
+            ClassIcon medic_uber'
+		//	ClassIcon medic_uber_extended	// An Icon Jaka made for Tindall but I guess it wasn't needed
+											// wouldn't hurt to use, though
+            Skill Hard
+            Attributes SpawnWithFullCharge
+			Attributes IgnoreEnemies
+            Item "Upgradeable TF_WEAPON_SYRINGEGUN_MEDIC"
+            Item "Upgradeable TF_WEAPON_MEDIGUN"
+            Item "The Warsworn Helmet"
+            ItemAttributes
+            {
+                ItemName "Upgradeable TF_WEAPON_MEDIGUN"
+                "ubercharge rate penalty"    0.01
+                "uber duration bonus"    4
+                "heal rate bonus"        3
+            }
+			CharacterAttributes
+			{
+				no_duck 1
+				"increased jump height" 1.5
+				"increased air control" 2
+			}
+        }
+
+//======== SECTION 3: THE ACTUAL PART (ABOVE) ========
+
+		T_WaveSpawn_Sign_A	
+		{
+			TotalCount 0
+			SpawnCount 0
+			Support 1				
+
+			TFBot
+			{
+				ClassIcon	sign_a
+			}
+		}
+		T_WaveSpawn_Sign_B
+		{
+			TotalCount 0
+			SpawnCount 0
+			Support 1				
+
+			TFBot
+			{
+				ClassIcon	sign_b
+			}
+		}
+		T_WaveSpawn_Sign_C
+		{
+			TotalCount 0
+			SpawnCount 0
+			Support 1				
+
+			TFBot
+			{
+				ClassIcon	sign_c
+			}
+		}
+		T_WaveSpawn_Sign_D
+		{
+			TotalCount 0
+			SpawnCount 0
+			Support 1				
+
+			TFBot
+			{
+				ClassIcon	sign_d
+			}
+		}
+	}
+}

@@ -1,0 +1,43 @@
+// busters
+WaveSchedule
+{
+	Templates
+	{
+		T_TFBot_Surprise_Buster
+		{
+			Class Spy 
+			ClassIcon sentry_buster
+			Name "Spy Buster"
+			Attributes DisableDodge
+			Health 2500
+		}
+		
+		T_TFBot_Fast_Buster
+		{
+			Class Scout 
+			ClassIcon sentry_buster
+			Name "Fast Buster"
+			Health 2500
+			CharacterAttributes
+			{
+				"move speed bonus" 3
+			}
+		}
+		
+		T_TFBot_Fast_Buster_Basher
+		{
+			Class Scout 
+			ClassIcon sentry_buster
+			Name "Fast Basher Buster"
+			Health 4000
+			Item "The Boston Basher"
+			Attributes AlwaysFireWeapon
+			WeaponRestrictions MeleeOnly
+			CharacterAttributes
+			{
+				"move speed bonus" 2
+				"damage bonus" 2
+			}
+		}
+	}
+}

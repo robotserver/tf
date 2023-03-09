@@ -1,0 +1,936 @@
+//lol
+//colonel barrage
+#base robot_giant.pop
+#base robot_standard.pop
+#base robot_gatebot.pop
+population
+{
+	StartingCurrency	400
+	RespawnWaveTime	6
+	CanBotsAttackWhileInSpawnRoom	no
+	Mission	
+	{
+		Objective	Sniper
+		Where	spawnbot_right
+		BeginAtWave	5
+		RunForThisManyWaves	1
+		InitialCooldown	20
+		CooldownTime	30
+		DesiredCount	3
+		
+		TFBot
+		{
+			Template	T_TFBot_Sniper_Sydney_Sleeper
+		}
+	}
+	Mission	
+	{
+		Objective	Spy
+		Where	spawnbot
+		BeginAtWave	5
+		RunForThisManyWaves	1
+		InitialCooldown	1
+		CooldownTime	30
+		DesiredCount	4
+		
+		TFBot
+		{
+			Template	T_TFBot_Spy
+		}
+	}
+	Templates
+	{
+	T_TFBot_Medic_Kritz
+		{
+			Class Medic
+			Name "Kritzkrieg Medic"
+			ClassIcon medic_kritz
+			WeaponRestrictions SecondaryOnly
+			Skill Expert
+			Item "The Kritzkrieg"
+			Attributes SpawnWithFullCharge
+			Attributes AlwaysCrit
+			ItemAttributes
+			{
+				ItemName "The Kritzkrieg"
+				"uber duration bonus" 100
+			}
+			CharacterAttributes
+			{
+				"bot medic uber health threshold" 200
+			}
+	}
+	T_Bison
+	{
+	WeaponRestrictions	SecondaryOnly
+	Skill	Expert
+	Name	"Bison Soldier"
+	Class	Soldier
+	Item	"the righteous bison"
+	}
+	}
+	Wave
+	{
+		WaitWhenDone	65
+		Checkpoint	Yes
+		StartWaveOutput
+		{
+			Target	wave1_start_relay
+			Action	Trigger
+		}
+		DoneOutput
+		{
+			Target	wave_finished_relay
+			Action	Trigger
+		}
+		WaveSpawn
+		{
+			Name	11
+			TotalCurrency	18
+			TotalCount	18
+			MaxActive	18
+			SpawnCount	1
+			Where	spawnbot
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Scout_Bonk
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	11
+			TotalCurrency	40
+			TotalCount	4
+			MaxActive	4
+			SpawnCount	2
+			Where	spawnbot
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	9
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Scout_Bonk
+				}
+				TFBot
+				{
+					Template	T_TFBot_Medic_QuickUber
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	230
+			TotalCount	3
+			MaxActive	1
+			SpawnCount	1
+			Where	spawnbot
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	10
+			Squad
+			{
+				Tank
+				{
+					Health	10000
+					Name	Tank
+					Speed	75
+					StartingPathTrackNode	boss_path_a
+					OnKilledOutput
+					{
+						Target	boss_dead_relay
+						Action	Trigger
+					}
+					OnBombDroppedOutput
+					{
+						Target	boss_deploy_relay
+						Action	Trigger
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	12
+			TotalCurrency	100
+			TotalCount	20
+			MaxActive	20
+			SpawnCount	1
+			Where	spawnbot
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	2
+			WaitForAllDead	11
+			FirstSpawnOutPut
+			{
+			Target saucer_airraid_relay
+			Action trigger
+			}
+			Squad
+			{
+				TFBot
+				{
+					Template T_Bison
+					ClassIcon soldier_bison
+					Skill expert
+				}
+			}
+		}
+		//bitch what the fuck
+		WaveSpawn
+		{
+			TotalCurrency	10
+			Name f
+			TotalCount	2
+			MaxActive	2
+			SpawnCount	2
+			Where	spawnbot_aerial
+			WaitBeforeStarting	15
+			WaitBetweenSpawns	1
+			WaitForAllDead	11
+			Support	1
+			Squad
+			{
+				TFBot
+				{
+					Class Heavyweapons
+					Skill normal
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	13
+			TotalCurrency	48
+			TotalCount	12
+			MaxActive	12
+			SpawnCount	2
+			Where	spawnbot
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	5
+			WaitForAllDead	12
+			Squad
+			{
+				TFBot
+				{
+					Class Pyro
+					Skill hard
+				}
+				TFBot
+				{
+					Template	T_TFBot_Medic_QuickUber
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	13
+			TotalCurrency	14
+			TotalCount	14
+			MaxActive	7
+			SpawnCount	2
+			Where	spawnbot
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	10
+			WaitForAllDead	12
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Scout_Jumping_Sandman
+				}
+			}
+		}
+		WaveSpawn
+		{
+			WaitBetweenSpawns	12
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	1
+			MaxActive	1
+			TotalCount	1
+			TotalCurrency	50
+			WaitForAllDead	13
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Demoman_PrinceTavish
+					Attributes AlwaysCrit
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	240
+			TotalCount	12
+			MaxActive	12
+			SpawnCount	2
+			Where	spawnbot
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	4
+			WaitForAllSpawned	13
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_heavyweapons_fist
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickUber
+				}
+			}
+		}
+	}
+	Wave
+	{
+		Checkpoint	Yes
+		WaitWhenDone	65
+		StartWaveOutput
+		{
+			Action	Trigger
+			Target	wave_start_relay
+		}
+		DoneOutput
+		{
+			Action	Trigger
+			Target	wave_finished_relay
+		}
+		WaveSpawn
+		{
+			Name	21
+			WaitBetweenSpawns	1
+			WaitBeforeStarting	1
+			Where	spawnbot_right
+			SpawnCount	1
+			MaxActive	11
+			TotalCount	12
+			TotalCurrency	120
+			RandomChoice
+			{
+				TFBot
+				{
+					WeaponRestrictions	SecondaryOnly
+					ClassIcon pyro_manmelter
+					Skill	Hard
+					Name	"Manmelter Pyro"
+					Class	Pyro
+					Item	"the manmelter"
+				}
+				TFBot
+				{
+					WeaponRestrictions	SecondaryOnly
+					ClassIcon pyro_manmelter
+					Skill	Hard
+					Name	"Manmelter Pyro"
+					Class	Pyro
+					Item	"the manmelter"
+				}
+				TFBot
+				{
+					WeaponRestrictions	SecondaryOnly
+					ClassIcon pyro_manmelter
+					Skill	Hard
+					Name	"Manmelter Pyro"
+					Class	Pyro
+					Item	"the manmelter"
+				}
+				TFBot
+				{
+					WeaponRestrictions	SecondaryOnly
+					ClassIcon pyro_manmelter
+					Skill	Hard
+					Name	"Manmelter Pyro"
+					Class	Pyro
+					Item	"the manmelter"
+				}
+				TFBot
+				{
+					WeaponRestrictions	SecondaryOnly
+					ClassIcon pyro_manmelteR
+					Skill	Expert
+					Name	"Manmelter Pyro"
+					Class	Pyro
+					Item	"the manmelter"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	21
+			WaitBetweenSpawns	1
+			WaitBeforeStarting	0
+			Where	spawnbot_left
+			SpawnCount	1
+			MaxActive	11
+			TotalCount	12
+			TotalCurrency	120
+			RandomChoice
+			{
+				TFBot
+				{
+					WeaponRestrictions	SecondaryOnly
+					ClassIcon pyro_manmelter
+					Skill	Hard
+					Name	"Manmelter Pyro"
+					Class	Pyro
+					Item	"the manmelter"
+				}
+				TFBot
+				{
+					WeaponRestrictions	SecondaryOnly
+					ClassIcon pyro_manmelter
+					Skill	Hard
+					Name	"Manmelter Pyro"
+					Class	Pyro
+					Item	"the manmelter"
+				}
+				TFBot
+				{
+					WeaponRestrictions	SecondaryOnly
+					ClassIcon pyro_manmelter
+					Skill	Hard
+					Name	"Manmelter Pyro"
+					Class	Pyro
+					Item	"the manmelter"
+				}
+				TFBot
+				{
+					WeaponRestrictions	SecondaryOnly
+					ClassIcon pyro_manmelter
+					Skill	Hard
+					Name	"Manmelter Pyro"
+					Class	Pyro
+					Item	"the manmelter"
+				}
+				TFBot
+				{
+					WeaponRestrictions	SecondaryOnly
+					ClassIcon pyro_manmelteR
+					Skill	Expert
+					Name	"Manmelter Pyro"
+					Class	Pyro
+					Item	"the manmelter"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	22
+			WaitBetweenSpawns	17
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	1
+			MaxActive	2
+			TotalCount	3
+			TotalCurrency	100
+			WaitForAllSpawned	21
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Scout_Fast
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	22
+			WaitBetweenSpawns	1
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	2
+			MaxActive	18
+			TotalCount	36
+			TotalCurrency	72
+			WaitForAllDead	21
+			RandomChoice //wait
+			{
+				TFBot
+				{
+					Template	T_TFBot_Demoman_Knight
+					Name "Charger Demo"
+					ClassIcon demoknight_charge
+					Attributes AlwaysCrit
+					CharacterAttributes
+					{
+					"Attack not cancel charge" 1
+					"charge time increased" 2
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	23
+			WaitBetweenSpawns	5
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	2
+			MaxActive	6
+			TotalCount	12
+			TotalCurrency	60
+			WaitForAllDead	22
+			Squad
+			{
+				TFBot
+				{
+					Class Demoman
+					Skill normal
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_Kritz
+				}
+			}
+		}
+		WaveSpawn
+		{
+			WaitBetweenSpawns	15
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	1
+			MaxActive	1
+			TotalCount	1
+			TotalCurrency	80
+			WaitForAllDead 22
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Soldier_Spammer
+				}
+			}
+		}
+		WaveSpawn
+		{
+			WaitBetweenSpawns	1
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	1
+			MaxActive	15
+			TotalCount	60
+			TotalCurrency	120
+			WaitForAllSpawned	22
+			RandomChoice
+			{
+					TFBot
+					{
+						Class Pyro
+						Skill Normal
+					}
+					TFBot
+					{
+						Class Scout
+						Skill normal
+					}
+			}
+		}
+		WaveSpawn
+		{
+			WaitBetweenSpawns	15
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	1
+			MaxActive	2
+			TotalCount	2
+			TotalCurrency	128
+			WaitForAllSpawned	23
+			TFBot
+			{
+				Template	T_TFBot_Giant_Soldier_Spammer_Reload
+			}
+		}
+	}
+	Wave
+	{
+		Checkpoint	Yes
+		WaitWhenDone	65
+		StartWaveOutput
+		{
+			Action	Trigger
+			Target	wave_start_relay
+		}
+		DoneOutput
+		{
+			Action	Trigger
+			Target	wave_finished_relay
+		}
+		WaveSpawn
+		{
+			TotalCurrency	50
+			TotalCount	25
+			MaxActive	5
+			SpawnCount	5
+			Where	spawnbot_aerial
+			WaitBeforeStarting	8
+			WaitBetweenSpawns	15
+			Support	Limited
+			Squad
+			{
+				TFBot
+				{
+					Template	T_Bison
+					ClassIcon soldier_bison
+					Skill hard
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	31
+			WaitBetweenSpawns	10
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	5
+			MaxActive	5
+			TotalCount	5
+			TotalCurrency	50
+			FirstSpawnOutPut
+			{
+			Target saucer_airraid_relay
+			Action trigger
+			}
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Heavyweapons_HealOnKill
+					Skill Expert
+					Attributes	"UseBossHealthBar"
+					Item	"iron curtain"
+					Item	"officer's ushanka"
+					ItemAttributes
+					{
+					    itemname "iron curtain"
+						"heal on kill" 4999
+						"damage bonus" 1.5
+						"attack projectiles" 4
+					}
+				}
+				TFBot
+				{
+				    Template T_TFBot_Medic_QuickUber
+				}
+				TFBot
+				{
+				    Template T_TFBot_Medic_QuickUber
+				}
+				TFBot
+				{
+				    Template T_TFBot_Medic_QuickUber
+				}
+				TFBot
+				{
+				    Template T_TFBot_Medic_QuickUber
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	32
+			WaitBetweenSpawns	5
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	4
+			MaxActive	16
+			TotalCount	40
+			TotalCurrency	40
+			WaitForAllDead	31
+			Squad
+			{
+				TFBot
+				{
+					Name	"Iron Bomber"
+					Class	Demoman
+					Item	"the iron bomber"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	32
+			WaitBetweenSpawns	1
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	5
+			MaxActive	5
+			TotalCount	15
+			TotalCurrency	124
+			WaitForAllDead	31
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Heavy_Ironfist_Airblast
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	33
+			WaitBetweenSpawns	1
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	1
+			MaxActive	20
+			TotalCount	20
+			TotalCurrency	100
+			WaitForAllDead	32
+			RandomChoice
+			{
+				TFBot
+				{
+					Template	T_TFBot_Scout_Bonk
+					Attributes	"AlwaysCrit"
+				}
+				TFBot
+				{
+					Template	T_TFBot_Medic_QuickUber
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	33
+			WaitBetweenSpawns	10
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	1
+			MaxActive	1
+			TotalCount	1
+			TotalCurrency	100
+			WaitForAllDead	32
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Heavyweapons_HealOnKill
+					Attributes	"UseBossHealthBar"
+					Item	"iron curtain"
+					Item	"officer's ushanka"
+					ItemAttributes
+					{
+					    itemname "iron curtain"
+						"heal on kill" 4999
+						"damage bonus" 1.5
+						"attack projectiles" 2
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			WaitBetweenSpawns	10
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	1
+			MaxActive	3
+			TotalCount	3
+			TotalCurrency	100
+			WaitForAllSpawned	33
+			RandomChoice
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Heavyweapons_HealOnKill
+					Attributes	"UseBossHealthBar"
+					Skill hard
+					Item	"iron curtain"
+					Item	"officer's ushanka"
+					ItemAttributes
+					{
+					    itemname "iron curtain"
+						"heal on kill" 4999
+						"damage bonus" 1.2
+						"attack projectiles" 2
+					}
+				}
+				TFBot
+				{
+					Template	T_TFBot_Giant_Heavyweapons_HealOnKill
+					Attributes	"UseBossHealthBar"
+					Skill normal
+					Item	"iron curtain"
+					Item	"officer's ushanka"
+					ItemAttributes
+					{
+					    itemname "iron curtain"
+						"heal on kill" 4999
+						"damage bonus" 1.2
+						"attack projectiles" 2
+					}
+				}
+				TFBot
+				{
+					Template	T_TFBot_Giant_Heavyweapons_HealOnKill
+					Attributes	"UseBossHealthBar"
+					Skill normal
+					Item	"iron curtain"
+					Item	"officer's ushanka"
+					ItemAttributes
+					{
+					    itemname "iron curtain"
+						"heal on kill" 4999
+						"damage bonus" 1.2
+						"attack projectiles" 2
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			WaitBetweenSpawns	2
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	1
+			MaxActive	18
+			TotalCount	18
+			TotalCurrency	36
+			WaitForAllSpawned	33
+			Support	1
+			Squad
+			{
+				TFBot
+				{
+					Template	T_Bison
+					ClassIcon soldier_bison
+					Skill easy
+				}
+			}
+		}
+	}
+	Wave
+	{
+		Checkpoint	Yes
+		WaitWhenDone	65
+		StartWaveOutput
+		{
+			Action	Trigger
+			Target	wave_start_relay
+		}
+		DoneOutput
+		{
+			Action	Trigger
+			Target	wave_finished_relay
+		}
+		WaveSpawn
+		{
+			WaitBetweenSpawns	10
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	1
+			MaxActive	5
+			TotalCount	1
+			TotalCurrency	2000
+			Squad
+			{
+				TFBot
+				{
+					Health	125
+					Skill	Normal
+					Name	"unfinished.."
+					Class	Scout
+					Item	"tf_weapon_scattergun"
+					Item	"tf_weapon_pistol_scout"
+					Item	"tf_weapon_bat"
+					Attributes MiniBoss
+				}
+			}
+		}
+	}
+	Wave
+	{
+		Checkpoint	Yes
+		WaitWhenDone	65
+		StartWaveOutput
+		{
+			Action	Trigger
+			Target	wave_start_relay
+		}
+		DoneOutput
+		{
+			Action	Trigger
+			Target	wave_finished_relay
+		}
+		WaveSpawn
+		{
+			WaitBetweenSpawns	1
+			WaitBeforeStarting	0
+			Where	spawnbot
+			SpawnCount	2
+			MaxActive	2
+			TotalCount	2
+			TotalCurrency	200
+			Squad
+			{
+			TFBot
+				{
+					Class Demoman
+					Health 5000
+					Name "To trigger the shield"
+					Attributes MiniBoss
+					Item "the razorback"
+					Skill Expert
+					Item "the iron bomber"
+					CharacterAttributes
+					{
+					    "fuse bonus" 0.01
+						"move speed bonus" 0.3
+						"dmg from ranged reduced" 17
+						"damage force reduction"	0.1
+						"airblast vulnerability multiplier"	0.1
+						"blast radius increased" 3
+					}
+				}
+			TFBot
+			{
+			ClassIcon 	medic_shield_qf
+					Health		50000
+					Name 		"Bomblastic Barrier"
+					Class 		Medic
+					Skill 		Expert
+					WeaponRestrictions 	SecondaryOnly
+					Attributes 	ProjectileShield
+					Attributes	MiniBoss
+					Attributes UseBossHealthBar
+					Attributes AlwaysfireWeapon
+					Attributes AlwaysCrit
+					Attributes	SpawnWithFullCharge
+					ItemAttributes
+					{
+						ItemName "The Quick-Fix"
+						"generate rage on heal" 2
+						"increase buff duration" 8.5
+					}	
+					ItemAttributes
+					{
+						ItemName "the Blutsauger"
+						"Fire rate bonus" 4.5
+						"damage bonus" 2
+						"override projectile type" 2
+						"clip size bonus" 0.5
+						"is_passive_weapon" 1
+					}	
+					CharacterAttributes
+					{
+						"move speed bonus"	0.25
+						"damage force reduction"	0.65
+						"airblast vulnerability multiplier"	0.65
+						"heal rate bonus"	0.1
+						"health drain" -10
+						"Rage giving scale" 1.5
+						"bot medic uber deploy delay duration" 1339
+					}	
+					Item 	"The Quick-Fix"
+					Item "Climbing Commander"
+					Item "the Blutsauger"
+			}
+			}
+		}
+	}
+}

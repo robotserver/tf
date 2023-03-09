@@ -1,0 +1,1483 @@
+#base robot_giant.pop
+#base robot_standard.pop
+#base robot_gatebot.pop
+population
+{
+	StartingCurrency	1200
+	RespawnWaveTime	6
+	CanBotsAttackWhileInSpawnRoom	no
+	Advanced	1
+	Templates
+	{
+	}
+	Mission
+	{
+		Objective	Spy
+		Where	spawnbot_mission_spy
+		BeginAtWave	1
+		RunForThisManyWaves	1
+		InitialCooldown	30
+		CooldownTime	45
+		DesiredCount	2
+		TFBot
+		{
+			Template	T_TFBot_Spy
+		}
+	}
+	Mission
+	{
+		Objective	Sniper
+		Where	flankers
+		BeginAtWave	1
+		RunForThisManyWaves	1
+		InitialCooldown	45
+		CooldownTime	45
+		DesiredCount	2
+		TFBot
+		{
+			Template	T_TFBot_Sniper
+		}
+	}
+	Wave
+	{
+		WaitWhenDone	65
+		Checkpoint	Yes
+		StartWaveOutput
+		{
+			Target	wave_start_relay_ironman
+			Action	Trigger
+		}
+		DoneOutput
+		{
+			Target	wave_finished_relay
+			Action	Trigger
+		}
+		WaveSpawn
+		{
+			Name	1A
+			TotalCurrency	160
+			TotalCount	32
+			MaxActive	16
+			SpawnCount	8
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	8
+			Where	spawnbot
+			TFBot
+			{
+				ClassIcon	soldier
+				Health	200
+				Class	Soldier
+				Skill	Easy
+			}
+		}
+		WaveSpawn
+		{
+			Name	1B-1
+			WaitForAllSpawned	1A
+			TotalCurrency	140
+			TotalCount	2
+			MaxActive	2
+			SpawnCount	1
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	15
+			Where	spawnbot
+			TFBot
+			{
+				ClassIcon	Scout
+				Template	T_TFBot_Giant_Scout_Fast
+			}
+
+		}
+		WaveSpawn
+		{
+			Name	1B-2
+			WaitForAllDead	1A
+			TotalCurrency	100
+			TotalCount	20
+			MaxActive	20
+			SpawnCount	4
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			Where	flankers
+			TFBot
+			{
+				Template	T_TFBot_Demoman_Knight
+			}
+		}
+		WaveSpawn
+		{
+			Name	1C-1
+			WaitForAllDead	1B-2
+			TotalCurrency	250
+			TotalCount	50
+			MaxActive	12
+			SpawnCount	5
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	10
+			Where	spawnbot
+			TFBot
+			{
+				Class	Scout
+				Skill	Easy
+			}
+		}
+		WaveSpawn
+		{
+			Name	1C-2
+			WaitForAllDead	1B-2
+			TotalCurrency	100
+			TotalCount	20
+			MaxActive	6
+			SpawnCount	4
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	2
+			Where	flankers
+			TFBot
+			{
+				Class	Heavy
+				Skill	Easy
+			}
+		}
+		WaveSpawn
+		{
+			Name	1D
+			WaitForAllDead	1C-2
+			TotalCurrency	270
+			TotalCount	2
+			MaxActive	2
+			SpawnCount	2
+			WaitBeforeStarting	10
+			WaitBetweenSpawns	10
+			Where	flankers
+			Squad
+			{
+				TFBot
+				{
+					ClassIcon	Soldier
+					Template	T_TFBot_Giant_Soldier_Spammer
+					Attributes	"HoldFireUntilFullReload"
+				}
+				TFBot
+				{
+					Template	T_TFBot_Giant_Medic
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	1D
+			WaitForAllDead	1C-2
+			TotalCurrency	80
+			TotalCount	16
+			MaxActive	16
+			SpawnCount	4
+			WaitBeforeStarting	20
+			WaitBetweenSpawns	12
+			Where	spawnbot
+			TFBot
+			{
+				Template	T_TFBot_Demoman
+			}
+		}
+		WaveSpawn
+		{
+			Name	1-Upgrade		//Open Upgrade Station
+			FirstSpawnOutput
+			{
+				Target	FrontUpgradeStationL
+				Action	Enable
+			}
+			DoneOutput
+			{
+				Target	FrontUpgradeGateL
+				Action	Open
+			}
+			TotalCount	0
+			SpawnCount	0
+			FirstSpawnWarningSound	"vo/mvm_get_to_upgrade01.mp3"
+			WaitForAllDead	1D
+		}
+		WaveSpawn
+		{
+			Name	1-Close		//Close Upgrade station
+			FirstSpawnOutput
+			{
+				Target	FrontUpgradeStationL
+				Action	Disable
+			}
+			DoneOutput
+			{
+				Target	FrontUpgradeGateL
+				Action	Close
+			}
+			TotalCount	0
+			SpawnCount	0
+			FirstSpawnWarningSound	"vo/mvm_wave_start10.mp3"
+			WaitBeforeStarting	30
+			WaitForAllDead	1D
+		}
+		WaveSpawn
+		{
+			Name	2A
+			WaitForAllDead	1D
+			TotalCurrency	200
+			TotalCount	25
+			MaxActive	15
+			SpawnCount	5
+			WaitBeforeStarting	30
+			WaitBetweenSpawns	10
+			Where	spawnbot
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Pyro
+					Attributes	"AlwaysFireWeapon"
+				}
+				TFBot
+				{
+					Template	T_TFBot_ScorchShot_FastShot
+				}
+				TFBot
+				{
+					Template	T_TFBot_ScorchShot_FastShot
+				}
+				TFBot
+				{
+					Template	T_TFBot_ScorchShot_FastShot
+				}
+				TFBot
+				{
+					Template	T_TFBot_ScorchShot_FastShot
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	2A
+			WaitForAllDead	1D
+			TotalCurrency	100
+			TotalCount	20
+			MaxActive	5
+			SpawnCount	5
+			WaitBeforeStarting	45
+			WaitBetweenSpawns	5
+			Where	spawnbot
+			TFBot
+			{
+				Class	Scout
+				Skill	Normal
+			}
+		}
+		WaveSpawn
+		{
+			Name	2B-1
+			WaitForAllSpawned	2A
+			TotalCurrency	200
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	20
+			WaitBetweenSpawns	0
+			Where	spawnbot
+			Tank
+			{
+				Health	35000
+				Name	Tank
+				Speed	75
+				OnKilledOutput
+				{
+					Target	boss_dead_relay
+					Action	Trigger
+				}
+				OnBombDroppedOutput
+				{
+					Target	boss_deploy_relay
+					Action	Trigger
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	2B-2
+			WaitForAllSpawned	2B-1
+			TotalCurrency	300
+			TotalCount	3
+			MaxActive	3
+			SpawnCount	3
+			WaitBeforeStarting	110
+			WaitBetweenSpawns	0
+			Where	spawnbot
+			Squad
+			{
+				TFBot
+				{
+					ClassIcon	Soldier
+					Template	T_TFBot_Giant_Soldier_Extended_Buff_Banner
+				}
+				TFBot
+				{
+					ClassIcon	Soldier
+					Template	T_TFBot_Giant_Soldier_Extended_Concheror
+				}
+				TFBot
+				{
+					ClassIcon	Soldier
+					Template	T_TFBot_Giant_Soldier_Extended_Battalion
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	2-Support
+			WaitForAllSpawned	2B-1
+			TotalCurrency	300
+			TotalCount	60
+			MaxActive	18
+			SpawnCount	6
+			WaitBeforeStarting	30
+			WaitBetweenSpawns	8
+			Where	spawnbot
+			TFBot
+			{
+				Class	Soldier
+				Skill	Normal
+			}
+			TFBot
+			{
+				Class	Soldier
+				Skill	Normal
+			}
+			TFBot
+			{
+				Class	Soldier
+				Skill	Normal
+			}
+			TFBot
+			{
+				Class	Soldier
+				Skill	Normal
+			}
+			TFBot
+			{
+				Class	Soldier
+				Skill	Normal
+			}
+			TFBot
+			{
+				Class	Soldier
+				Skill	Normal
+			}
+		}
+		WaveSpawn
+		{
+			Name	2-Upgrade		//Open Upgrade Station
+			FirstSpawnOutput
+			{
+				Target	FrontUpgradeStationL
+				Action	Enable
+			}
+			DoneOutput
+			{
+				Target	FrontUpgradeGateL
+				Action	Open
+			}
+			TotalCount	0
+			SpawnCount	0
+			FirstSpawnWarningSound	"vo/mvm_get_to_upgrade01.mp3"
+			WaitForAllDead	2B-2
+		}
+		WaveSpawn
+		{
+			Name	2-Close		//Close Upgrade station
+			FirstSpawnOutput
+			{
+				Target	FrontUpgradeStationL
+				Action	Disable
+			}
+			DoneOutput
+			{
+				Target	FrontUpgradeGateL
+				Action	Close
+			}
+			TotalCount	0
+			SpawnCount	0
+			FirstSpawnWarningSound	"vo/mvm_wave_start10.mp3"
+			WaitBeforeStarting	30
+			WaitForAllDead	2B-2
+		}
+		WaveSpawn
+		{
+			Name	3A-1
+			WaitForAllDead	2B-2
+			TotalCurrency	200
+			TotalCount	40
+			MaxActive	12
+			SpawnCount	4
+			WaitBeforeStarting	30
+			WaitBetweenSpawns	3
+			Where	spawnbot
+				TFBot
+				{
+					Template	T_TFBot_Heavyweapons_Shotgun
+				}
+				TFBot
+				{
+					Template	T_TFBot_Heavyweapons_Shotgun
+				}
+				TFBot
+				{
+					Template	T_TFBot_Heavyweapons_Shotgun
+				}
+				TFBot
+				{
+					Template	T_TFBot_Heavyweapons_Shotgun
+				}
+		}
+		WaveSpawn
+		{
+			Name	3A-1
+			WaitForAllDead	2B-2
+			TotalCurrency	150
+			TotalCount	30
+			MaxActive	9
+			SpawnCount	3
+			WaitBeforeStarting	38
+			WaitBetweenSpawns	3
+			Where	flankers
+				TFBot
+				{
+					ClassIcon	scout
+					Skill	Expert
+					Template	T_TFBot_Scout_Sandman_FastCharge
+				}
+				TFBot
+				{
+					ClassIcon	scout
+					Skill	Expert
+					Template	T_TFBot_Scout_Sandman_FastCharge
+				}
+				TFBot
+				{
+					ClassIcon	scout
+					Skill	Expert
+					Template	T_TFBot_Scout_Sandman_FastCharge
+				}
+
+		}
+		WaveSpawn
+		{
+			Name	3A-2
+			WaitForAllDead	2B-2
+			TotalCurrency	30
+			TotalCount	3
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	40
+			WaitBetweenSpawns	20
+			Where	spawnbot
+				TFBot
+				{
+					ClassIcon	Scout
+					Skill	Expert
+					Template	T_TFBot_Giant_Scout_FAN
+				}
+		}
+		WaveSpawn
+		{
+			Name	3B
+			WaitForAllDead	3A-1
+			TotalCurrency	120
+			TotalCount	3
+			MaxActive	3
+			SpawnCount	3
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	0
+			Where	spawnbot
+			Squad
+			{
+				TFBot
+				{
+					ClassIcon	Heavy
+					Template	T_TFBot_Giant_Heavyweapons
+					Attributes	"AlwaysCrit"
+				}
+				TFBot
+				{
+					Template	T_TFBot_Giant_Medic
+				}
+				TFBot
+				{
+					Template	T_TFBot_Giant_Medic
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	3Support
+			WaitForAllSpawned	3B
+			TotalCurrency	120
+			TotalCount	12
+			MaxActive	12
+			SpawnCount	3
+			WaitBeforeStarting	10
+			WaitBetweenSpawns	6
+			Support	Limited
+			Where	spawnbot
+			TFBot
+			{
+				Class	Spy
+				Skill	Expert
+			}
+		}
+		WaveSpawn
+		{
+			Name	3C
+			WaitForAllSpawned	3Support
+			TotalCurrency	150
+			TotalCount	30
+			MaxActive	10
+			SpawnCount	5
+			WaitBeforeStarting	30
+			WaitBetweenSpawns	10
+			Where	flankers
+			TFBot
+			{
+				Class	Heavy
+				Skill	Normal
+			}
+		}
+		WaveSpawn
+		{
+			Name	3C
+			WaitForAllSpawned	3Support
+			TotalCurrency	300
+			TotalCount	60
+			MaxActive	12
+			SpawnCount	6
+			WaitBeforeStarting	30
+			WaitBetweenSpawns	15
+			Where	flankers
+			TFBot
+			{
+				Class	Scout
+				Skill	Normal
+			}
+		}
+		WaveSpawn
+		{
+			Name	3D
+			WaitForAllSpawned	3C
+			TotalCurrency	30
+			TotalCount	3
+			MaxActive	3
+			SpawnCount	1
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	3
+			Where	spawnbot
+			TFBot
+			{
+				ClassIcon	Scout
+				Template	T_TFBot_Giant_Scout_FAN
+			}
+		}
+		WaveSpawn
+		{
+			Name	3-Upgrade		//Open Upgrade Station
+			FirstSpawnOutput
+			{
+				Target	FrontUpgradeStationL
+				Action	Enable
+			}
+			DoneOutput
+			{
+				Target	FrontUpgradeGateL
+				Action	Open
+			}
+			TotalCount	0
+			SpawnCount	0
+			FirstSpawnWarningSound	"vo/mvm_get_to_upgrade01.mp3"
+			WaitForAllDead	3D
+		}
+		WaveSpawn
+		{
+			Name	3-Close		//Close Upgrade station
+			FirstSpawnOutput
+			{
+				Target	FrontUpgradeStationL
+				Action	Disable
+			}
+			DoneOutput
+			{
+				Target	FrontUpgradeGateL
+				Action	Close
+			}
+			TotalCount	0
+			SpawnCount	0
+			FirstSpawnWarningSound	"vo/mvm_wave_start10.mp3"
+			WaitBeforeStarting	30
+			WaitForAllDead	3D
+		}
+		WaveSpawn
+		{
+			Name	4A-1
+			WaitForAllDead	3D
+			TotalCurrency	150
+			TotalCount	30
+			MaxActive	20
+			SpawnCount	5
+			WaitBeforeStarting	30
+			WaitBetweenSpawns	2
+			Where	spawnbot
+			TFBot
+			{
+				Template	T_TFBot_Demoman_Knight
+			}
+		}
+		WaveSpawn
+		{
+			Name	4B
+			WaitForAllDead	3D
+			TotalCurrency	400
+			TotalCount	8
+			MaxActive	6
+			SpawnCount	2
+			WaitBeforeStarting	40
+			WaitBetweenSpawns	35
+			Where	flankers
+			TFBot
+			{
+				ClassIcon	Demo
+				Template	T_TFBot_Giant_Demo_Burst
+				Attributes	"AlwaysCrit"
+			}
+		}
+		WaveSpawn
+		{
+			Name	4B
+			WaitForAllSpawned	4A-1
+			TotalCurrency	170
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	0
+			Where	spawnbot
+			Tank
+			{
+				Health	35000
+				Name	Tank
+				Speed	75
+				StartingPathTrackNode	tank_path_b_10
+				OnKilledOutput
+				{
+					Target	boss_dead_relay
+					Action	Trigger
+				}
+				OnBombDroppedOutput
+				{
+					Target	boss_deploy_relay
+					Action	Trigger
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	4B
+			WaitForAllSpawned	4A-1
+			TotalCurrency	160
+			TotalCount	32
+			MaxActive	12
+			SpawnCount	4
+			WaitBeforeStarting	20
+			WaitBetweenSpawns	10
+			Where	spawnbot
+			TFBot
+			{
+				Template	T_TFBot_Demoman_Knight
+				Item	"the persian persuader"
+			}
+		}
+		WaveSpawn
+		{
+			Name	4B
+			WaitForAllSpawned	4A-1
+			TotalCurrency	120
+			TotalCount	24
+			MaxActive	12
+			SpawnCount	4
+			WaitBeforeStarting	40
+			WaitBetweenSpawns	10
+			Where	spawnbot
+			TFBot
+			{
+				ClassIcon	soldier
+				Health	200
+				Name	Soldier
+				Class	Soldier
+				Skill	Hard
+				Item	"the cow mangler 5000"
+			}
+		}
+		WaveSpawn
+		{
+			Name	4-Upgrade		//Open Upgrade Station
+			FirstSpawnOutput
+			{
+				Target	FrontUpgradeStationL
+				Action	Enable
+			}
+			DoneOutput
+			{
+				Target	FrontUpgradeGateL
+				Action	Open
+			}
+			TotalCount	0
+			SpawnCount	0
+			FirstSpawnWarningSound	"vo/mvm_get_to_upgrade01.mp3"
+			WaitForAllDead	4B
+		}
+		WaveSpawn
+		{
+			Name	4-Close		//Close Upgrade station
+			FirstSpawnOutput
+			{
+				Target	FrontUpgradeStationL
+				Action	Disable
+			}
+			DoneOutput
+			{
+				Target	FrontUpgradeGateL
+				Action	Close
+			}
+			TotalCount	0
+			SpawnCount	0
+			FirstSpawnWarningSound	"vo/mvm_wave_start10.mp3"
+			WaitBeforeStarting	30
+			WaitForAllDead	4B
+		}
+		WaveSpawn
+		{
+			Name	5A
+			WaitForAllDead	4B
+			TotalCurrency	200
+			TotalCount	40
+			MaxActive	20
+			SpawnCount	5
+			WaitBeforeStarting	40
+			WaitBetweenSpawns	4
+			Where	spawnbot
+			RandomChoice
+			{
+				TFBot
+				{
+					Class	Scout
+					Skill	Normal
+					Attributes	"AlwaysCrit"
+				}
+				TFBot
+				{
+					Class	Scout
+					Skill	Normal
+					Attributes	"AlwaysCrit"
+				}
+				TFBot
+				{
+					Class	Scout
+					Skill	Normal
+					Attributes	"AlwaysCrit"
+					WeaponRestrictions	MeleeOnly
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	5B
+			WaitForAllSpawned	5A
+			TotalCurrency	65
+			TotalCount	5
+			MaxActive	5
+			SpawnCount	5
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	0
+			Where	spawnbot
+			Squad
+			{
+				TFBot
+				{
+					ClassIcon	Heavy
+					Template	T_TFBot_Heavyweapons_Heater
+					Attributes	"AlwaysCrit"
+				}
+				TFBot
+				{
+					Template	T_TFBot_ScorchShot_FastShot
+				}
+				TFBot
+				{
+					Template	T_TFBot_ScorchShot_FastShot
+				}
+				TFBot
+				{
+					Template	T_TFBot_ScorchShot_FastShot
+				}
+				TFBot
+				{
+					Template	T_TFBot_Giant_Medic
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	5C
+			WaitForAllSpawned	5B
+			TotalCurrency	120
+			TotalCount	30
+			MaxActive	10
+			SpawnCount	5
+			WaitBeforeStarting	30
+			WaitBetweenSpawns	5
+			Where	spawnbot
+			TFBot
+			{
+				Class	Scout
+				ClassIcon	scout
+				Skill	Hard
+			}
+		}
+		WaveSpawn
+		{
+			Name	5C
+			WaitForAllSpawned	5B
+			TotalCurrency	100
+			TotalCount	20
+			MaxActive	8
+			SpawnCount	4
+			WaitBeforeStarting	30
+			WaitBetweenSpawns	5
+			Where	flankers
+			TFBot
+			{
+				Class	Heavy
+				ClassIcon	heavy
+				Skill	Normal
+			}
+		}
+		WaveSpawn
+		{
+			Name	5D
+			WaitForAllSpawned	5C
+			TotalCurrency	75
+			TotalCount	5
+			MaxActive	5
+			SpawnCount	1
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	5
+			Support	Limited
+			Where	flankers
+			TFBot
+			{
+				Template	T_TFBot_Engineer_Sentry_Battle
+			}
+		}
+		WaveSpawn
+		{
+			Name	5D
+			WaitForAllSpawned	5C
+			TotalCurrency	200
+			TotalCount	40
+			MaxActive	15
+			SpawnCount	5
+			WaitBeforeStarting	20
+			WaitBetweenSpawns	5
+			Where	flankers
+			TFBot
+			{
+				Template	T_TFBot_Demoman
+			}
+		}
+		WaveSpawn
+		{
+			Name	5E
+			WaitForAllSpawned	5D
+			TotalCurrency	65
+			TotalCount	5
+			MaxActive	5
+			SpawnCount	5
+			WaitBeforeStarting	15
+			WaitBetweenSpawns	10
+			Where	spawnbot
+			Squad
+			{
+				TFBot
+				{
+					ClassIcon	Heavy
+					Template	T_TFBot_Heavyweapons_Heater
+					Attributes	"AlwaysCrit"
+				}
+				TFBot
+				{
+					Template	T_TFBot_ScorchShot_FastShot
+				}
+				TFBot
+				{
+					Template	T_TFBot_ScorchShot_FastShot
+				}
+				TFBot
+				{
+					Template	T_TFBot_ScorchShot_FastShot
+				}
+				TFBot
+				{
+					Template	T_TFBot_Giant_Medic
+				}
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllSpawned	5D
+			Name	5E
+			TotalCurrency	100
+			TotalCount	20
+			MaxActive	15
+			SpawnCount	5
+			WaitBeforeStarting	25
+			WaitBetweenSpawns	5
+			Where	flankers
+			TFBot
+			{
+				Health	200
+				Name	Soldier
+				Class	Soldier
+				Skill	Normal
+				Attributes	"AlwaysCrit"
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllSpawned	5D
+			Name	5E
+			TotalCurrency	75
+			TotalCount	15
+			MaxActive	15
+			SpawnCount	5
+			WaitBeforeStarting	25
+			WaitBetweenSpawns	5
+			Where	flankers
+			TFBot
+			{
+				Template	T_TFBot_Sniper_Huntsman
+			}
+		}
+		WaveSpawn
+		{
+			Name	5-Upgrade		//Open Upgrade Station
+			FirstSpawnOutput
+			{
+				Target	FrontUpgradeStationL
+				Action	Enable
+			}
+			DoneOutput
+			{
+				Target	FrontUpgradeGateL
+				Action	Open
+			}
+			TotalCount	0
+			SpawnCount	0
+			FirstSpawnWarningSound	"vo/mvm_get_to_upgrade01.mp3"
+			WaitForAllDead	5E
+		}
+		WaveSpawn
+		{
+			Name	5-Close		//Close Upgrade station
+			FirstSpawnOutput
+			{
+				Target	FrontUpgradeStationL
+				Action	Disable
+			}
+			DoneOutput
+			{
+				Target	FrontUpgradeGateL
+				Action	Close
+			}
+			TotalCount	0
+			SpawnCount	0
+			FirstSpawnWarningSound	"vo/mvm_wave_start10.mp3"
+			WaitBeforeStarting	30
+			WaitForAllDead	5E
+		}
+		WaveSpawn
+		{
+			Name	6A
+			WaitForAllDead	5E
+			TotalCurrency	40
+			TotalCount	20
+			MaxActive	10
+			SpawnCount	4
+			WaitBeforeStarting	30
+			WaitBetweenSpawns	4
+			Where	spawnbot
+			TFBot
+			{
+				ClassIcon	scout
+				Health	125
+				Name	Scout
+				Class	Scout
+				Skill	Hard
+				WeaponRestrictions	MeleeOnly
+				Attributes	"AlwaysCrit"
+			}
+		}
+		WaveSpawn
+		{
+			Name	6A
+			WaitForAllDead	5E
+			TotalCurrency	40
+			TotalCount	10
+			MaxActive	5
+			SpawnCount	4
+			WaitBeforeStarting	30
+			WaitBetweenSpawns	10
+			Where	spawnbot
+			TFBot
+			{
+				Template	T_TFBot_Sniper_Huntsman
+				Attributes	"AlwaysCrit"
+				ItemAttributes
+				{
+					ItemName	"the huntsman"
+					"fire rate bonus"	0.6
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	6B
+			WaitForAllSpawned	6A
+			TotalCurrency	60
+			TotalCount	30
+			MaxActive	20
+			SpawnCount	4
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	4
+			Where	spawnbot
+			TFBot
+			{
+				Template	T_TFBot_Demoman
+				Skill	Normal
+			}
+		}
+		WaveSpawn
+		{
+			Name	6C-1
+			WaitForAllSpawned	6B
+			TotalCurrency	90
+			TotalCount	3
+			MaxActive	3
+			SpawnCount	3
+			WaitBeforeStarting	0
+			Where	spawnbot
+			Squad
+			{
+				TFBot
+				{
+					ClassIcon	Demo
+					Template	T_TFBot_Giant_Demo_RapidFire
+				}
+				TFBot
+				{
+					Template	T_TFBot_Giant_Medic_Regen
+				}
+				TFBot
+				{
+					Template	T_TFBot_Giant_Medic_Regen
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	6C-1
+			WaitForAllSpawned	6B
+			TotalCurrency	200
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	0
+			Where	spawnbot
+			Tank
+			{
+				Health	30000
+				Name	Tank
+				Speed	75
+				StartingPathTrackNode	tank_path_b_10
+				OnKilledOutput
+				{
+					Target	boss_dead_relay
+					Action	Trigger
+				}
+				OnBombDroppedOutput
+				{
+					Target	boss_deploy_relay
+					Action	Trigger
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	6C-2
+			WaitForAllSpawned	6C-1
+			TotalCurrency	40
+			TotalCount	20
+			MaxActive	10
+			SpawnCount	4
+			WaitBeforeStarting	45
+			WaitBetweenSpawns	4
+			Where	spawnbot
+			TFBot
+			{
+				ClassIcon	scout
+				Health	125
+				Name	Scout
+				Class	Scout
+				Skill	Normal
+				Attributes	"AlwaysCrit"
+			}
+		}
+		WaveSpawn
+		{
+			Name	6C-2
+			WaitForAllSpawned	6C-1
+			TotalCurrency	40
+			TotalCount	20
+			MaxActive	10
+			SpawnCount	4
+			WaitBeforeStarting	45
+			WaitBetweenSpawns	4
+			Where	flankers
+			TFBot
+			{
+				Template	T_TFBot_Sniper_Huntsman
+			}
+		}
+		WaveSpawn
+		{
+			Name	6D
+			WaitForAllSpawned	6C-2
+			TotalCurrency	60
+			TotalCount	30
+			MaxActive	20
+			SpawnCount	5
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	5
+			Where	flankers
+			Squad
+			{
+				TFBot
+				{
+					ClassIcon	soldier
+					Template	T_TFBot_Soldier_Extended_Concheror
+				}
+				TFBot
+				{
+					ClassIcon	soldier
+					Template	T_TFBot_Soldier_Extended_Concheror
+				}
+				TFBot
+				{
+					ClassIcon	soldier
+					Template	T_TFBot_Soldier_Extended_Concheror
+				}
+				TFBot
+				{
+					ClassIcon	soldier
+					Template	T_TFBot_Soldier_Extended_Concheror
+				}
+				TFBot
+				{
+					ClassIcon	soldier
+					Template	T_TFBot_Soldier_Extended_Concheror
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	6E
+			WaitForAllSpawned	6D
+			TotalCurrency	90
+			TotalCount	3
+			MaxActive	3
+			SpawnCount	3
+			WaitBeforeStarting	0
+			Where	flankers
+			Squad
+			{
+				TFBot
+				{
+					ClassIcon	Soldier
+					Template	T_TFBot_Giant_Soldier_Spammer
+				}
+				TFBot
+				{
+					Template	T_TFBot_Giant_Medic_Regen
+				}
+				TFBot
+				{
+					Template	T_TFBot_Giant_Medic_Regen
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	6F
+			WaitForAllSpawned	6E
+			TotalCurrency	40
+			TotalCount	20
+			MaxActive	10
+			SpawnCount	4
+			WaitBeforeStarting	45
+			WaitBetweenSpawns	4
+			Where	flankers
+			TFBot
+			{
+				Health	125
+				Name	Scout
+				Class	Scout
+				Skill	Hard
+				Attributes	"AlwaysCrit"
+			}
+		}
+		WaveSpawn
+		{
+			Name	6F
+			WaitForAllSpawned	6E
+			TotalCurrency	40
+			TotalCount	20
+			MaxActive	10
+			SpawnCount	4
+			WaitBeforeStarting	45
+			WaitBetweenSpawns	4
+			Where	flankers
+			TFBot
+			{
+				Template	T_TFBot_Sniper_Huntsman
+				Attributes	"AlwaysCrit"
+			}
+		}
+		WaveSpawn
+		{
+			Name	6G
+			WaitForAllSpawned	6E
+			TotalCurrency	40
+			TotalCount	20
+			MaxActive	20
+			SpawnCount	5
+			WaitBeforeStarting	60
+			WaitBetweenSpawns	6
+			Where	flankers
+			TFBot
+			{
+				Health	175
+				Name	Demoman
+				Class	Demoman
+				Skill	Normal
+				Attributes	"AlwaysCrit"
+			}
+		}
+		WaveSpawn
+		{
+			Name	6H
+			WaitForAllSpawned	6G
+			TotalCurrency	120
+			TotalCount	6
+			MaxActive	6
+			SpawnCount	3
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	20
+			Where	flankers
+			Squad
+			{
+				TFBot
+				{
+					ClassIcon	Heavy
+					Template	T_TFBot_Giant_Heavyweapons_Deflector
+				}
+				TFBot
+				{
+					Template	T_TFBot_Giant_Medic_Regen
+				}
+				TFBot
+				{
+					Template	T_TFBot_Giant_Medic_Regen
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	6-Upgrade		//Open Upgrade Station
+			FirstSpawnOutput
+			{
+				Target	FrontUpgradeStationL
+				Action	Enable
+			}
+			DoneOutput
+			{
+				Target	FrontUpgradeGateL
+				Action	Open
+			}
+			TotalCount	0
+			SpawnCount	0
+			FirstSpawnWarningSound	"vo/mvm_get_to_upgrade01.mp3"
+			WaitForAllDead	6H
+		}
+		WaveSpawn
+		{
+			Name	6-Close		//Close Upgrade station
+			FirstSpawnOutput
+			{
+				Target	FrontUpgradeStationL
+				Action	Disable
+			}
+			DoneOutput
+			{
+				Target	FrontUpgradeGateL
+				Action	Close
+			}
+			TotalCount	0
+			SpawnCount	0
+			FirstSpawnWarningSound	"vo/mvm_wave_final_wave_start05.mp3"
+			WaitBeforeStarting	30
+			WaitForAllDead	6H
+		}
+		WaveSpawn
+		{
+			Name	7A
+			WaitForAllDead	6H
+			TotalCurrency	200
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	30
+			WaitBetweenSpawns	10
+			Where	spawnbot
+			Tank
+			{
+				Health	30000
+				Name	Tank
+				Speed	75
+				OnKilledOutput
+				{
+					Target	boss_dead_relay
+					Action	Trigger
+				}
+				OnBombDroppedOutput
+				{
+					Target	boss_deploy_relay
+					Action	Trigger
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	7A
+			WaitForAllDead	6H
+			TotalCurrency	200
+			TotalCount	50
+			MaxActive	12
+			SpawnCount	3
+			WaitBeforeStarting	50
+			WaitBetweenSpawns	12
+			Support	1
+			Where	spawnbot
+			RandomChoice
+			{
+				TFBot
+				{
+					Template	T_TFBot_Medic_QuickUber
+					ItemAttributes
+					{
+						ItemName	tf_weapon_medigun
+						"ubercharge rate bonus"	2
+					}
+				}
+				TFBot
+				{
+					Template	T_TFBot_Medic_BigHeal
+				}
+				TFBot
+				{
+					Template	T_TFBot_Medic_QuickFix
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	7A
+			WaitForAllDead	6H
+			TotalCurrency	100
+			TotalCount	4
+			MaxActive	2
+			SpawnCount	1
+			WaitBeforeStarting	50
+			WaitBetweenSpawns	30
+			Where	spawnbot
+			TFBot
+			{
+				ClassIcon	Heavy
+				Template	T_TFBot_Giant_Heavyweapons_Deflector
+				Attributes	"AlwaysCrit"
+			}
+		}
+		WaveSpawn
+		{
+			Name	7A
+			WaitForAllDead	6H
+			TotalCurrency	100
+			TotalCount	4
+			MaxActive	2
+			SpawnCount	1
+			WaitBeforeStarting	85
+			WaitBetweenSpawns	30
+			Where	spawnbot
+			TFBot
+			{
+				ClassIcon	Soldier
+				Template	T_TFBot_Soldier_BurstFire
+				ItemAttributes
+				{
+					ItemName	tf_weapon_rocketlauncher
+					"move speed bonus"	0.5
+					"faster reload rate"	0.6
+					"fire rate bonus"	0.1
+					"Projectile speed increased"	0.65
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	7A
+			WaitForAllDead	6H
+			TotalCurrency	200
+			TotalCount	8
+			MaxActive	4
+			SpawnCount	2
+			WaitBeforeStarting	82
+			WaitBetweenSpawns	30
+			Where	flankers
+			Squad
+			{
+				TFBot
+				{
+					ClassIcon	Demo
+					Template	T_TFBot_Giant_Demo_Burst
+					Attributes	"AlwaysCrit"
+				}
+				TFBot
+				{
+					ClassIcon	Demo
+					Template	T_TFBot_Giant_Demo_Burst
+					Attributes	"AlwaysCrit"
+				}
+			}
+		}
+	}
+}

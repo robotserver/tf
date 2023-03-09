@@ -1,0 +1,403 @@
+population
+{
+	StartingCurrency	600
+	RespawnWaveTime	6
+	CanBotsAttackWhileInSpawnRoom	no
+	Advanced	1
+	Mission
+	{
+		Objective	Sniper
+		Where	spawnbot
+		BeginAtWave	2
+		RunForThisManyWaves	3
+		CooldownTime	30
+		DesiredCount	1
+		TFBot
+		{
+			Class Soldier
+			Item        "the cow mangler 5000"
+            ClassIcon        soldier_mangler
+            ItemAttributes
+            {
+                ItemName        "the cow mangler 5000"
+                "bullets per shot bonus"	50
+				"projectile spread angle penalty"	60
+            }
+		}
+	}
+	Wave	//800+100
+	{
+		WaitWhenDone	65
+		Checkpoint	Yes
+		StartWaveOutput
+		{
+			Target	wave_start_relay
+			Action	Trigger
+		}
+		DoneOutput
+		{
+			Target	wave_finished_relay
+			Action	Trigger
+		}
+		WaveSpawn
+		{
+			Name	1A
+			TotalCurrency	50
+			TotalCount	1
+			MaxActive	6
+			SpawnCount	6
+			Where	spawnbot
+			WaitBeforeStarting	1
+			WaitBetweenSpawns	7
+			Squad
+			{
+				TFBot
+				{
+					Class Scout
+					Name	"Koishi"
+					Health	400
+					WeaponRestrictions SecondaryOnly
+					Attributes	AlwaysFireWeapon
+					Attributes	MiniBoss
+					Attributes	UseBossHealthBar
+					ItemAttributes
+					{
+						ItemName	"TF_WEAPON_PISTOL"
+						"clip size bonus"	20
+						"clip size bonus upgrade"	20
+						"projectile spread angle penalty"	150
+						"fire rate bonus"	0.01
+						"faster reload rate"	4
+						"projectile speed increased" 0.45
+						"override projectile type" 2
+						"energy weapon no deflect" 1
+						"grenade not explode on impact" 1
+						"damage bonus" 100
+						"health drain" -10 //death clock
+						"dmg from ranged reduced" 0.000000001 //invincible		
+					}
+					CharacterAttributes
+					{
+						"move speed bonus"	0.3
+					}
+				}
+				TFBot
+				{
+					Class Scout
+					Name	"Koishi"
+					Health	400
+					WeaponRestrictions SecondaryOnly
+					Attributes	AlwaysFireWeapon
+					ItemAttributes
+					{
+						ItemName	"TF_WEAPON_PISTOL"
+						"Blast radius increased"	0.2
+						"projectile spread angle penalty"	7
+						"fire rate bonus"	2
+						"faster reload rate"	-0.8
+						"projectile speed increased" 0.45
+						"override projectile type" 2
+						"energy weapon no deflect" 1
+						"grenade not explode on impact" 1
+						"damage bonus" 100
+						"health drain" -10 //death clock
+						"dmg from ranged reduced" 0.000000001 //invincible
+					}
+				}
+				TFBot
+				{
+					Class Scout
+					Name	"Koishi"
+					Health	400
+					WeaponRestrictions SecondaryOnly
+					Attributes	AlwaysFireWeapon
+					ItemAttributes
+					{
+						ItemName	"TF_WEAPON_PISTOL"
+						"Blast radius increased"	0.2
+						"projectile spread angle penalty"	7
+						"fire rate bonus"	2
+						"faster reload rate"	-0.8
+						"projectile speed increased" 0.45
+						"override projectile type" 2
+						"energy weapon no deflect" 1
+						"grenade not explode on impact" 1
+						"damage bonus" 100
+						"health drain" -10 //death clock
+						"dmg from ranged reduced" 0.000000001 //invincible
+					}
+				}
+				TFBot
+				{
+					Class Scout
+					Name	"Koishi"
+					Health	400
+					WeaponRestrictions SecondaryOnly
+					Attributes	AlwaysFireWeapon
+					ItemAttributes
+					{
+						ItemName	"TF_WEAPON_PISTOL"
+						"Blast radius increased"	0.2
+						"projectile spread angle penalty"	7
+						"fire rate bonus"	2
+						"faster reload rate"	-0.8
+						"projectile speed increased" 0.45
+						"override projectile type" 2
+						"energy weapon no deflect" 1
+						"grenade not explode on impact" 1
+						"damage bonus" 100
+						"health drain" -10 //death clock
+						"dmg from ranged reduced" 0.000000001 //invincible
+					}
+				}
+				TFBot
+				{
+					Class Scout
+					Name	"Koishi"
+					Health	400
+					WeaponRestrictions SecondaryOnly
+					Attributes	AlwaysFireWeapon
+					ItemAttributes
+					{
+						ItemName	"TF_WEAPON_PISTOL"
+						"Blast radius increased"	0.2
+						"projectile spread angle penalty"	7
+						"fire rate bonus"	2
+						"faster reload rate"	-0.8
+						"projectile speed increased" 0.45
+						"override projectile type" 2
+						"energy weapon no deflect" 1
+						"grenade not explode on impact" 1
+						"damage bonus" 100
+						"health drain" -10 //death clock
+						"dmg from ranged reduced" 0.000000001 //invincible
+					}
+				}
+				TFBot
+				{
+					Class Scout
+					Name	"Koishi"
+					Health	400
+					WeaponRestrictions SecondaryOnly
+					Attributes	AlwaysFireWeapon
+					ItemAttributes
+					{
+						ItemName	"TF_WEAPON_PISTOL"
+						"Blast radius increased"	0.2
+						"projectile spread angle penalty"	7
+						"fire rate bonus"	5
+						"faster reload rate"	-0.8
+						"projectile speed increased" 0.7
+						"override projectile type" 2
+						"energy weapon no deflect" 1
+						"grenade not explode on impact" 1
+						"damage bonus" 100
+						"health drain" -10 //death clock
+						"dmg from ranged reduced" 0.000000001 //invincible
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	1B
+			WaitForAllDead 1A
+			TotalCurrency	50
+			TotalCount	1
+			MaxActive	8
+			SpawnCount	8
+			Where	spawnbot
+			WaitBeforeStarting	1
+			WaitBetweenSpawns	7
+			Squad
+			{
+				TFBot
+				{
+					Class Demoman
+					Name	"Koishi"
+					Health	400
+					Attributes	AlwaysFireWeapon
+					Attributes HoldFireUntilFullReload
+					Attributes	MiniBoss
+					Attributes	UseBossHealthBar
+					ItemAttributes
+					{
+						ItemName	"tf_weapon_grenadelauncher"
+						"clip size upgrade atomic" 40.0
+						"projectile spread angle penalty"	150
+						"fire rate bonus"	0.01
+						"Blast radius increased"	0.1
+						"fuse bonus" 3
+						"faster reload rate"	0.001
+						"projectile speed increased" 0.3
+						"energy weapon no deflect" 1
+						"grenade not explode on impact" 1
+						"damage bonus" 100
+						"health drain" -10 //death clock
+						"dmg from ranged reduced" 0.000000001 //invincible
+						
+					}
+					CharacterAttributes
+					{
+						"move speed bonus"	0.5
+					}
+				}
+				TFBot
+				{
+					Class Scout
+					Name	"Koishi"
+					Health	400
+					WeaponRestrictions SecondaryOnly
+					Attributes	AlwaysFireWeapon
+					ItemAttributes
+					{
+						ItemName	"TF_WEAPON_PISTOL"
+						"Blast radius increased"	0.2
+						"projectile spread angle penalty"	20
+						"fire rate bonus"	1.65
+						"faster reload rate"	-0.8
+						"projectile speed increased" 0.6
+						"override projectile type" 2
+						"energy weapon no deflect" 1
+						"damage bonus" 100
+						"health drain" -10 //death clock
+						"dmg from ranged reduced" 0.000000001 //invincible
+					}
+				}
+				TFBot
+				{
+					Class Scout
+					Name	"Koishi"
+					Health	400
+					WeaponRestrictions SecondaryOnly
+					Attributes	AlwaysFireWeapon
+					ItemAttributes
+					{
+						ItemName	"TF_WEAPON_PISTOL"
+						"Blast radius increased"	0.2
+						"projectile spread angle penalty"	20
+						"fire rate bonus"	1.65
+						"faster reload rate"	-0.8
+						"projectile speed increased" 0.6
+						"override projectile type" 2
+						"energy weapon no deflect" 1
+						"damage bonus" 100
+						"health drain" -10 //death clock
+						"dmg from ranged reduced" 0.000000001 //invincible
+					}
+				}
+				TFBot
+				{
+					Class Scout
+					Name	"Koishi"
+					Health	400
+					WeaponRestrictions SecondaryOnly
+					Attributes	AlwaysFireWeapon
+					ItemAttributes
+					{
+						ItemName	"TF_WEAPON_PISTOL"
+						"Blast radius increased"	0.2
+						"projectile spread angle penalty"	20
+						"fire rate bonus"	1.65
+						"faster reload rate"	-0.8
+						"projectile speed increased" 0.6
+						"override projectile type" 2
+						"energy weapon no deflect" 1
+						"damage bonus" 100
+						"health drain" -10 //death clock
+						"dmg from ranged reduced" 0.000000001 //invincible
+					}
+				}
+				TFBot
+				{
+					Class Scout
+					Name	"Koishi"
+					Health	400
+					WeaponRestrictions SecondaryOnly
+					Attributes	AlwaysFireWeapon
+					ItemAttributes
+					{
+						ItemName	"TF_WEAPON_PISTOL"
+						"Blast radius increased"	0.2
+						"projectile spread angle penalty"	20
+						"fire rate bonus"	1.65
+						"faster reload rate"	-0.8
+						"projectile speed increased" 0.6
+						"override projectile type" 2
+						"energy weapon no deflect" 1
+						"damage bonus" 100
+						"health drain" -10 //death clock
+						"dmg from ranged reduced" 0.000000001 //invincible
+					}
+				}
+				TFBot
+				{
+					Class Scout
+					Name	"Koishi"
+					Health	400
+					WeaponRestrictions SecondaryOnly
+					Attributes	AlwaysFireWeapon
+					ItemAttributes
+					{
+						ItemName	"TF_WEAPON_PISTOL"
+						"Blast radius increased"	0.2
+						"projectile spread angle penalty"	20
+						"fire rate bonus"	1.65
+						"faster reload rate"	-0.8
+						"projectile speed increased" 0.6
+						"override projectile type" 2
+						"energy weapon no deflect" 1
+						"damage bonus" 100
+						"health drain" -10 //death clock
+						"dmg from ranged reduced" 0.000000001 //invincible
+					}
+				}
+				TFBot
+				{
+					Class Scout
+					Name	"Koishi"
+					Health	400
+					WeaponRestrictions SecondaryOnly
+					Attributes	AlwaysFireWeapon
+					ItemAttributes
+					{
+						ItemName	"TF_WEAPON_PISTOL"
+						"Blast radius increased"	0.2
+						"projectile spread angle penalty"	20
+						"fire rate bonus"	1.65
+						"faster reload rate"	-0.8
+						"projectile speed increased" 0.6
+						"override projectile type" 2
+						"energy weapon no deflect" 1
+						"damage bonus" 100
+						"health drain" -10 //death clock
+						"dmg from ranged reduced" 0.000000001 //invincible
+					}
+				}
+				TFBot
+				{
+					Class Scout
+					Name	"Koishi"
+					Health	400
+					WeaponRestrictions SecondaryOnly
+					Attributes	AlwaysFireWeapon
+					ItemAttributes
+					{
+						ItemName	"TF_WEAPON_PISTOL"
+						"Blast radius increased"	0.2
+						"projectile spread angle penalty"	20
+						"fire rate bonus"	1.65
+						"faster reload rate"	-0.8
+						"projectile speed increased" 0.6
+						"override projectile type" 2
+						"energy weapon no deflect" 1
+						"damage bonus" 100
+						"health drain" -10 //death clock
+						"dmg from ranged reduced" 0.000000001 //invincible
+					}
+					
+				}
+			}
+		}
+	}
+}
