@@ -1,0 +1,1813 @@
+//colonel bruhrrage
+#base robot_giant.pop
+#base robot_standard.pop
+#base robot_gatebot.pop
+population
+{
+	StartingCurrency	1000
+	RespawnWaveTime	3
+	CanBotsAttackWhileInSpawnRoom	no
+	Mission
+	{
+		Where spawnbot_g0s0_alt
+		Where spawnbot_g0s1_alt
+		Where spawnbot_g0s2_alt
+		Where spawnbot_g1s0_alt
+		Where spawnbot_g1s1_alt
+		Where spawnbot_g2s0_alt
+		Where spawnbot_g2s1_alt
+		Objective	DestroySentries
+		BeginAtWave	1
+		RunForThisManyWaves	1
+		InitialCooldown	45
+		CooldownTime	45
+		DesiredCount	1
+		TFBot
+		{
+			Template	T_TFBot_SentryBuster
+			tag bot_giant
+		}
+	}
+	Mission
+	{
+		Where spawnbot_g0s0_alt
+		Where spawnbot_g0s1_alt
+		Where spawnbot_g0s2_alt
+		Where spawnbot_g1s0_alt
+		Where spawnbot_g1s1_alt
+		Where spawnbot_g2s0_alt
+		Where spawnbot_g2s1_alt
+		Objective	DestroySentries
+		BeginAtWave	4
+		RunForThisManyWaves	1
+		InitialCooldown	45
+		CooldownTime	45
+		DesiredCount	1
+		TFBot
+		{
+			Template	T_TFBot_SentryBuster
+			tag bot_giant
+		}
+	}
+	Mission
+	{
+		Objective	Spy
+		Where spawnbot_g0s0_alt
+		Where spawnbot_g0s1_alt
+		Where spawnbot_g0s2_alt
+		Where spawnbot_g1s0_alt
+		Where spawnbot_g1s1_alt
+		Where spawnbot_g2s0_alt
+		Where spawnbot_g2s1_alt
+		BeginAtWave	3
+		RunForThisManyWaves	1
+		InitialCooldown	5
+		CooldownTime	120
+		DesiredCount	1
+		TFBot
+		{
+			Scale	1
+			Name	"Exposive Spybot"
+			Health 125
+			Template	T_TFBot_Spy
+			tag bot_giant
+			WeaponRestrictions PrimaryOnly
+			Attributes	"MiniBoss"
+			ItemAttributes
+			{
+				ItemName	tf_weapon_revolver
+				"override projectile type"	2
+				"fire rate bonus" 99
+				"damage causes airblast" 1
+				"blast dmg to self increased" 50
+				"Blast radius increased" 2.2
+				"use large smoke explosion" 1
+			}
+			CharacterAttributes
+			{
+			"damage bonus"	7.5
+			}
+		}
+	}
+	Mission
+	{
+		Objective	Spy
+		Where spawnbot_g0s0_alt
+		Where spawnbot_g0s1_alt
+		Where spawnbot_g0s2_alt
+		Where spawnbot_g1s0_alt
+		Where spawnbot_g1s1_alt
+		Where spawnbot_g2s0_alt
+		Where spawnbot_g2s1_alt
+		BeginAtWave	4
+		RunForThisManyWaves	1
+		InitialCooldown	30
+		CooldownTime	60
+		DesiredCount	2
+		TFBot
+		{
+			Scale	1
+			Name	"Exposive Spybot"
+			Health 125
+			Template	T_TFBot_Spy
+			WeaponRestrictions PrimaryOnly
+			tag bot_giant
+			Attributes	"MiniBoss"
+			ItemAttributes
+			{
+				ItemName	tf_weapon_revolver
+				"override projectile type"	2
+				"fire rate bonus" 99
+				"damage causes airblast" 1
+				"blast dmg to self increased" 50
+				"Blast radius increased" 2.2
+				"use large smoke explosion" 1
+			}
+			CharacterAttributes
+			{
+			"damage bonus"	7.5
+			}
+		}
+	}
+	Mission
+	{
+		Where spawnbot_g0s0_alt
+		Where spawnbot_g0s1_alt
+		Where spawnbot_g0s2_alt
+		Where spawnbot_g1s0_alt
+		Where spawnbot_g1s1_alt
+		Where spawnbot_g2s0_alt
+		Where spawnbot_g2s1_alt
+		Objective	Sniper
+		BeginAtWave	3
+		RunForThisManyWaves	1
+		InitialCooldown	1
+		CooldownTime	35
+		DesiredCount	1
+		TFBot
+		{
+			Template	T_TFBot_Sniper_Sydney_Sleeper
+		}
+	}
+	Mission
+	{
+		Where spawnbot_g0s0_alt
+		Where spawnbot_g0s1_alt
+		Where spawnbot_g0s2_alt
+		Where spawnbot_g1s0_alt
+		Where spawnbot_g1s1_alt
+		Where spawnbot_g2s0_alt
+		Where spawnbot_g2s1_alt
+		Objective	Sniper
+		BeginAtWave	4
+		RunForThisManyWaves	1
+		InitialCooldown	1
+		CooldownTime	35
+		DesiredCount	4
+		TFBot
+		{
+			Template	T_TFBot_Sniper_Sydney_Sleeper
+		}
+	}
+	Templates
+	{
+		T_guber
+		{
+				    Name "Giant Uber Medic"
+			        Class Medic
+			        ClassIcon medic_ubeR
+			        Health 4500
+					Skill Expert
+			        Item "The Gentleman's Ushanka"
+			        Attributes MiniBoss
+					Attributes IgnoreEnemies
+			        Scale 1.7
+					Tag bot_Giant
+			        CharacterAttributes
+					{
+					    "ubercharge rate bonus" 4.5
+				        "damage force reduction" 0.4
+				        "airblast vulnerability multiplier" 0.4
+				        "heal rate bonus" 10
+				        "bot medic uber health threshold" 4400
+				        "health regen" 10
+				        "rage giving scale" 0.9
+						"move speed bonus" 0.5
+					}
+		}
+	}
+	Wave
+	{
+		WaitWhenDone	65
+		Checkpoint	Yes
+		StartWaveOutput
+		{
+			Target wave_start_relayB_twobomb
+			Action Trigger
+		}
+		InitWaveOutput
+		{
+			Target initB
+			Action Trigger
+		}
+		WaveSpawn
+		{
+			TotalCurrency	50
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	20
+			Squad
+			{
+				TFBot
+				{
+					Name	"Giant Bonk Scout"
+					Template	T_TFBot_Giant_Scout_Bonk
+					WeaponRestrictions PrimaryOnly
+					Skill Expert
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	50
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBetweenSpawns	35
+			Squad
+			{
+				TFBot
+				{
+					Name	"Giant Bonk Scout"
+					Template	T_TFBot_Giant_Scout_Bonk
+					WeaponRestrictions PrimaryOnly
+					Skill Expert
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	40
+			Name 12
+			TotalCount	20
+			MaxActive	10
+			SpawnCount	2
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	20
+			WaitBetweenSpawns	3
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Demo_Burst
+					Item	"the splendid screen"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	24
+			TotalCount	12
+			MaxActive	12
+			SpawnCount	1
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			Name 12
+			WaitBeforeStarting	20
+			WaitBetweenSpawns	2
+			Squad
+			{
+				TFBot
+				{
+					Health	125
+					Skill	hard
+					Name	Scout
+					Class	Scout
+					Item	"tf_weapon_scattergun"
+					Item	"tf_weapon_pistol_scout"
+					Item	"tf_weapon_bat"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	13
+			TotalCurrency	50
+			TotalCount	10
+			MaxActive	10
+			SpawnCount	1
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	1
+			WaitBetweenSpawns	1
+			WaitForAllDead	12
+			Squad
+			{
+				TFBot
+				{
+					Skill	Hard
+					Class Soldier
+					Classicon soldier_stun
+					Name "Stun Soldier"
+					ItemAttributes
+					{
+					itemname tf_weapon_rocketlauncher
+					"rocket specialist" 1
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	13
+			TotalCurrency	50
+			TotalCount	10
+			MaxActive	10
+			SpawnCount	1
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			WaitForAllDead	12
+			Squad
+			{
+				TFBot
+				{
+					Skill	Expert
+					Class Soldier
+					Classicon soldier_stun
+					Name "Stun Soldier"
+					ItemAttributes
+					{
+					itemname tf_weapon_rocketlauncher
+					"rocket specialist" 1
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	14
+			TotalCurrency	108
+			TotalCount	54
+			MaxActive	16
+			SpawnCount	2
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			WaitForAllDead	13
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Demoman_Knight
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	150
+			TotalCount	15
+			MaxActive	4
+			SpawnCount	1
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	5
+			WaitForAllDead	13
+			Squad
+			{
+				TFBot
+				{
+					Scale	1.4
+					Health	650
+					Skill	Expert
+					Name	"Roaming Brawler"
+					Template	T_TFBot_Heavyweapons_Heavyweight_Champ_Fast
+					Item	"pugilist's protector"
+					CharacterAttributes
+					{
+					"move speed bonus" 1.5
+				    }
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	100
+			TotalCount	4
+			MaxActive	1
+			SpawnCount	1
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	3
+			WaitBetweenSpawns	2
+			WaitForAllDead	13
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Scout_Fast
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	55
+			TotalCount	4
+			Name bruh
+			MaxActive	4
+			SpawnCount	2
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	15
+			WaitForAllDead	14
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Soldier
+				}
+				TFBot
+				{
+					Skill	Expert
+					Class Soldier
+					Classicon soldier_stun
+					Name "Stun Soldier"
+					ItemAttributes
+					{
+					itemname tf_weapon_rocketlauncher
+					"rocket specialist" 1
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	55
+			Name bruh
+			TotalCount	4
+			MaxActive	4
+			SpawnCount	2
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	15
+			WaitForAllDead	14
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Soldier
+				}
+				TFBot
+				{
+					Skill	Expert
+					Class Soldier
+					Classicon soldier_stun
+					Name "Stun Soldier"
+					ItemAttributes
+					{
+					itemname tf_weapon_rocketlauncher
+					"rocket specialist" 1
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	40
+			TotalCount	8
+			MaxActive	8
+			SpawnCount	1
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	3
+			WaitForAllSpawned	14
+			Support	1
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Pyro
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	50
+			TotalCount	5
+			MaxActive	2
+			SpawnCount	1
+			Where spawnbot_g0s0_alt
+		    Where spawnbot_g0s1_alt
+		    Where spawnbot_g0s2_alt
+		    Where spawnbot_g1s0_alt
+		    Where spawnbot_g1s1_alt
+		    Where spawnbot_g2s0_alt
+		    Where spawnbot_g2s1_alt
+			WaitBeforeStarting	0
+			Support 1
+			WaitBetweenSpawns	10
+			WaitForAllDead bruh
+			Squad
+			{
+				TFBot
+				{
+					Class Heavyweapons
+					Skill normal
+					Item "the brass beast"
+					CLassicon heavy_beast_h
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	18
+			TotalCount	9
+			MaxActive	8
+			SpawnCount	1
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			Support 1
+			WaitBetweenSpawns	8
+			WaitForAllSpawned	14
+			Squad
+			{
+				TFBot
+				{
+					Class Heavyweapons
+					Name "Warrior Heavy"
+					Item "Warrior's spirit"
+					ClassIcon heavy_warrior
+					WeaponRestrictions MeleeOnly
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	30
+			TotalCount	2
+			MaxActive	2
+			SpawnCount	1
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	13
+			WaitForAllDead	bruh
+			TFBot
+			{
+			Template T_TFBot_Giant_Pyro
+			Skill hard
+			Item "the dragon's fury"
+			Classicon pyro_dragon_fury_swordstone
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	30
+			TotalCount	2
+			MaxActive	2
+			SpawnCount	1
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	13
+			WaitForAllDead	bruh
+			TFBot
+			{
+			Template T_TFBot_Giant_Pyro
+			Skill hard
+			Item "the dragon's fury"
+			Classicon pyro_dragon_fury_swordstone
+			}
+		}
+	}
+	Wave
+	{
+		WaitWhenDone	65
+		Checkpoint	Yes
+		StartWaveOutput
+		{
+			Target wave_start_relayA
+			Action Trigger
+		}
+		InitWaveOutput
+		{
+			Target initA
+			Action Trigger
+		}
+		WaveSpawn
+		{
+			Name	21
+			TotalCurrency	250
+			TotalCount	8
+			MaxActive	8
+			SpawnCount	4
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	20
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFGateBot_Giant_Soldier_Spammer
+				}
+				TFBot
+				{
+					Template	T_TFBot_Medic_QuickUber
+				}
+				TFBot
+				{
+					Template	T_TFBot_Medic_QuickUber
+				}
+				TFBot
+				{
+					ClassIcon 	medic_shield_qf
+					Name 		"Shield Medic"
+					Class 		Medic
+					Skill 		Expert
+					WeaponRestrictions 	SecondaryOnly
+					Attributes 	ProjectileShield
+					Attributes	SpawnWithFullCharge
+					Attributes  IgnoreEnemies
+					ItemAttributes
+					{
+						ItemName "The Quick-Fix"
+						"generate rage on heal" 2
+						"increase buff duration" 5
+					}	
+					CharacterAttributes
+					{
+						"bot medic uber deploy delay duration" 1339
+					}	
+					Item 	"The Quick-Fix"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	21
+			TotalCurrency	28
+			TotalCount	24
+			MaxActive	12
+			SpawnCount	1
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	2
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Heavyweapons_Heavyweight_Champ_Fast
+					Attributes	"AlwaysCrit"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	22
+			TotalCurrency	90
+			TotalCount	6
+			MaxActive	6
+			SpawnCount	2
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	20
+			WaitForAllDead	21
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Heavyweapons_Deflector
+					tag bot_giant
+				}
+				TFBot
+				{
+					ClassIcon 	medic_shield_qf
+					Name 		"Shield Medic"
+					Class 		Medic
+					Skill 		Expert
+					WeaponRestrictions 	SecondaryOnly
+					Attributes 	ProjectileShield
+					Attributes	SpawnWithFullCharge
+					Attributes  IgnoreEnemies
+					ItemAttributes
+					{
+						ItemName "The Quick-Fix"
+						"generate rage on heal" 2
+						"increase buff duration" 5
+					}	
+					CharacterAttributes
+					{
+						"bot medic uber deploy delay duration" 1339
+					}	
+					Item 	"The Quick-Fix"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	76
+			TotalCount	38
+			MaxActive	2
+			SpawnCount	2
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFGateBot_Soldier_RocketShotgun_Expert
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	22
+			TotalCurrency	56
+			TotalCount	28
+			MaxActive	14
+			SpawnCount	1
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	2
+			WaitForAllDead	21
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Scout_Sandman_FastCharge
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	23
+			TotalCurrency	120
+			TotalCount	12
+			MaxActive	12
+			SpawnCount	4
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	5
+			WaitBetweenSpawns	20
+			WaitForAllDead	22
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Heavyweapons
+					tag bot_giant
+				}
+				TFBot
+				{
+					Template	T_TFBot_Soldier_Extended_Battalion
+				}
+				TFBot
+				{
+					Template	T_TFBot_Soldier_Extended_Battalion
+				}
+				TFBot
+				{
+					Template	T_TFBot_Medic_QuickUber
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	23
+			TotalCurrency	54
+			TotalCount	27
+			MaxActive	8
+			SpawnCount	1
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	2
+			WaitForAllDead	22
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFGateBot_Pyro_Hard
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	160
+			Name xdd
+			TotalCount	16
+			MaxActive	16
+			SpawnCount	2
+			Where spawnbot_g0s0_alt
+		    Where spawnbot_g0s1_alt
+		    Where spawnbot_g0s2_alt
+		    Where spawnbot_g1s0_alt
+		    Where spawnbot_g1s1_alt
+		    Where spawnbot_g2s0_alt
+		    Where spawnbot_g2s1_alt
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	7
+			WaitForAllDead	23
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Demo_rapidfire
+					tag bot_giant
+				}
+				TFBot
+				{
+					Template	T_TFBot_Soldier_Extended_Battalion
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	150
+			TotalCount	2
+			MaxActive	2
+			SpawnCount	2
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	5
+			WaitForAllDead	xdd
+			Squad
+			{
+				TFBot
+				{
+					Template T_TFBot_Giant_Soldier_RocketPush
+				}
+				TFBot
+				{
+				    Template T_TFbot_Giant_medic_regen
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	70
+			TotalCount	10
+			MaxActive	3
+			SpawnCount	1
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	5
+			WaitForAllDead	23
+			Support	1
+			Squad
+			{
+				TFBot
+				{
+					Name	"Bonk Scout"
+					Template	T_TFBot_Scout_Bonk
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	46
+			TotalCount	2
+			MaxActive	1
+			SpawnCount	1
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	15
+			WaitForAllDead	23
+			Support	1
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Demoman_Knight
+					Item	"the splendid screen"
+				}
+			}
+		}
+	}
+	Wave
+	{
+		WaitWhenDone	65
+		Checkpoint	Yes
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		InitWaveOutput
+		{
+			Target initMain
+			Action Trigger
+		}
+		WaveSpawn
+		{
+			Name	31
+			TotalCurrency	150
+			TotalCount	2
+			MaxActive	2
+			SpawnCount	2
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	10
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFGateBot_Giant_Soldier_Slowbarrage
+					tag bot_giant
+				}
+				TFBot
+				{
+					Template	T_guber
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	31
+			TotalCurrency	150
+			TotalCount	2
+			MaxActive	2
+			SpawnCount	2
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	10
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Soldier_Slowbarrage
+					tag bot_giant
+				}
+				TFBot
+				{
+					Template	T_guber
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	40
+			TotalCount	20
+			MaxActive	20
+			SpawnCount	1
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	4
+			WaitForAllDead	31
+			RandomChoice
+			{
+				TFBot
+				{
+					Skill	Expert
+					Class Soldier
+					Name	"Stun Soldier"
+					Classicon	Soldier_Stun
+					Item	"the direct hit"
+					ItemAttributes
+					{
+					    itemname "the direct hit"
+						"rocket specialist" 1
+					}
+				}
+				TFBot
+				{
+				class Soldier
+				Skill expert
+				}
+				TFBot
+				{
+				class Soldier
+				Skill expert
+				}
+				TFBot
+				{
+				class Soldier
+				Skill expert
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	32
+			TotalCurrency	50
+			TotalCount	2
+			MaxActive	2
+			SpawnCount	2
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	10
+			WaitForAllDead	31
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Heavyweapons
+					Name "Giant Boostonkill Heavy"
+					Classicon heavy_booster
+					tag bot_giant
+					CharacterAttributes
+					{
+					"heal on kill" 100
+					"critboost on kill" 3
+					}
+				}
+				TFBot
+				{
+					Template	T_guber
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	120
+			Name 1
+			TotalCount	12
+			MaxActive	1
+			SpawnCount	1
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	7
+			WaitForAllDead	31
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFGateBot_Giant_Pyro_AlwaysFire_Crit
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	33
+			TotalCurrency	400
+			TotalCount	8
+			MaxActive	8
+			SpawnCount	4
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	20
+			WaitForAllDead	32
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Heavyweapons
+					Name "Giant Boostonkill Heavy"
+					Classicon heavy_booster
+					tag bot_giant
+					CharacterAttributes
+					{
+					"heal on kill" 150
+					"critboost on kill" 3
+					}
+				}
+				TFBot
+				{
+					Template	T_TFBot_Medic_BigHeal
+				}
+				TFBot
+				{
+					Template	T_TFBot_Medic_BigHeal
+				}
+				TFBot
+				{
+					Template	T_TFBot_Medic_BigHeal
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	33
+			TotalCurrency	60
+			TotalCount	24
+			MaxActive	12
+			SpawnCount	2
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	2
+			WaitForAllDead	32
+			Squad
+			{
+				TFBot
+				{
+					Scale	1.4
+					Health	900
+					Skill	Expert
+					Name	"Roaming Brawler"
+					Template	T_TFBot_Heavyweapons_Heavyweight_Champ_Fast
+					Attributes	"AlwaysCrit"
+					Item	"pugilist's protector"
+					CharacterAttributes
+					{
+					"move speed bonus" 1.5
+				    }
+				}
+				TFBot
+				{
+					Template	T_TFBot_Medic_QuickFix
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	34
+			TotalCurrency	100
+			TotalCount	20
+			MaxActive	20
+			SpawnCount	2
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			WaitForAllDead	33
+			Squad
+			{
+				TFBot
+				{
+					Health	220
+					Skill	Expert
+					Name	"Stun Backup Soldier"
+					Classicon	Soldier_Stun
+					Class Soldier
+					Item	"tf_weapon_rocketlauncher"
+					Item	"the battalion's backup"
+					ItemAttributes
+					{
+					    itemname tf_weapon_rocketlauncher
+						"rocket specialist" 1
+					}
+				}
+				TFBot
+				{
+					Template	T_TFBot_Medic_BigHeal
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	50
+			Name 2
+			TotalCount	3
+			MaxActive	3
+			SpawnCount	3
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			WaitForAllDead	34
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Heavyweapons
+					Name "Giant Boostonkill Heavy"
+					Classicon heavy_booster
+					tag bot_giant
+					CharacterAttributes
+					{
+					"heal on kill" 150
+					"critboost on kill" 3
+					}
+				}
+				TFBot
+				{
+					Template	T_guber
+				}
+				TFBot
+				{
+					ClassIcon 	medic_shield_qf
+					Name 		"Shield Medic"
+					Class 		Medic
+					Skill 		Expert
+					WeaponRestrictions 	SecondaryOnly
+					Attributes 	ProjectileShield
+					Attributes	SpawnWithFullCharge
+					Attributes  IgnoreEnemies
+					ItemAttributes
+					{
+						ItemName "The Quick-Fix"
+						"generate rage on heal" 2
+						"increase buff duration" 5
+					}	
+					CharacterAttributes
+					{
+						"bot medic uber deploy delay duration" 1339
+					}	
+					Item 	"The Quick-Fix"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	50
+			Name 2
+			TotalCount	3
+			MaxActive	3
+			SpawnCount	3
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	10
+			WaitForAllDead	34
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Heavyweapons
+					Name "Giant Boostonkill Heavy"
+					Classicon heavy_booster
+					tag bot_giant
+					CharacterAttributes
+					{
+					"heal on kill" 150
+					"critboost on kill" 3
+					}
+				}
+				TFBot
+				{
+					Template	T_guber
+				}
+				TFBot
+				{
+					ClassIcon 	medic_shield_qf
+					Name 		"Shield Medic"
+					Class 		Medic
+					Skill 		Expert
+					WeaponRestrictions 	SecondaryOnly
+					Attributes 	ProjectileShield
+					Attributes	SpawnWithFullCharge
+					Attributes  IgnoreEnemies
+					ItemAttributes
+					{
+						ItemName "The Quick-Fix"
+						"generate rage on heal" 2
+						"increase buff duration" 5
+					}	
+					CharacterAttributes
+					{
+						"bot medic uber deploy delay duration" 1339
+					}	
+					Item 	"The Quick-Fix"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	30
+			TotalCount	15
+			MaxActive	18
+			SpawnCount	1
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	3
+			WaitForAllSpawned	34
+			Support	1
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Scout_Melee
+					Attributes	"AlwaysCrit"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	0
+			TotalCount	15
+			MaxActive	22
+			SpawnCount	1
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	3
+			WaitForAllDead 2
+			Support	1
+			Squad
+			{
+				TFBot
+				{
+					Class Scout
+					Skill expert
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	100
+			TotalCount	6
+			MaxActive	6
+			SpawnCount	1
+			Where spawnbot_g0s0_alt
+		    Where spawnbot_g0s1_alt
+		    Where spawnbot_g0s2_alt
+		    Where spawnbot_g1s0_alt
+		    Where spawnbot_g1s1_alt
+		    Where spawnbot_g2s0_alt
+		    Where spawnbot_g2s1_alt
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	15
+			WaitForAllDead	2
+			Squad
+			{
+			TFBot
+			{
+			Template T_TFBot_Soldier_burstfire
+			}
+			TFBot
+				{
+					ClassIcon 	medic_shield_qf
+					Name 		"Shield Medic"
+					Class 		Medic
+					Skill 		Expert
+					WeaponRestrictions 	SecondaryOnly
+					Attributes 	ProjectileShield
+					Attributes	SpawnWithFullCharge
+					Attributes  IgnoreEnemies
+					ItemAttributes
+					{
+						ItemName "The Quick-Fix"
+						"generate rage on heal" 2
+						"increase buff duration" 5
+					}	
+					CharacterAttributes
+					{
+						"bot medic uber deploy delay duration" 1339
+					}	
+					Item 	"The Quick-Fix"
+				}
+			}
+		}
+	}
+	Wave
+	{
+		WaitWhenDone	65
+		Checkpoint	Yes
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		InitWaveOutput
+		{
+			Target initMain
+			Action Trigger
+		}
+		WaveSpawn
+		{
+			Name	41
+			TotalCurrency	100
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	10
+			TFBot
+				{    
+				ClassIcon	scout_stun_giant_armored
+					Scale	1.8
+					Health	20000
+					Skill	Expert
+					Name	"Chief Scout"
+					Class	Scout
+					EventChangeAttributes
+					{
+					Default
+					{
+					BehaviorModifiers	Push
+					WeaponRestrictions MeleeOnly
+					Tag	"bot_gatebot"
+					tag bot_giant
+					Attributes	"MiniBoss"
+					Attributes AlwaysCrit
+					Attributes	"UseBossHealthBar"
+					Attributes "IgnoreFlag"
+					ItemAttributes
+					{
+						"damage bonus"	2
+						ItemName	"the sandman"
+						"effect bar recharge rate increased"	0.05
+						"cancel falling damage"	1
+						"damage causes airblast" 1
+					}
+					CharacterAttributes
+					{
+						"override footstep sound set"	3
+						"increase player capture value" 3
+						"move speed bonus" 0.5
+						"health regen" 25
+						"airblast vulnerability multiplier"	0.1
+						"rage giving scale"	0.1
+						"airblast vertical vulnerability multiplier"	0.2
+					}
+					ItemAttributes
+					{
+					    ItemName "herald's helm"
+						"set item tint RGB" 15185211
+					}
+					Item	"festive bonk 2014"
+					Item	"the sandman"
+					Item	"herald's helm"
+					Item    "the razorback"
+					}
+					RevertGateBotsBehavior
+					{
+					Attributes	"MiniBoss"
+					WeaponRestrictions MeleeOnly
+					Attributes AlwaysCrit
+					Attributes	"UseBossHealthBar"
+					ItemAttributes
+					{
+						"damage bonus"	2
+						ItemName	"the sandman"
+						"effect bar recharge rate increased"	0.05
+						"cancel falling damage"	1
+					}
+					ItemAttributes
+					{
+					    ItemName "herald's helm"
+						"set item tint RGB" 202020
+					}
+					CharacterAttributes
+					{
+						"override footstep sound set"	3
+						"airblast vulnerability multiplier"	0.1
+						"rage giving scale"	0.1
+						"move speed bonus" 0.4
+						"airblast vertical vulnerability multiplier"	0.2
+					}
+					Item	"festive bonk 2014"
+					Item	"the sandman"
+					Item	"herald's helm"
+					Item    "the razorback"
+					}
+					}
+				}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	100
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where spawnbot_g0s0a
+		    Where spawnbot_g0s1a
+		    Where spawnbot_g0s2a
+		    Where spawnbot_g1s0a
+		    Where spawnbot_g1s1a
+		    Where spawnbot_g2s0a
+		    Where spawnbot_g2s1a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	10
+			WaitForAllDead	41
+			Squad
+			{
+				TFBot
+				{    
+				ClassIcon	scout_stun_giant_armored
+					Scale	1.8
+					Health	20000
+					Skill	Expert
+					Name	"Chief Scout"
+					Class	Scout
+					WeaponRestrictions MeleeOnly
+					tag bot_giant
+					Attributes	"MiniBoss"
+					Attributes AlwaysCrit
+					Attributes	"UseBossHealthBar"
+					ItemAttributes
+					{
+						"damage bonus"	2
+						ItemName	"the sandman"
+						"effect bar recharge rate increased"	0.05
+						"cancel falling damage"	1
+						"damage causes airblast" 1
+					}
+					CharacterAttributes
+					{
+						"override footstep sound set"	3
+						"increase player capture value" 2
+						"airblast vulnerability multiplier"	0.1
+						"rage giving scale"	0.1
+						"move speed bonus" 0.4
+						"airblast vertical vulnerability multiplier"	0.2
+					}
+					Item	"festive bonk 2014"
+					Item	"the sandman"
+					Item	"herald's helm"
+					Item    "the razorback"
+					}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	100
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	10
+			WaitForAllDead	41
+			Squad
+			{
+				TFBot
+				{    
+				ClassIcon	scout_stun_giant_armored
+					Scale	1.8
+					Health	20000
+					Skill	Expert
+					Name	"Chief Scout"
+					Class	Scout
+					WeaponRestrictions MeleeOnly
+					tag bot_giant
+					Attributes	"MiniBoss"
+					Attributes AlwaysCrit
+					Attributes	"UseBossHealthBar"
+					ItemAttributes
+					{
+						"damage bonus"	2
+						ItemName	"the sandman"
+						"effect bar recharge rate increased"	0.05
+						"cancel falling damage"	1
+						"damage causes airblast" 1
+					}
+					CharacterAttributes
+					{
+						"override footstep sound set"	3
+						"increase player capture value" 2
+						"airblast vulnerability multiplier"	0.1
+						"rage giving scale"	0.1
+						"move speed bonus" 0.4
+						"airblast vertical vulnerability multiplier"	0.2
+					}
+					Item	"festive bonk 2014"
+					Item	"the sandman"
+					Item	"herald's helm"
+					Item    "the razorback"
+					}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	150
+			TotalCount	5
+			MaxActive	8
+			SpawnCount	1
+			Where spawnbot_g0s0b
+		    Where spawnbot_g0s1b
+		    Where spawnbot_g0s2b
+		    Where spawnbot_g1s0b
+		    Where spawnbot_g1s1b
+		    Where spawnbot_g2s0b
+		    Where spawnbot_g2s1b
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	25
+			Support	1
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Giant_Soldier_RocketPush
+					item "tf_weapon_rocketlauncher"
+					tag bot_giant
+					CharacterAttributes
+					{
+					"damage causes airblast" 1
+					"faster reload rate" 0.85
+					"fire rate bonus" 0.1
+					}
+				}
+			}
+		}
+	}
+}
