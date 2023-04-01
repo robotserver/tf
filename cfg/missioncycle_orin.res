@@ -162,100 +162,105 @@
 		}
 		"32"
 		{
+			"map" "mvm_minceraft_a13"
+			"popfile" "mvm_minceraft_a13_int_cave_exploration"
+		}
+		"33"
+		{
 			"map" "mvm_outlands_rc2"
 			"popfile" "mvm_outlands_rc2_adv_midnight_mutiny"
 		}
-		"33"
+		"34"
 		{
 			"map" "mvm_overrun_a3b"
 			"popfile" "mvm_overrun_a3b_adv_overflow_optimization"
 		}
-		"34"
+		"35"
 		{
 			"map" "mvm_oxidize_rc16"
 			"popfile" "mvm_oxidize_rc16_adv_mannure"
 		}
-		"35"
+		"36"
 		{
 			"map" "mvm_oxidize_rc3"
 			"popfile" "mvm_oxidize_rc3_adv_overclock"
 		}
-		"36"
+		"37"
 		{
 			"map" "mvm_powerplant_rc1"
 			"popfile" "mvm_powerplant_rc1_power_palliative"
 		}
-		"37"
+		"38"
 		{
 			"map" "mvm_production_rc6"
 			"popfile" "mvm_production_rc6_manndonalds"
 		}
-		"38"
+		"39"
 		{
 			"map" "mvm_quetzal_rc5"
 			"popfile" "mvm_quetzal_rc5_adv_tlacopan_tenacity"
 		}
-		"39"
+		"40"
 		{
 			"map" "mvm_redstone_ridge_rc5"
 			"popfile" "mvm_redstone_ridge_rc5_adv_armored_apparatus"
 		}
-		"40"
+		"41"
 		{
 			"map" "mvm_rottenburg"
 			"popfile" "mvm_rottenburg_advanced2"
 		}
-		"41"
+		"42"
 		{
 			"map" "mvm_rustvalley_rc4"
 			"popfile" "mvm_rustvalley_rc4_adv_rodeotron"
 		}
-		"42"
+		"43"
 		{
 			"map" "mvm_sequoia_rc4"
 			"popfile" "mvm_sequoia_rc4_adv_fiber-ops"
 		}
-		"43"
+		"44"
 		{
 			"map" "mvm_sharp_rc9"
 			"popfile" "mvm_sharp_rc9_adv_sudden_equinox"
 		}
-		"44"
+		"45"
 		{
 			"map" "mvm_shiverpeak_rc3"
 			"popfile" "mvm_shiverpeak_rc3_adv_ice_breaker"
 		}
-		"45"
+		"46"
 		{
 			"map" "mvm_silentsky_rc4"
 			"popfile" "mvm_silentsky_rc4_adv_aerial_stupidity"
 		}
-		"46"
+		"47"
 		{
 			"map" "mvm_snowpine_rc4_fix1"
 			"popfile" "mvm_snowpine_rc4_fix1_exp_raid_resort"
 		}
-		"47"
+		"48"
 		{
 			"map" "mvm_spacepost_rc1"
 			"popfile" "mvm_spacepost_rc1_adv_regolith_rampage"
 		}
-		"48"
+		"49"
 		{
 			"map" "mvm_steep_rc3a"
 			"popfile" "mvm_steep_rc3a_adv_bandwidth_beatdown"
 		}
-		"49"
+		"50"
 		{
 			"map" "mvm_trainyard_rc3d"
 			"popfile" "mvm_trainyard_rc3d_exp_tramway_terror"
 		}
-		"50"
+		"51"
 		{
 			"map" "mvm_underground_rc3"
 			"popfile" "mvm_underground_rc3_adv_ultra_uplink"
 		}
-		"51"
+		"52"
 		{
 			"map" "mvm_waterfront_rc3"
 			"popfile" "mvm_waterfront_rc3_adv_whirly_wallop"
